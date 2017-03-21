@@ -1,0 +1,21 @@
+VERSION HISTORY:
+-------------------------------------
+1.00	13/03-2012:   Version 1.0 Completed
+1.01    13/03-2012:   Added key-repeat when key held down
+1.02    19/08-2014:   Added commandline option to lock to Mame/arcade only
+1.03    19/08-2014:   Added commandline option to change lock with BACKSPACE
+1.04    19/08-2014:   Added commandline option to print version
+1.05    07/09-2014:   Added commandline option to load alternative xml-config-file
+1.06    09/09-2014:   Massive code cleanup, removed all TABs
+1.07    09/09-2014:   Massive code rewrite, separation of GetExternal to separate class
+1.08    02/10-2014:   Changed path of xml-files, changed internal format of XML-files
+1.09    02/10-2014:   Set Default External-path as '/'
+1.10    08/10-2014:   Serious bug removed from External File select, Quotation marks added to Externally selected files
+1.11    11/12-2014:   Added Donkey Kong, added Splatterhouse
+1.12             ?:   Started on Scraper
+1.13    27/07-2015:   Reorganised code into separate files
+
+
+
+
+

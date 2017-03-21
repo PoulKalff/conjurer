@@ -1,0 +1,147 @@
+# --- Prepare computer  --------------------------------------------------------
+
+<Install Ubuntu Server, 16.04 LTS x32>		(IKKE x64...... giver kun problemer!) (http://releases.ubuntu.com/16.04/ubuntu-16.04-server-i386.iso)
+<Become root>
+apt-get update
+apt-get upgrade
+apt-get install build-essential freeglut3 freeglut3-dev subversion -y
+svn co http://185.127.48.84/svn/conjurer/ /conjurer
+
+# --- Set root user to autologin  --------------------------------------------------------
+apt-get install mingetty 
+nano /lib/systemd/system/getty@.service
+	(change "ExecStart=-/sbin/agetty --noclear %I $TERM" ==> "ExecStart=-/sbin/mingetty --autologin root %I $TERM")
+
+# --- Setup boot -------------------------------------------------------------------------
+nano /etc/default/grub
+	GRUB_GFXPAYLOAD_LINUX=800x600
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+update-grub2
+
+apt-get install plymouth-themes																		 (To correct directory structure)
+cp /conjurer/support/conjurer-theme/ /usr/share/plymouth/themes/ -r
+update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/conjurer-theme/conjurer.plymouth 100
+update-alternatives --config default.plymouth													(Select conjurer-theme)
+echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash
+chmod 777 /etc/initramfs-tools/conf.d/splash									(Formentligt ikke nødvendigt...?)
+plymouth --show-splash --bootup changemode										(Formentligt ikke nødvendigt...?)
+update-initramfs -u
+
+
+
+
+
+
+
+# --- Install SDL --------------------------------------------------------
+apt-get install xorg-dev libudev-dev libts-dev libgl1-mesa-dev libglu1-mesa-dev libasound2-dev libpulse-dev libopenal-dev libogg-dev libvorbis-dev libaudiofile-dev libpng12-dev libfreetype6-dev libusb-dev libdbus-1-dev zlib1g-dev libdirectfb-dev -y
+wget http://www.libsdl.org/tmp/SDL-2.0.3-8746.tar.gz
+tar xvf SDL-2.0.3-8746.tar.gz
+cd SDL-2.0.3-8746
+./configure && make && make install
+
+# --- Setup SDL Sound--------------------------------------------------------
+apt-get install libasound2-dev libpulse-dev libsdl1.2-dev alsa alsa-tools
+adduser root audio
+<reboot>
+alsamixer	--->	unmute (channels must be marked green, press "m")
+
+# --- Setup SDL Gfx  --------------------------------------------------------
+apt-get install libsdl1.2-dbg libsdl1.2-dev -y
+
+# --- Setup DirectFrameBuffer --------------------------------------------------------
+wget directfb.org/downloads/Core/DirectFB-1.7/DirectFB-1.7.4.tar.gz
+tar xvf DirectFB-1.7.4.tar.gz && cd DirectFB-1.7.4
+./configure && make && make install
+
+# --- Setup emulators  --------------------------------------------------------
+#MAME
+apt-get install mame ttf-liberation -y
+
+# E-UAE
+apt-get install build-essential automake zlib1g libsdl1.2-dev libgtk2.0-dev 
+tar xvf e-uae_0.8.29-WIP4.orig.tar.gz
+cd e-uae_0.8.29-WIP4.orig
+./configure --with-sdl --with-sdl-sound --with-sdl-gfx
+make
+make install
+
+#VICE
+apt-get build-dep vice -y
+wget www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-2.4.tar.gz
+tar xvf vice-2.4.tar.gz && cd vice-2.4
+./configure --enable-sdlui --with-sdlsound --prefix=/usr && make && make install
+
+# --- Install conjurer on system --------------------------------------------------------
+apt-get install python-pygame python-bs4 -y
+copy directory [conjurer] to /
+mkdir /root/.profile
+nano /root/.profile		(Tidligere : '/root/.bashrc')
+	Add 'cd /conjurer'
+	Add 'python conjurer.py'
+
+# --- Setup Vice ------------------------------------------------------------------------
+Hvis på x64:	cp /usr/lib64/vice/ /usr/lib/ -R
+Skal køres med "x64 -sdlbitdepth 8" første gang, derefter Settings -> Save Settings
+cp /conjurer/sdl-vicerc /root/.vice/sdl-vicerc
+
+# --- Setup Mame ------------------------------------------------------------------------
+Brug F2 til at sætte lyd for NBA Jam, Mortal Kombat, etc.
+(Skulle ikke behøve yderligere setup. Config ligger i mame.ini, som conjurer henviser til, mame.ini henviser til default.cfg, som indeholder keymap conf)
+
+
+# --- Setup E-uae ------------------------------------------------------------------------
+(Skulle ikke behøve yderligere opsætning. Config ligger i .uaerc, som læses når e-uae startes fra /conjurer)
+
+
+
+
+
+
+
+
+*---------*
+|  NOTES  |
+*---------*
+# --- Setup PUAE ------------------------------------------------------------------------------------------------------
+(Dette er den enesete anden udgave af UAE som virker pt. med SDL. Den er langt mere up to date, men men dens keys passer ikke helt og kan ikke ændres, og QUIT virker ikke (F12+Q))
+git clone https://github.com/GnoStiC/PUAE.git		(Eller hent fra ./_packages/)
+cd PUAE
+./bootstrap.sh
+./build_linux_sdl.sh	(Jeg editerede scsi-understøttelse ud af denne! 
+						Scriptet kom til at svare til: ".configure --with-sdl --with-sdl-gl --with-sdl-gfx --with-alsa --enable-drvsnd --with-sdl-gui --enable-cd32 --enable-gayle"
+make -j9
+make install
+
+# --- Prerequisites --------------------------------------------------------
+apt-get install libgettext-ruby-util xaw3dg-dev libxaw7-dev libgtk2.0-dev libavformat-dev libmp3lame-dev libreadline5-dev 
+apt-get install libgtkglext1-dev ffmpeg libpulse-dev libswscale-dev checkinstall byacc flex
+apt-get install v86d hwinfo
+hwinfo --framebuffer | grep "Mode"
+
+
+
+
+
+*----------*
+|  Problemas |
+*----------*
+- ascii-gfx on first run..... set stort set hver gang jeg har installeret... det er noget simpelt, noget med...? Men HVAD??
+		- Prøvede at gentage "Set screen resolution", 'x' ser underligt ud, hjalp ikke
+		- Prøvede at gentage "Install SDL", hjalp ikke
+		- Prøvede at gentage "Setup DirectFrameBuffer", hjalp ikke
+		- Installerede ny version af SDL (2.2), hjalp ikke
+		- Huskede at køre update-grub2, FIXED!!!
+
+
+- vice (x64) virker ikke, dør med "Couldn't load kernal rom"		-----> /usr/lib/vice ligger / usr/lib64, pga. at server er x64
+	- virker stadigt ikke: "segmentation fault"		-----> Fungerer ved at tilføje "-sdlbitdepth 8" på x64, og derefter save settings
+- e-uae virker ikke.					-----> config-filen skulle hedde .uaerc, ikke .e-uaerc (men på den anden install skal den..??)
+- e-uae har INGEN LYD!... fordi at device /dev/dsp er forældet og udgået. 
+	Jeg VED at det skal compiles med SDL-lyd, og så vil det virke, men jeg har ikke fået dette til at virke...
+	Jeg ved ikke hvilken pakke det er der virker...?
+		Endeligt lykekdes det at kompilere med lyd..... jeg tror at problemet var at den gamle ikke var fjernet, så selv om jeg kompilerede korrekt, blev nyt program ikke installeret.
+		Det virkede da jeg spt-get removede e-uae og så kompilede igen, og kørte som uae... ikke e-uae. Måske var dette problemet hele tiden?
+
+
+

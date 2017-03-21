@@ -1,0 +1,8 @@
+echo "";
+echo "GameBase/MAGE Amiga :: WHDRun 1.0 Beta 4";
+echo "Running: SuperCars2.slave";
+echo "";
+echo "Remember to use the quit key instead of closing WinUAE!";
+echo "";
+cd dh1:SuperCars2;
+whdload SuperCars2.slave PRELOAD;
