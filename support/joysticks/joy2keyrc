@@ -1,0 +1,11 @@
+COMMON
+-rawconsole
+-dev /dev/input/js0
+-thresh -32766 32766 -32766 32766 -32766 32766 -32766 32766 -32766 32766 -32766 32766 -32766 32766 -32766 32766
+
+
+START conjurer
+-rawconsole
+-buttons Control_L q e space h v Shift_L g Escape Tab
+-axis 0 0 0 0 0 0 0 0 Left Right Up Down KP_Left KP_Right KP_Up KP_Down 
+-buttons a s q w e t 0 0 2 6 0 0 Control_L Alt_L space Shift_L z x 0 0 1 5 0 0

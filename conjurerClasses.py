@@ -1,4 +1,5 @@
-import sys, urllib2
+import os, sys, urllib2, pygame
+from pygame.locals import *
 from bs4 import BeautifulSoup
 from xml.dom.minidom import parse
 
@@ -183,20 +184,18 @@ class StringIterator:
         return self.original.index(self.GetCentral())
 
 
-class SelectExternal():
+class SelectExternal:
    # Handles selection of games outside conjurer's XML-files
 
-    def __init__(self, defPath):
-        pygame.mouse.set_visible(0)
-        if not os.path.exists(defPath):
-            defPath = '/'
-        self.display = pygame.display.set_mode([800,600])
+    def __init__(self, main):
+        self.display = main.display
         self._selectedFiles = [None, None, None, None]
+        self.fonts = main.fonts
         self.center_x = self.display.get_rect().centerx
-        self.currentPath = defPath
-        self._systems = StringIterator(systemExecs.keys())
+        self.currentPath = main.extPath
+        self._systems = main.systems
         self._vcursor = RangeIterator(5)
-        self._changeDir(defPath)
+        self._changeDir(self.currentPath)
         self._filter = ''
         self._runlevel = 1        # Using runlevel 0, 1 and 2 in this class
         self._loop()
@@ -268,9 +267,9 @@ class SelectExternal():
 
 
     def _displaySystems(self, xpos):
-        _systems_string1 = font20.render(self._systems.GetLeft(), True, (0, 0, 255))
-        _systems_string2 = font20b.render(self._systems.GetCentral() , True, (0, 200, 0))
-        _systems_string3 = font20.render(self._systems.GetRight() , True, (0, 0, 255))
+        _systems_string1 = self.fonts[4].render(self._systems.GetLeft(), True, (0, 0, 255))
+        _systems_string2 = self.fonts[5].render(self._systems.GetCentral() , True, (0, 200, 0))
+        _systems_string3 = self.fonts[4].render(self._systems.GetRight() , True, (0, 0, 255))
         self.display.blit(_systems_string1, pygame.Rect((self.center_x - 200 + (84 - _systems_string1.get_width()) / 2, xpos), (120, 50)))
         self.display.blit(_systems_string2, pygame.Rect((self.center_x - 50 + (84 - _systems_string2.get_width()) / 2, xpos), (120, 50)))
         self.display.blit(_systems_string3, pygame.Rect((self.center_x + 100 + (84 - _systems_string3.get_width()) / 2, xpos), (120, 50)))
@@ -315,12 +314,12 @@ class SelectExternal():
         _pathRect4 = pygame.Rect(125, 350, 550, 20)
         _endRect =   pygame.Rect(370, 450, 50, 20)
         # define texts
-        _headMessage =  font20.render('Choose an external game to run:', True, (0, 0, 0))
-        _pathMessage1 = font14b.render('Path 1: ' + str(self._selectedFiles[0]) + '', True, (255, 0, 0))
-        _pathMessage2 = font14b.render('Path 2: ' + str(self._selectedFiles[1]) + '', True, (255, 0, 0))
-        _pathMessage3 = font14b.render('Path 3: ' + str(self._selectedFiles[2]) + '', True, (255, 0, 0))
-        _pathMessage4 = font14b.render('Path 4: ' + str(self._selectedFiles[3]) + '', True, (255, 0, 0))
-        _pathEnd =      font20b.render(' OK ', True, (255, 0, 0))
+        _headMessage =  self.fonts[4].render('Choose an external game to run:', True, (0, 0, 0))
+        _pathMessage1 = self.fonts[3].render('Path 1: ' + str(self._selectedFiles[0]) + '', True, (255, 0, 0))
+        _pathMessage2 = self.fonts[3].render('Path 2: ' + str(self._selectedFiles[1]) + '', True, (255, 0, 0))
+        _pathMessage3 = self.fonts[3].render('Path 3: ' + str(self._selectedFiles[2]) + '', True, (255, 0, 0))
+        _pathMessage4 = self.fonts[3].render('Path 4: ' + str(self._selectedFiles[3]) + '', True, (255, 0, 0))
+        _pathEnd =      self.fonts[5].render(' OK ', True, (255, 0, 0))
         # draw
         pygame.draw.line(self.display, (0, 0, 0), (210, 150), (590, 150), 1)
         pygame.draw.rect(self.display, (0, 0, _cursor[0]), (120, 196, 560, 23))
@@ -371,8 +370,8 @@ class SelectExternal():
         self.display.fill((0, 0, 0))
         _pageRect1 = pygame.Rect(5, 5, 200, 50)
         _pageRect2 = pygame.Rect(305, 5, 200, 50)
-        _pageMessage1 = font12.render('Directories', True, (0, 255, 0), (0, 0, 0))
-        _pageMessage2 = font12.render('Files               Filter:', True, (0, 255, 0), (0, 0, 0))
+        _pageMessage1 = self.fonts[1].render('Directories', True, (0, 255, 0), (0, 0, 0))
+        _pageMessage2 = self.fonts[1].render('Files               Filter:', True, (0, 255, 0), (0, 0, 0))
         self.display.blit(_pageMessage1, _pageRect1)
         self.display.blit(_pageMessage2, _pageRect2)
         pygame.draw.line(self.display, (255, 0, 0), (1, 1), (799, 1), 1)
@@ -393,17 +392,17 @@ class SelectExternal():
         fileRect = pygame.Rect(300, 1, 699, 599)
         _pageRect = pygame.Rect(700, 5, 795, 50)
         _filterRect = pygame.Rect(503, 5, 98, 15)
-        _pageMessage = font12.render('Page ' + str(self._pageViewed.Get() + 1) + ' / ' + str(len(self._filtered) / 38 + 1), True, (255, 255, 255), (0, 0, 0))
-        _filterMessage = font10.render(self._filter, True, (255, 255, 255), (0, 0, 0))
+        _pageMessage = self.fonts[1].render('Page ' + str(self._pageViewed.Get() + 1) + ' / ' + str(len(self._filtered) / 38 + 1), True, (255, 255, 255), (0, 0, 0))
+        _filterMessage = self.fonts[0].render(self._filter, True, (255, 255, 255), (0, 0, 0))
         self.display.blit(_pageMessage, _pageRect)
         self.display.blit(_filterMessage, _filterRect)
         # Process directories
         for nr in range(38):
             if nr < len(self._files[0]):
                 if nr == cursor[1] and cursor[0] == 0:
-                    _dirMessage = font12.render(self._files[0][nr], True, (0, 0, 0), (255, 255, 255))
+                    _dirMessage = self.fonts[1].render(self._files[0][nr], True, (0, 0, 0), (255, 255, 255))
                 else:
-                    _dirMessage = font12.render(self._files[0][nr], True, (255, 255, 255), (0,0,0))
+                    _dirMessage = self.fonts[1].render(self._files[0][nr], True, (255, 255, 255), (0,0,0))
                 dirRect.left = 5
                 dirRect.top = 25 + nr * 15
                 self.display.blit(_dirMessage, dirRect)
@@ -412,9 +411,9 @@ class SelectExternal():
             fileNr = self._pageViewed.Get() * 38 + nr
             if fileNr < len(self._filtered):
                 if nr == cursor[1] and cursor[0] == 1:
-                    _fileMessage = font12.render(self._filtered[fileNr], True, (0, 0, 0), (255, 255, 255))
+                    _fileMessage = self.fonts[1].render(self._filtered[fileNr], True, (0, 0, 0), (255, 255, 255))
                 else:
-                    _fileMessage = font12.render(self._filtered[fileNr], True, (255, 255, 255), (0,0,0))
+                    _fileMessage = self.fonts[1].render(self._filtered[fileNr], True, (255, 255, 255), (0,0,0))
                 fileRect.left = 305
                 fileRect.top = 25 + nr * 15
                 self.display.blit(_fileMessage, fileRect)

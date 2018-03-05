@@ -1,0 +1,53 @@
+Joystick A:
+--------------------------
+	Left Digital Stick:
+		Up:		Axis5=-32767		ArrowUp		(player1, up)
+		Down:		Axis5=32767		ArrowDown	(player1, down)
+		Left:		Axis4=-32767		ArrowLeft	(player1, left)
+		Right:		Axis4=32767		ArrowRight	(player1, right)
+	Right Buttons:
+		1:		Button12		Left Ctrl	(player1, button1)
+		2:		Button13		Left Alt	(player1, button2)
+		3:		Button14		Space		(player1, button3)
+		4:		Button15		Left Shift	(player1, button4)
+	Front Buttons:
+		Left1:		Button16		Z		(player1, button5)
+		Right1:		Button17		X		(player1, button6)
+		Left2:		Button18		-
+		Right2:		Button19		-
+	Special Buttons:
+		Select:		Button20		1		(player1 start)
+		Start:		Button21		5		(player1 add coin)
+		LAnalog:	Button22		-
+		RAnalog:	Button23		-
+
+Joystick B:
+--------------------------
+	Left Digital Stick:
+		Up:		Axis7=-32767		R		(player2, up)
+		Down:		Axis7=32767		F		(player2, down)
+		Left:		Axis6=-32767		G		(player2, left)
+		Right:		Axis6=32767		D		(player2, right)
+	Right Buttons:
+		1:		Button0			A		(player2, button1)
+		2:		Button1			S		(player2, button2)
+		3:		Button2			Q		(player2, button3)
+		4:		Button3			W		(player2, button4)
+	Front Buttons:
+		Left1:		Button4			E		(player2, button5)
+		Right1:		Button5			T		(player2, button6)
+		Left2:		Button6			-
+		Right2:		Button7			-
+	Special Buttons:
+		Select:		Button8			2 		(player2 start)
+		Start:		Button9			6 		(player2 add coin)
+		LAnalog:	Button10		-
+		RAnalog:	Button11		-
+
+
+
+
+
+
+
+

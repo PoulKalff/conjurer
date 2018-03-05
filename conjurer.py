@@ -5,7 +5,7 @@ from conjurerMain import Conjurer
 
 # --- Main ----------------------------------------------------------------------
 
-version = 1.13
+version = 1.15  # add joystick support
 cmd_options = getCommandlineOptions()
 
 # Laeg det her over i en separat fil....

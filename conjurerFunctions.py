@@ -1,8 +1,21 @@
 import os, sys
-from pygame import image
+from pygame import image, joystick as js
 from optparse import OptionParser
 from xml.dom.minidom import parse
 from conjurerClasses import GameInfo
+
+
+def getJoystick():
+    """ Checks if supported joystick exists, returns it if so, else NONE """
+    if js.get_count() >= 1:
+        joystick = js.Joystick(0)             # always use first joystick
+        joystick.init()
+        if joystick.get_name() != "ShanWan Twin USB Joystick":
+            return None
+    else:
+            return None
+    return joystick
+
 
 def SortGames(mp):
     # Sorter spil fra XML:
