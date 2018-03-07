@@ -299,7 +299,6 @@ class Conjurer:
                 # Reset counters
                 self._showExitProgram = 4
                 self._showPoweroff = 4
-
         return 1
 
 
