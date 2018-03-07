@@ -221,49 +221,110 @@ class SelectExternal:
                         self._runlevel = 0
                     else:
                         self._runlevel = 2
+            # Joystick buttons
+            elif event.type == pygame.JOYBUTTONDOWN and event.joy == 0:
+                if event.button == 0 or event.button == 12:          # JoystickButton1 = Execute Choose
+                    if self._vcursor.Get() == 0:
+                        self._runlevel = 0
+                    else:
+                        self._runlevel = 2
+                elif event.button == 2 or event.button == 14 :       # Button 3 = Go back
+                    self._selectedFiles = [None, None, None, None]
+                    self._runlevel = 0
+            # Joystick axis
+            elif event.type == pygame.JOYAXISMOTION and event.joy == 0:
+                eventVal = round(event.value)
+                if event.axis == 0:
+                    if eventVal == -1:                             # Joystick UP
+                        self._systems.Next()
+                    elif eventVal == 1:                            # Joystick DOWN
+                        self._systems.Prev()
+                elif event.axis == 1:
+                    if eventVal == -1:                             # Joystick LEFT
+                        self._vcursor.Dec()
+                    elif eventVal == 1:                            # Joystick RIGHT
+                        self._vcursor.Inc()
 
 
     def _getkeys2(self):
         """Recieves input from keyboard while in runlevel 2"""
+        action = None
         for event in pygame.event.get():
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:                            # Key ESCAPE
-                    return '<escape>'
+                    action = 1
                 elif event.key == K_PAGEUP:                          # Key PAGEUP
-                    self._pageViewed.Dec()
-                    self._cursor[1].count = 0
+                    action = 2
                 elif event.key == K_PAGEDOWN:                        # Key PAGEDOWN
-                    self._pageViewed.Inc()
-                    self._cursor[1].count = 0
+                    action = 3
                 elif event.key == K_RIGHT or event.key == K_LEFT:    # Key LEFT/RIGHT
-                    if len(self._files[1]) != 0:
-                        self._cursor[0].flip()
-                        if self._cursor[1].Get() > len(self._files[self._cursor[0].Get()]) - 1:
-                            self._cursor[1].count = len(self._files[self._cursor[0].Get()]) - 1
+                    action = 4
                 elif event.key == K_DOWN:                            # Key DOWN
-                    if self._cursorPos < self._pageTotal:
-                        self._cursor[1].Inc()
-                    else:
-                        self._cursor[1].count = 0
+                    action = 5
                 elif event.key == K_UP:                              # Key UP
-                    if (self._cursor[1].Get() == 0) and (self._pageViewed.Get() == len(self._filtered) / 38):
-                        self._cursor[1].count = self._pageTotal % 38
-                    else:
-                        if self._cursor[0].Get() != 0 or self._cursor[1].Get() != 0:
-                            self._cursor[1].Dec()
+                    action = 6
                 elif event.key == K_RETURN or event.key == K_RCTRL:  # Key RETURN/RCTRL
-                    if self._cursor[0].Get() == 0:
-                        self._changeDir(self._files[0][self._cursor[1].Get()])
-                    elif self._cursor[0].Get() == 1:
-                        fil = self._filtered[self._cursor[1].Get() + self._pageViewed.Get() * 38]
-                        return os.path.join(self.currentPath, fil)
-                    else:
-                        sys.exit('Something is way wrong, value is ' + self._cursor[0].Get())
+                    action = 7
                 elif event.key == K_BACKSPACE:                       # Key BACKSPACE
-                    self._filter = self._filter[:-1]
+                    action = 8
                 else:
                     if len(self._filter) < 10 and (event.key in range(48, 57) or event.key in range(97, 123)):
                         self._filter += chr(event.key)
+            # Joystick axis
+            elif event.type == pygame.JOYAXISMOTION and event.joy == 0:
+                eventVal = round(event.value)
+                if event.axis == 1:
+                    if eventVal == -1:                               # Joystick UP
+                        action = 6
+                    elif eventVal == 1:                              # Joystick DOWN
+                        action = 5
+                elif event.axis == 0:                                # Joystick LEFT/RIGHT
+                    action = 4
+            # Joystick buttons
+            elif event.type == pygame.JOYBUTTONDOWN and event.joy == 0:
+                if event.button == 2 or event.button == 14:          # Back to Prev
+                    action = 1
+                elif event.button == 4 or event.button == 16:        # Page Up
+                    action = 2
+                elif event.button == 5 or event.button == 17:        # Page Down
+                    action = 3
+                elif event.button == 0 or event.button == 12:        # Accept
+                    action = 7
+            # Select action
+            if action == 1:
+                return '<escape>'
+            elif action == 2:
+                self._pageViewed.Dec()
+                self._cursor[1].count = 0
+            elif action == 3:
+                self._pageViewed.Inc()
+                self._cursor[1].count = 0
+            elif action == 4:
+               if len(self._files[1]) != 0:
+                    self._cursor[0].flip()
+                    if self._cursor[1].Get() > len(self._files[self._cursor[0].Get()]) - 1:
+                        self._cursor[1].count = len(self._files[self._cursor[0].Get()]) - 1
+            elif action == 5:
+                if self._cursorPos < self._pageTotal:
+                    self._cursor[1].Inc()
+                else:
+                    self._cursor[1].count = 0
+            elif action == 6:
+                if (self._cursor[1].Get() == 0) and (self._pageViewed.Get() == len(self._filtered) / 38):
+                    self._cursor[1].count = self._pageTotal % 38
+                else:
+                    if self._cursor[0].Get() != 0 or self._cursor[1].Get() != 0:
+                        self._cursor[1].Dec()
+            elif action == 7:
+                if self._cursor[0].Get() == 0:
+                    self._changeDir(self._files[0][self._cursor[1].Get()])
+                elif self._cursor[0].Get() == 1:
+                    fil = self._filtered[self._cursor[1].Get() + self._pageViewed.Get() * 38]
+                    return os.path.join(self.currentPath, fil)
+                else:
+                    sys.exit('Something is way wrong, value is ' + self._cursor[0].Get())
+            elif action == 8:
+                self._filter = self._filter[:-1]
 
 
     def _displaySystems(self, xpos):

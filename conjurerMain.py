@@ -259,41 +259,42 @@ class Conjurer:
                     self._showPoweroff = 4
             # Joystick buttons
             elif event.type == pygame.JOYBUTTONDOWN and event.joy == 0:
-                if event.button == 0:                                        # JoystickButton1 = Run selected
+                if event.button == 0 or event.button == 12:                  # JoystickButton1 = Run selected
                     system = self.systems.GetCentral()
                     no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
                     self.run_game(system, self.gamelist[system][no].Paths)
-                elif event.button == 1:                                      # JoystickButton2 = Show Help
+                elif event.button == 1 or event.button == 13:                # JoystickButton2 = Show Help
                     self._showHelp.flip()
-                elif event.button == 2:                                      # JoystickButton3 = File dialogue
+                elif event.button == 2 or event.button == 14:                # JoystickButton3 = File dialogue
                     _extSel = SelectExternal(self).Return()
                     self.run_game(_extSel['system'], _extSel['gameFiles'])
-                elif event.button == 3:                                      # JoystickButton4 = NOT CURRENTLY USED
+                elif event.button == 3 or event.button == 15:                # JoystickButton4 = NOT CURRENTLY USED
                     pass
-                elif event.button == 4:                                      # JoystickButton L2 = 10 games back
+                elif event.button == 4 or event.button == 16:                # JoystickButton L1 = 10 games back
                     self.game_pointers[self.systems.GetFocusedIndex()].Dec(10)
-                elif event.button == 5:                                      # JoystickButton R2 = 10 games forward
+                elif event.button == 5 or event.button == 17:                # JoystickButton R1 = 10 games forward
                     self.game_pointers[self.systems.GetFocusedIndex()].Inc(10)
-                elif event.button == 6:                                      # JoystickButton L1 = Kill Conjurer
+                elif event.button == 6 or event.button == 18:                # JoystickButton L2 = Kill Conjurer
                     self._showExitProgram -= 1
-                elif event.button == 7:                                      # JoystickButton R1 = Power off
+                elif event.button == 7 or event.button == 19:                # JoystickButton R2 = Power off
                     self._showPoweroff -= 1
                 # Reset counters
-                if event.button != 6:
+                if event.button != 6 and event.button != 18:
                     self._showExitProgram = 4
-                if event.button != 7:
+                if event.button != 7 and event.button != 19:
                     self._showPoweroff = 4
             # Joystick axis
             elif event.type == pygame.JOYAXISMOTION and event.joy == 0:
+                eventVal = round(event.value)
                 if event.axis == 0:
-                    if round(event.value) == -1 and not self._locked.Get():  # Joystick LEFT
+                    if eventVal == -1 and not self._locked.Get():  # Joystick LEFT
                         self.systems.Prev()
-                    elif round(event.value) == 1 and not self._locked.Get(): # Joystick RIGHT
+                    elif eventVal == 1 and not self._locked.Get(): # Joystick RIGHT
                         self.systems.Next()
                 elif event.axis == 1:
-                    if round(event.value) == -1:                             # Joystick UP
+                    if eventVal == -1:                             # Joystick UP
                         self.game_pointers[self.systems.GetFocusedIndex()].Dec()
-                    elif round(event.value) == 1:                            # Joystick DOWN
+                    elif eventVal == 1:                            # Joystick DOWN
                         self.game_pointers[self.systems.GetFocusedIndex()].Inc()
                 # Reset counters
                 self._showExitProgram = 4

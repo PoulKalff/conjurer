@@ -1,0 +1,7 @@
+
+ - add joystick support to C64
+ - add joystick support to Amiga
+ - add joystick support to Select External-dialouge
+
+ - test selectExternal (choose correct path, add ROMS to arcade-HDD)
+
