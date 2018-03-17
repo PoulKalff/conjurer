@@ -112,7 +112,7 @@ sudo hwinfo --framebuffer | grep "Mode"
 *----------*
 - vice (x64) virker ikke, dør med "Couldn't load kernal rom"		-----> /usr/lib/vice ligger / usr/lib64, pga. at server er x64
 	- virker stadigt ikke: "segmentation fault"		-----> Fungerer ved at tilføje "-sdlbitdepth 8" på x64, og derefter save settings
-- e-uae virker ikke. 					-----> config-filen skulle hedde .uaerc, ikke .e-uaerc (men på den anden install skal den..??)
+- e-uae virker ikke.					-----> config-filen skulle hedde .uaerc, ikke .e-uaerc (men på den anden install skal den..??)
 - e-uae har INGEN LYD!... fordi at device /dev/dsp er forældet og udgået. 
 	Jeg VED at det skal compiles med SDL-lyd, og så vil det virke, men jeg har ikke fået dette til at virke...
 	Jeg ved ikke hvilken pakke det er der virker...?
