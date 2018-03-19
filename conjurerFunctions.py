@@ -6,15 +6,15 @@ from conjurerClasses import GameInfo
 
 
 def getJoystick():
-    """ Checks if supported joystick exists, returns it if so, else NONE """
-    if js.get_count() >= 1:
-        joystick = js.Joystick(0)             # always use first joystick
-        joystick.init()
-        if joystick.get_name() != "ShanWan Twin USB Joystick":
-            return None
-    else:
-            return None
-    return joystick
+    """ Returns list of supported, initiated joysticks, if any """
+    joysticks = []
+    for j in range(0, js.get_count()):
+        joystick = js.Joystick(j)
+        if joystick.get_name().startswith('ShanWan Gamepad '):  # Should work with any joystick, but untested!
+            joystick.init()
+            joysticks.append(joystick)
+    print "Found", len(joysticks), "supported joysticks!"
+    return joysticks
 
 
 def SortGames(mp):

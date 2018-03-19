@@ -222,17 +222,17 @@ class SelectExternal:
                     else:
                         self._runlevel = 2
             # Joystick buttons
-            elif event.type == pygame.JOYBUTTONDOWN and event.joy == 0:
-                if event.button == 0 or event.button == 12:          # JoystickButton1 = Execute Choose
+            elif event.type == pygame.JOYBUTTONDOWN:
+                if event.button == 0:                                # JoystickButton1 = Execute Choose
                     if self._vcursor.Get() == 0:
                         self._runlevel = 0
                     else:
                         self._runlevel = 2
-                elif event.button == 2 or event.button == 14 :       # Button 3 = Go back
+                elif event.button == 2:                              # Button 3 = Go back
                     self._selectedFiles = [None, None, None, None]
                     self._runlevel = 0
             # Joystick axis
-            elif event.type == pygame.JOYAXISMOTION and event.joy == 0:
+            elif event.type == pygame.JOYAXISMOTION:
                 eventVal = round(event.value)
                 if event.axis == 0:
                     if eventVal == -1:                             # Joystick UP
@@ -271,7 +271,7 @@ class SelectExternal:
                     if len(self._filter) < 10 and (event.key in range(48, 57) or event.key in range(97, 123)):
                         self._filter += chr(event.key)
             # Joystick axis
-            elif event.type == pygame.JOYAXISMOTION and event.joy == 0:
+            elif event.type == pygame.JOYAXISMOTION:
                 eventVal = round(event.value)
                 if event.axis == 1:
                     if eventVal == -1:                               # Joystick UP
@@ -281,14 +281,14 @@ class SelectExternal:
                 elif event.axis == 0:                                # Joystick LEFT/RIGHT
                     action = 4
             # Joystick buttons
-            elif event.type == pygame.JOYBUTTONDOWN and event.joy == 0:
-                if event.button == 2 or event.button == 14:          # Back to Prev
+            elif event.type == pygame.JOYBUTTONDOWN:
+                if event.button == 2:                                # Back to Prev
                     action = 1
-                elif event.button == 4 or event.button == 16:        # Page Up
+                elif event.button == 4:                              # Page Up
                     action = 2
-                elif event.button == 5 or event.button == 17:        # Page Down
+                elif event.button == 5:                              # Page Down
                     action = 3
-                elif event.button == 0 or event.button == 12:        # Accept
+                elif event.button == 0:                              # Accept
                     action = 7
             # Select action
             if action == 1:

@@ -19,10 +19,10 @@ class Conjurer:
     # Main class
 
     def __init__(self, options):
-        self.joystick = getJoystick()
+        self.joysticks = getJoystick()  # Never actually used, but must be init. Saved here for good measure 
         self.dontRun = options.dontRun
         self.fonts = [font10, font12, font14, font14b, font20, font20b]
-        self.extPath = '/mnt/overlord/6tb_hdd/emulator/ROM'
+        self.extPath = '/Conjurer/rom'
         self._showPoweroff = 4
         self._showExitProgram = 4
         self._showHelp = FlipSwitch(0)
@@ -258,33 +258,33 @@ class Conjurer:
                 if event.key != K_x:
                     self._showPoweroff = 4
             # Joystick buttons
-            elif event.type == pygame.JOYBUTTONDOWN and event.joy == 0:
-                if event.button == 0 or event.button == 12:                  # JoystickButton1 = Run selected
+            elif event.type == pygame.JOYBUTTONDOWN:
+                if event.button == 0:                                        # JoystickButton1 = Run selected
                     system = self.systems.GetCentral()
                     no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
                     self.run_game(system, self.gamelist[system][no].Paths)
-                elif event.button == 1 or event.button == 13:                # JoystickButton2 = Show Help
+                elif event.button == 1:                                      # JoystickButton2 = Show Help
                     self._showHelp.flip()
-                elif event.button == 2 or event.button == 14:                # JoystickButton3 = File dialogue
+                elif event.button == 2:                                      # JoystickButton3 = File dialogue
                     _extSel = SelectExternal(self).Return()
                     self.run_game(_extSel['system'], _extSel['gameFiles'])
-                elif event.button == 3 or event.button == 15:                # JoystickButton4 = NOT CURRENTLY USED
+                elif event.button == 3:                                      # JoystickButton4 = NOT CURRENTLY USED
                     pass
-                elif event.button == 4 or event.button == 16:                # JoystickButton L1 = 10 games back
+                elif event.button == 4:                                      # JoystickButton L1 = 10 games back
                     self.game_pointers[self.systems.GetFocusedIndex()].Dec(10)
-                elif event.button == 5 or event.button == 17:                # JoystickButton R1 = 10 games forward
+                elif event.button == 5:                                      # JoystickButton R1 = 10 games forward
                     self.game_pointers[self.systems.GetFocusedIndex()].Inc(10)
-                elif event.button == 6 or event.button == 18:                # JoystickButton L2 = Kill Conjurer
+                elif event.button == 6:                                      # JoystickButton L2 = Kill Conjurer
                     self._showExitProgram -= 1
-                elif event.button == 7 or event.button == 19:                # JoystickButton R2 = Power off
+                elif event.button == 7:                                      # JoystickButton R2 = Power off
                     self._showPoweroff -= 1
                 # Reset counters
-                if event.button != 6 and event.button != 18:
+                if event.button != 6:
                     self._showExitProgram = 4
-                if event.button != 7 and event.button != 19:
+                if event.button != 7:
                     self._showPoweroff = 4
             # Joystick axis
-            elif event.type == pygame.JOYAXISMOTION and event.joy == 0:
+            elif event.type == pygame.JOYAXISMOTION:
                 eventVal = round(event.value)
                 if event.axis == 0:
                     if eventVal == -1 and not self._locked.Get():  # Joystick LEFT
