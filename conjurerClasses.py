@@ -223,12 +223,12 @@ class SelectExternal:
                         self._runlevel = 2
             # Joystick buttons
             elif event.type == pygame.JOYBUTTONDOWN:
-                if event.button == 0:                                # JoystickButton1 = Execute Choose
+                if event.button == 2:                                # JoystickButton3 = Execute Choose
                     if self._vcursor.Get() == 0:
                         self._runlevel = 0
                     else:
                         self._runlevel = 2
-                elif event.button == 2:                              # Button 3 = Go back
+                elif event.button == 0:                              # Button 1 = Go back
                     self._selectedFiles = [None, None, None, None]
                     self._runlevel = 0
             # Joystick axis
@@ -282,13 +282,13 @@ class SelectExternal:
                     action = 4
             # Joystick buttons
             elif event.type == pygame.JOYBUTTONDOWN:
-                if event.button == 2:                                # Back to Prev
+                if event.button == 0:                                # Back to Prev
                     action = 1
                 elif event.button == 4:                              # Page Up
                     action = 2
                 elif event.button == 5:                              # Page Down
                     action = 3
-                elif event.button == 0:                              # Accept
+                elif event.button == 2:                              # Accept
                     action = 7
             # Select action
             if action == 1:
