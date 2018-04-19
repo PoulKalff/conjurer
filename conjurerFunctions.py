@@ -10,9 +10,9 @@ def getJoystick():
     joysticks = []
     for j in range(0, js.get_count()):
         joystick = js.Joystick(j)
-        if joystick.get_name().startswith('ShanWan Gamepad '):  # Should work with any joystick, but untested!
-            joystick.init()
-            joysticks.append(joystick)
+#        if joystick.get_name().startswith('ShanWan Gamepad '):  # Should work with any joystick, but untested!
+        joystick.init()
+        joysticks.append(joystick)
     print "Found", len(joysticks), "supported joysticks!"
     return joysticks
 
