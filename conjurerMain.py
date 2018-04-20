@@ -259,13 +259,13 @@ class Conjurer:
                     self._showPoweroff = 4
             # Joystick buttons
             elif event.type == pygame.JOYBUTTONDOWN:
-                if event.button == 0:                                        # JoystickButton1 = Run selected
+                if event.button == 2:                                        # JoystickButton3 = Run selected
                     system = self.systems.GetCentral()
                     no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
                     self.run_game(system, self.gamelist[system][no].Paths)
                 elif event.button == 1:                                      # JoystickButton2 = Show Help
                     self._showHelp.flip()
-                elif event.button == 2:                                      # JoystickButton3 = File dialogue
+                elif event.button == 0:                                      # JoystickButton1 = File dialogue
                     _extSel = SelectExternal(self).Return()
                     self.run_game(_extSel['system'], _extSel['gameFiles'])
                 elif event.button == 3:                                      # JoystickButton4 = NOT CURRENTLY USED
