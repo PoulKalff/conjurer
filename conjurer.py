@@ -5,7 +5,7 @@ from conjurerMain import Conjurer
 
 # --- Main ----------------------------------------------------------------------
 
-version = 1.15  # add joystick support
+version = 1.20  # finished adding joystick support (only 1p and only MAME)
 cmd_options = getCommandlineOptions()
 
 # Laeg det her over i en separat fil....

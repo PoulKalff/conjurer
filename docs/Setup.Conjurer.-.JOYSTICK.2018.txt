@@ -1,0 +1,6 @@
+For at faa lyd ud via HDMI:
+------------------------------------
+(Brug 'aplay -l' til at finde CARD og DEVICE)
+nano /etc/asound.conf
+	Add 'defaults.pcm.card 0'
+	Add 'defaults.pcm.device 3'

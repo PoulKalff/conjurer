@@ -1,7 +1,7 @@
-
+Kan nu koere med joystick, men KUN MAME er supported, og KUN 1PLAYER
+-------------------------------------------------------------------------
+ - add second joystick
  - add joystick support to C64
  - add joystick support to Amiga
- - add joystick support to Select External-dialouge
-
- - test selectExternal (choose correct path, add ROMS to arcade-HDD)
+ - test selectExternal med joystick (choose correct path, add ROMS to arcade-HDD)
 
