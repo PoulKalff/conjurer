@@ -1,0 +1,7 @@
+The folder 'arcade-theme' must be moved to /lib/plymouth/themes, then linked to defaults:
+  rm '/lib/plymouth/themes/default.plymouth'
+  rm '/lib/plymouth/themes/default.plymouth.grub'
+  ln -sf /lib/plymouth/themes/arcade-theme/arcade-theme.plymouth /lib/plymouth/themes/default.plymouth
+  ln -sf /lib/plymouth/themes/arcade-theme/arcade-theme.grub /lib/plymouth/themes/default.plymouth.grub
+
+Please notice that paths change if you are on 16.04 or later
