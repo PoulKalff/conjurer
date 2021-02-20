@@ -14,6 +14,8 @@ exec /sbin/mingetty --autologin root tty1
 
 # --- Set screen resolution --------------------------------------------------------
 nano /etc/default/grub
+	GRUB_DEFAULT="0"
+	GRUB_TIMEOUT=2
 	GRUB_GFXPAYLOAD_LINUX=800x600
 	GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"
 update-grub2

@@ -160,7 +160,7 @@ fun StringToInteger (str) {
     return int;
 }
 
-#-----------------------------------------------------------------------------
+# --- edit --------------------------------------------------------------------------
 # Previous background colour
 # #300a24 --> 0.19, 0.04, 0.14
 # New background colour
@@ -178,7 +178,7 @@ logo.sprite.SetImage (logo.image);
 logo.width = logo.image.GetWidth ();
 logo.height = logo.image.GetHeight ();
 logo.x = Window.GetX () + Window.GetWidth () / 2 - logo.width  / 2;
-logo.y = Window.GetY () + Window.GetHeight () / 2 - logo.height;
+logo.y = Window.GetY () + Window.GetHeight () / 2 - logo.height + 250;
 logo.z = 1000;
 logo.sprite.SetX (logo.x);
 logo.sprite.SetY (logo.y);
