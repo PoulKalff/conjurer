@@ -111,8 +111,8 @@
                 "name": "Jim Power",
                 "players": "1",
                 "roms": [
-                    "rom/amiga/JimPower1.adf",
-                    "rom/amiga/JimPower1.adf"
+                    "rom/amiga/Jim.Power.in.Mutant.Planet.-.Disk1.adf",
+                    "rom/amiga/Jim.Power.in.Mutant.Planet.-.Disk2.adf"
                 ],
                 "screenpath": "gfx/amiga/jimpower.png"
             },
