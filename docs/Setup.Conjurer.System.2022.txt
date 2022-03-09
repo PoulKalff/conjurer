@@ -1,0 +1,145 @@
+# --- Prepare computer  --------------------------------------------------------
+
+<Install newest Ubuntu Server (21.10)>
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential
+sudo apt-get install freeglut3 freeglut3-dev					(For OpenGL support)
+
+
+# --- Set root user to autologin  --------------------------------------------------------
+
+sudo apt-get install mingetty 
+sudo nano /etc/systemd/system/getty.target.wants/getty@tty1.service
+	(Find line that starts with "ExecStart" and change to "ExecStart=-/sbin/agetty -a root %I $TERM" )
+
+
+# --- Set screen resolution --------------------------------------------------------
+
+sudo nano /etc/default/grub
+	GRUB_GFXPAYLOAD_LINUX=800x600
+	GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"
+sudo update-grub2
+
+
+# --- Setup SDL Gfx  --------------------------------------------------------
+
+sudo wget https://www.libsdl.org/release/SDL2-2.0.20.tar.gz
+tar xvf SDL2-2.0.20.tar.gz
+cd SDL2-2.0.20
+./configure
+make
+sudo make install
+
+
+# --- Setup SDL Sound--------------------------------------------------------
+
+apt-get install libasound2-dev libpulse-dev
+wget https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz
+tar xvf SDL2_mixer-2.0.4.tar.gz
+cd SDL2_mixer-2.0.4
+./configure
+make
+sudo make install
+	sudo apt-get install alsa alsa-tools
+	sudo adduser root audio
+	<reboot>
+	alsamixer	--->	unmute (channels must be marked green)
+
+
+# --- Setup DirectFrameBuffer --------------------------------------------------------
+
+sudo wget https://autobuilder.yocto.io/pub/sources/DirectFB-1.7.7.tar.gz
+tar xvf DirectFB-1.7.7
+cd DirectFB-1.7.7
+./configure
+make
+sudo make install
+
+
+
+# --- Setup emulators  --------------------------------------------------------
+
+sudo apt-get install mame
+
+sudo apt install flex byacc bison dos2unix xa65 libsdl2-image-dev libpng-dev
+wget http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-3.6.tar.gz
+gunzip vice-3.6.tar.gz
+tar xvf vice-3.6.tar
+cd vice-3.6
+./configure --enable-sdlui --with-sdlsound --prefix=/usr --disable-pdf-docs
+make
+sudo make install
+
+(Installer enten e-uae eller fs-uae.... lav instructions her!)
+
+
+
+
+# --- Install conjurer on system --------------------------------------------------------
+
+sudo apt-get install fonts-liberation
+sudo apt-get install python3-pygame
+copy directory [conjurer] to /
+sudo nano /root/.bashrc
+	Add 'cd /conjurer'
+	Add 'python conjurer.py'
+
+# --- Setup Vice ------------------------------------------------------------------------
+
+cp vice.cfg /root/vice/sdl_vicerc	(overskriv vice configurations)
+ELLER Load filen fra menu i vice
+
+
+# --- Setup Mame ------------------------------------------------------------------------
+
+(Skulle ikke behøve yderligere setup. Config ligger i mame.ini, som conjurer henviser til, mame.ini henviser til default.cfg, som indehodler keymap conf)
+
+
+# --- Setup E-uae ------------------------------------------------------------------------
+
+(Skulle ikke behøve yderligere opsætning. Config ligger i .e-uaerc, som læses når e-uae startes fra samme dir)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*---------*
+|  NOTES  |
+*---------*
+# --- Compiling PUAE --------------------------------------------------------
+
+apt-get install build-essential automake zlib1g libsdl1.2-dev libgtk2.0-dev
+./bootstrap.sh
+./configure --with-sdl --with-sdl-sound --with-sdl-gfx
+make
+sudo make install
+
+
+# --- Prerequisites --------------------------------------------------------
+
+sudo apt-get install libgettext-ruby-util xaw3dg-dev libxaw7-dev libgtk2.0-dev libavformat-dev libmp3lame-dev libreadline5-dev 
+sudo apt-get install libgtkglext1-dev ffmpeg libpulse-dev libswscale-dev checkinstall byacc flex
+sudo apt-get install v86d hwinfo
+sudo hwinfo --framebuffer | grep "Mode"
+
+
+
+
+
+
+
+
+
+
+
+

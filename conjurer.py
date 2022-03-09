@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+from os import environ
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+import pygame
 import os
 import sys
 import json
-import pygame
 import urllib.request
 from pygame import font, image
 from pygame.locals import *
@@ -257,8 +259,8 @@ class Conjurer:
 		_image = pygame.transform.scale2x(_image)
 		if self.doubled :	# scale twice if picture is high enough
 			_image = pygame.transform.scale2x(_image)
-		_hw = _image.get_width() / 2
-		_hh = _image.get_height() / 2
+		_hw = int(_image.get_width() / 2)
+		_hh = int(_image.get_height() / 2)
 		self.display.blit(_image,(self.center_x - _hw, self.center_y - _hh))
 
 
@@ -290,10 +292,10 @@ class Conjurer:
 		_systems_string1 = self.font_regular.render(self.systems.GetLeft(), True, (0, 0, 255))
 		_systems_string2 = self.font_bold.render(self.systems.GetCentral() , True, (0, 200, 0))
 		_systems_string3 = self.font_regular.render(self.systems.GetRight() , True, (0, 0, 255))
-		self.display.blit(_systems_string2, pygame.Rect((self.center_x - 50 + (84 - _systems_string2.get_width()) / 2, ypos), (120, 50)))
+		self.display.blit(_systems_string2, pygame.Rect((self.center_x - 50 + (84 - int(_systems_string2.get_width() / 2)), ypos), (120, 50)))
 		if not self._locked.Get():
-			self.display.blit(_systems_string1, pygame.Rect((self.center_x - 50 - (100 * spacer) + (84 - _systems_string1.get_width()) / 2, ypos), (120, 50)))
-			self.display.blit(_systems_string3, pygame.Rect((self.center_x - 50 + (100 * spacer) + (84 - _systems_string3.get_width()) / 2, ypos), (120, 50)))
+			self.display.blit(_systems_string1, pygame.Rect((self.center_x - 50 - (100 * spacer) + (84 - int(_systems_string1.get_width() / 2)), ypos), (120, 50)))
+			self.display.blit(_systems_string3, pygame.Rect((self.center_x - 50 + (100 * spacer) + (84 - int(_systems_string3.get_width() / 2)), ypos), (120, 50)))
 
 
 	def _render(self):
@@ -353,9 +355,6 @@ class Conjurer:
 		while self._running:
 			self._render()
 			self._getkeys()
-		print("self.center_x: " + str(self.center_x))
-		print("self.center_y: " + str(self.center_y))
-		pygame.quit()
 
 
 class FlipSwitch():
@@ -477,7 +476,7 @@ elif cmd_options.dontRun:
 
 # start main program
 conjurer_handle = Conjurer(cmd_options)
-print('\nApplication terminated. "./conjurer.py" will restart it\n')
+print('\n  Application terminated...\n')
 
 
 
