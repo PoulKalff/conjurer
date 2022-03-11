@@ -88,7 +88,33 @@ class Conjurer:
 		self._showPoweroff = 4
 		self._showExitProgram = 4
 		self._showHelp = FlipSwitch(0)
-		if options.fullscreen:
+		self.initDisplay()
+		self.doubled = True if self.center_y > (320 * 4) else False		# double size of display if screen is big enough
+		self.font_regular = font40 if self.doubled else font20
+		self.font_bold =    font40b if self.doubled else font20b
+		with open('lists/games.json') as json_file:
+			fileContents = json.load(json_file)
+			self.gamelist = {}
+			self.gamelist['Amiga'] = sorted(fileContents[0]['Amiga'], key=lambda x : x['name'])
+			self.gamelist['Arcade'] = sorted(fileContents[0]['Arcade'], key=lambda x : x['name'])
+			self.gamelist['C64'] = sorted(fileContents[0]['C64'], key=lambda x : x['name'])
+		self.path_pointer = RangeIterator(5)
+		self.systems = StringIterator(list(self.gamelist.keys()))
+		self.game_pointers = []
+		for game in self.gamelist.keys():
+			self.game_pointers.append(RangeIterator(len(self.gamelist[game]) - 1, False))
+		self._locked = FlipSwitch(options.locked)
+		self._running = True
+		if options.runGame: # Run the game, enter the loop when it exits
+			system = self.systems.GetByNr(int(options.runGame[0]))
+			self.run_game(system, self.gamelist[system][int(options.runGame[1])].Paths)
+			options.runGame = False
+		self._loop()
+
+
+
+	def initDisplay(self):
+		if cmd_options.fullscreen:
 			info = pygame.display.Info()
 			self.windowWidth = info.current_w
 			self.windowHeight = info.current_h
@@ -106,27 +132,7 @@ class Conjurer:
 			self.center_y = self.display.get_rect().centery
 			self.windowWidth = width
 			self.windowHeight = height
-		self.doubled = True if self.center_y > (320 * 4) else False		# double size of display if screen is big enough
-		self.font_regular = font40 if self.doubled else font20
-		self.font_bold =    font40b if self.doubled else font20b
-		with open('lists/games.json') as json_file:
-			fileContents = json.load(json_file)
-			fileContents[0]['Amiga'] = sorted(fileContents[0]['Amiga'], key=lambda x : x['name'])
-			fileContents[0]['Arcade'] = sorted(fileContents[0]['Arcade'], key=lambda x : x['name'])
-			fileContents[0]['C64'] = sorted(fileContents[0]['C64'], key=lambda x : x['name'])
-			self.gamelist = fileContents
-		self.path_pointer = RangeIterator(5)
-		self.systems = StringIterator(list(self.gamelist[0].keys()))
-		self.game_pointers = []
-		for game in self.gamelist[0].keys():
-			self.game_pointers.append(RangeIterator(len(self.gamelist[0][game]) - 1, False))
-		self._locked = FlipSwitch(options.locked)
-		self._running = True
-		if options.runGame: # Run the game, enter the loop when it exits
-			system = self.systems.GetByNr(int(options.runGame[0]))
-			self.run_game(system, self.gamelist[system][int(options.runGame[1])].Paths)
-			options.runGame = False
-		self._loop()
+
 
 
 	def _stringBuilder(self, System, FileList):
@@ -134,30 +140,22 @@ class Conjurer:
 		_systems = systemExecs
 		_command = _systems[System][0]
 		_count = 0
-		for item in FileList:
-			_count += 1
-			_command += _systems[System][_count]
-			_command += '"' + item + '"'
+		for nr, item in enumerate(FileList):
+			_command += ' "' + item + '"'
 		return _command
 
 
 	def run_game(self, System, FileList):
 		"""Runs a game of type System, using files in FileList"""
-
-		Command = self._stringBuilder(System, FileList)
+		command = self._stringBuilder(System, FileList)
 		# ----------- Start Process -----------
 		if self.dontRun:
-			print('\n(' + Command + ')')
+			print('\n(' + command + ')')
 			sys.exit('Stopped because -norun parameter was given\n')
-		_temp = pygame.display
 		pygame.display.quit()   # pygame blokerer displayet, saa vi draeber det
-		os.popen(Command)
-
-
-
-		self.display = _temp #											<--------------------------------- UTESTED!
-	# pygame.display.set_mode([800,600])
-		pygame.display.init()   # og starter det igen
+		os.popen(command)
+		pygame.init()
+		self.initDisplay()	# ... og starter det igen
 		# ----------- Start Process -----------
 
 
@@ -255,7 +253,7 @@ class Conjurer:
 
 
 	def _displayScreen(self, _systemName, foc_game):
-		_image = image.load(self.gamelist[0][_systemName][foc_game]['screenpath']).convert()
+		_image = image.load(self.gamelist[_systemName][foc_game]['screenpath']).convert()
 		_image = pygame.transform.scale2x(_image)
 		if self.doubled :	# scale twice if picture is high enough
 			_image = pygame.transform.scale2x(_image)
@@ -268,10 +266,10 @@ class Conjurer:
 		spacer = 50 if self.doubled else 25
 		calulatedCenter = 500 if self.doubled else 250
 		for entry, nr in enumerate(range(20)):
-			if nr + foc_game - 10 < 0 or nr + foc_game - 10 > len(self.gamelist[0][_systemName]) - 1:
+			if nr + foc_game - 10 < 0 or nr + foc_game - 10 > len(self.gamelist[_systemName]) - 1:
 				_game = self.font_regular.render(' ', True, (0, 255, 255))
 			else:
-				name = self.gamelist[0][_systemName][nr + foc_game - 10]['name']
+				name = self.gamelist[_systemName][nr + foc_game - 10]['name']
 				if nr == 10:
 					_game = self.font_bold.render(name, True, (255, 0, 0))
 				else:
@@ -321,7 +319,7 @@ class Conjurer:
 				elif event.key == K_RCTRL:                                   # Button 1 = Run selected
 					system = self.systems.GetCentral()
 					no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
-					self.run_game(system, self.gamelist[system][no].Paths)
+					self.run_game(system, self.gamelist[system][no]['roms'])
 				elif event.key == K_LALT:                                    # Button 2 = Show Help
 					self._showHelp.flip()
 				elif event.key == K_LSHIFT:                                  # Button 4 = Kill Conjurer
@@ -462,7 +460,7 @@ class StringIterator:
 # --- Main ----------------------------------------------------------------------
 
 
-version = 1.22	# (removed scraper)
+version = 1.23	# (fixed multiple bugs from moving to pygame2)
 cmd_options = getCommandlineOptions()
 
 if cmd_options.testPaths:
