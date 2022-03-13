@@ -1,9 +1,0 @@
-unix.rom_path=/conjurer/rom/amiga/
-unix.floppy_path=/conjurer/rom/amiga/
-unix.hardfile_path=/conjurer/rom/amiga/
-kickstart_rom_file=/conjurer/kick13.rom
-sdl.map_raw_keys=true
-
-joyport0=kbd1
-joyport1=kbd2
-
