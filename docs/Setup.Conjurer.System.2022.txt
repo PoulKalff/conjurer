@@ -1,10 +1,11 @@
-# --- Prepare computer  --------------------------------------------------------
+# --- Prepare computer  ------------------------------------------------------------------
 <Install newest Ubuntu Desktop (21.10 at time of writing)>
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install build-essential autoconf git freeglut3 freeglut3-dev python3-pygame fonts-liberation tree -y
+sudo apt-get install build-essential autoconf git python3-pygame fonts-liberation tree -y
 sudo systemctl set-default multi-user
 gnome-session-quit
+
 
 
 # --- Set root user to autologin  --------------------------------------------------------
@@ -13,105 +14,27 @@ sudo nano /etc/systemd/system/getty.target.wants/getty@tty1.service
 	(Find line that starts with "ExecStart" and change to "ExecStart=-/sbin/agetty -a root %I $TERM" )
 
 
-# --- Set screen resolution --------------------------------------------------------
+
+# --- Set screen resolution -------------------------------------------------------------
 sudo nano /etc/default/grub
-	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
-	GRUB_GFXPAYLOAD_LINUX=800x600
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 sudo update-grub2
 
 
-# --- Setup SDL Gfx  --------------------------------------------------------
-sudo wget https://www.libsdl.org/release/SDL2-2.0.20.tar.gz
-tar xvf SDL2-2.0.20.tar
-cd SDL2-2.0.20
-./autogen.sh
-./configure
-make
-sudo make install
 
+# --- Setup SDL (Gfx and Sound)  --------------------------------------------------------
+sudo apt install openssh-server libsdl2-*
 
-# --- Setup SDL Sound--------------------------------------------------------
-apt-get install libasound2-dev libpulse-dev alsa-tools libtool
-wget https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz
-tar xvf SDL2_mixer-2.0.4.tar.gz
-cd SDL2_mixer-2.0.4
-./autogen.sh
-./configure
-make
-sudo make install
-	sudo adduser root audio
-	<reboot>
-	alsamixer	--->	unmute (channels must be marked green)
-
-
-# --- Setup DirectFrameBuffer --------------------------------------------------------
-sudo wget https://autobuilder.yocto.io/pub/sources/DirectFB-1.7.7.tar.gz
-tar xvf DirectFB-1.7.7.tar.gz
-cd DirectFB-1.7.7
-./autogen.sh
-./configure
-make
-sudo make install
 
 
 # --- Install conjurer on system --------------------------------------------------------
 cd /
-git clone https://github.com/PoulKalff/conjurer
+sudo git clone https://github.com/PoulKalff/conjurer
+sudo chmod 777 conjurer/ -R
 sudo nano /root/.bashrc
 	Add 'cd /conjurer'
 	Add 'python conjurer.py'
 
-
-
-
-
-
-
-
-
-
-
-# --- Setup emulators  --------------------------------------------------------
-
-sudo apt-get install mame
-
-sudo apt install flex byacc bison dos2unix xa65 libsdl2-image-dev libpng-dev
-wget http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-3.6.tar.gz
-gunzip vice-3.6.tar.gz
-tar xvf vice-3.6.tar
-cd vice-3.6
-./configure --enable-sdlui --with-sdlsound --prefix=/usr --disable-pdf-docs
-make
-sudo make install
-
-
-
-
-
-
-(Installer enten e-uae eller fs-uae.... lav instructions her!)
-
-
-
-
-
-
-
-
-# --- Setup Vice ------------------------------------------------------------------------
-
-cp vice.cfg /root/vice/sdl_vicerc	(overskriv vice configurations)
-ELLER Load filen fra menu i vice
-
-
-# --- Setup Mame ------------------------------------------------------------------------
-
-(Skulle ikke behøve yderligere setup. Config ligger i mame.ini, som conjurer henviser til, mame.ini henviser til default.cfg, som indeholder keymap conf)
-
-
-# --- Setup E-uae ------------------------------------------------------------------------
-
-(Skulle ikke behøve yderligere opsætning. Config ligger i .e-uaerc, som læses når e-uae startes fra samme dir)
 
 
 # --- Setup Boot Theme -------------------------------------------------------------------
@@ -124,6 +47,39 @@ sudo update-alternatives --config default.plymouth
 	<Vælg theme>
 sudo echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash
 sudo update-initramfs -u
+sudo init 6
+
+
+
+# --- Install emulators  --------------------------------------------------------
+sudo apt-get install mame fs-uae flex byacc bison dos2unix xa65 texinfo texlive libpng-dev
+<download newest VICE from : https://sourceforge.net/projects/vice-emu/>
+tar vice-3.6.1.tar.gz
+cd vice-3.6.1
+./autogen.sh
+./configure --enable-sdlui2 --with-sdlsound --prefix=/usr
+make
+sudo make install
+
+echo /conjurer/FS-UAE >> /root/.config/fs-uae/base-dir 
+
+
+
+
+
+
+
+
+
+
+
+# --- NOTER ----------------------------------------------------------------------------------
+ - MAME config ligger i mame.ini, som loades naar Mame startes fra /conjurer, mame.ini henviser til mame.cfg/default.cfg, som indeholder keymap-configurations
+ - VICE config ligger vice.cfg, som loades via cmdline-option
+ - FS_UAE config, kickstarts, osv ligger i /conjurer/FS-UAE, som sÃ¦ttes til base_dir (se ovenfor)
+
+
+
 
 
 

@@ -1,0 +1,9 @@
+[config]
+amiga_model = a500
+fullscreen = 1
+fullscreen_width = 1280
+fullscreen_height = 1024
+keep_aspect = 1
+
+video_sync = full
+video_sync_method = finish-sleep-swap-finish

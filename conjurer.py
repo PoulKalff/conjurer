@@ -5,6 +5,7 @@ import pygame
 import os
 import sys
 import json
+import subprocess
 import urllib.request
 from pygame import font, image
 from pygame.locals import *
@@ -23,16 +24,11 @@ font20 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-
 font20b = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 20)
 font40 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 40)
 font40b = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 40)
-SDLsystemExecs =	{	'Amiga'	:	['uae', '-0', '-1', '-2', '-3'], 
-						'Arcade':	['mame', '-inipath .'], 
-						'C64'	:	['x64', '-autostart', '-8']
-					}
-GUIsystemExecs =	{	'Amiga'	:	['fs-uae', 'config.fs-uae'], 
-						'Arcade':	['mame', '-inipath'],
-						'C64'	:	['x64', '-autostart', '-8']
-					}
-
-systemExecs = GUIsystemExecs
+systemExecs =	{
+			'Arcade':	['mame -inipath .'],
+			'C64'	:	['x64sc -config vice.cfg -autostart'],
+			'Amiga'	:	['fs-uae']
+		}
 
 # --- Functions -----------------------------------------------------------------
 
@@ -43,7 +39,7 @@ def getCommandlineOptions():
 	_parser.add_option('-t', '--testpaths',		action='store_true',	dest='testPaths',	default=False, help='Test paths in json-file')
 	_parser.add_option('-l', '--locked',		action='store_true',	dest='locked',		default=False, help='Lock program to only display Arcade Games')
 	_parser.add_option('-v', '--version',		action='store_true',	dest='version',		default=False, help='Show program version')
-	_parser.add_option('-r', '--rungame',		action='store',			dest='runGame',		default=False, help='Run emulator <EmulatorNo> with <gameNo> as Conjurer starts', nargs=2)
+	_parser.add_option('-r', '--rungame',		action='store',		dest='runGame',		default=False, help='Run emulator <EmulatorNo> with <gameNo> as Conjurer starts', nargs=2)
 	_parser.add_option('-m', '--multiplayer',	action='store_true',	dest='mpGames', 	default=False, help='Show only games with two or more players')
 	_parser.add_option('-f', '--fullscreen',	action='store_true',	dest='fullscreen',	default=False, help='run in fullscreen-mode')
 	_options, _args = _parser.parse_args()
@@ -53,7 +49,7 @@ def getCommandlineOptions():
 def TestPaths():
 	# Loads all values from conjurer's json-files and verifies their validity
 	counter = 0
-	with open('lists/games.json') as json_file:
+	with open('gamesList.json') as json_file:
 		games = json.load(json_file)
 		print('\n  Veryfying ROM paths:')
 		print('  -------------------------------------------------------------------------------------------')
@@ -83,16 +79,15 @@ class Conjurer:
 	# Main class
 
 	def __init__(self, options):
-		self.dontRun = options.dontRun
 		self.extPath = '/mnt/roms/'
 		self._showPoweroff = 4
 		self._showExitProgram = 4
 		self._showHelp = FlipSwitch(0)
 		self.initDisplay()
-		self.doubled = True if self.center_y > (320 * 4) else False		# double size of display if screen is big enough
+		self.doubled = True if self.center_y >= 512 else False
 		self.font_regular = font40 if self.doubled else font20
 		self.font_bold =    font40b if self.doubled else font20b
-		with open('lists/games.json') as json_file:
+		with open('gamesList.json') as json_file:
 			fileContents = json.load(json_file)
 			self.gamelist = {}
 			self.gamelist['Amiga'] = sorted(fileContents[0]['Amiga'], key=lambda x : x['name'])
@@ -135,34 +130,42 @@ class Conjurer:
 
 
 
-	def _stringBuilder(self, System, FileList):
+
+	def _stringBuilder(self, gameData):
 		"""Builds an executable string to be passed to the OS"""
-		_systems = systemExecs
-		_command = _systems[System][0]
-		_count = 0
-		for nr, item in enumerate(FileList):
-			_command += ' "' + item + '"'
+		_command = systemExecs[gameData['system']][0]
+		if gameData['system'] == 'Amiga':
+			if 'model' in gameData:
+				_command = _command + ' –amiga-model=' + gameData['model']
+			for nr, item in enumerate(gameData['roms']):
+				_command += ' --floppy_drive_{}'.format(nr) + '=' + item
+		else:
+			for nr, item in enumerate(gameData['roms']):
+				_command += ' ' + item
 		return _command
 
 
-	def run_game(self, System, FileList):
+	def run_game(self, System, gameData):
 		"""Runs a game of type System, using files in FileList"""
-		command = self._stringBuilder(System, FileList)
+		gameData['system'] = System
+		command = self._stringBuilder(gameData)
 		# ----------- Start Process -----------
-		if self.dontRun:
+		if cmd_options.dontRun:
 			print('\n(' + command + ')')
 			sys.exit('Stopped because -norun parameter was given\n')
-		pygame.display.quit()   # pygame blokerer displayet, saa vi draeber det
-		os.popen(command)
-		pygame.init()
-		self.initDisplay()	# ... og starter det igen
+		emulatorProcess = subprocess.Popen(command.split(),
+				stdout=subprocess.PIPE,
+				stderr=subprocess.STDOUT)
+		stdout, stderr = emulatorProcess.communicate()
+		pygame.event.clear()	# clear (keyboard) events sent while emulator was running
 		# ----------- Start Process -----------
+
 
 
 	def _displayPoweroff(self):
 		if self._showPoweroff == 0:
 			self._showPoweroff = 'Bye!'
-		pygame.draw.rect(self.display, (255,255,255), (200, 200, 400, 100)) 
+		pygame.draw.rect(self.display, (255,255,255), (200, 200, 400, 100))
 		pygame.draw.line(self.display, (0, 0, 0), (210, 240), (590, 240), 1)
 		textRect1 = pygame.Rect(220, 210, 600, 300)
 		textRect2 = pygame.Rect(240, 250, 600, 300)
@@ -264,8 +267,8 @@ class Conjurer:
 
 	def _displayGamesList(self, _systemName, foc_game):
 		spacer = 50 if self.doubled else 25
-		calulatedCenter = 500 if self.doubled else 250
-		for entry, nr in enumerate(range(20)):
+		calulatedCenter = 470 if self.doubled else 250
+		for entry, nr in enumerate(range(19)):
 			if nr + foc_game - 10 < 0 or nr + foc_game - 10 > len(self.gamelist[_systemName]) - 1:
 				_game = self.font_regular.render(' ', True, (0, 255, 255))
 			else:
@@ -319,7 +322,7 @@ class Conjurer:
 				elif event.key == K_RCTRL:                                   # Button 1 = Run selected
 					system = self.systems.GetCentral()
 					no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
-					self.run_game(system, self.gamelist[system][no]['roms'])
+					self.run_game(system, self.gamelist[system][no])
 				elif event.key == K_LALT:                                    # Button 2 = Show Help
 					self._showHelp.flip()
 				elif event.key == K_LSHIFT:                                  # Button 4 = Kill Conjurer
@@ -460,7 +463,7 @@ class StringIterator:
 # --- Main ----------------------------------------------------------------------
 
 
-version = 1.23	# (fixed multiple bugs from moving to pygame2)
+version = 1.24		# ( switched to fs-uae for amiga emulation )
 cmd_options = getCommandlineOptions()
 
 if cmd_options.testPaths:
@@ -469,8 +472,6 @@ if cmd_options.testPaths:
 elif cmd_options.version:
 	print('\n   Conjurer Version is', str(version))
 	sys.exit('')
-elif cmd_options.dontRun:
-	dontrun = True
 
 # start main program
 conjurer_handle = Conjurer(cmd_options)
@@ -479,10 +480,8 @@ print('\n  Application terminated...\n')
 
 
 # --- Todo ----------------------------------------------------------------------
-# - make sure that emulators exist and can start.... even new ones, ANY emulator, I guess....
-
-
-
+# - testPath should also test emulator bin paths
+# - dialogs have wrong size
 
 
 

@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=Conjurer Logo
-Description=A theme for the loading of the arcade emulator Conjurer
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/conjurer-theme
-ScriptFile=/usr/share/plymouth/themes/conjurer-theme/conjurer.script

@@ -1,8 +1,8 @@
 [Plymouth Theme]
 Name=Arcade Theme
-Description=A theme that features a blank background with a MAME logo
+Description=A theme that features a blank background with a picture of an arcade cabinet
 ModuleName=script
 
 [script]
-ImageDir=/lib/plymouth/themes/arcade-theme
-ScriptFile=/lib/plymouth/themes/arcade-theme/arcade-theme.script
+ImageDir=/usr/share/plymouth/themes/arcade-theme
+ScriptFile=/usr/share/plymouth/themes/arcade-theme/arcade-theme.script
