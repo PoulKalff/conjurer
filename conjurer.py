@@ -483,10 +483,6 @@ print('\n  Application terminated...\n')
 
 
 
-# --- Todo ----------------------------------------------------------------------
-# - testPath should also test emulator bin paths
-# - dialogs have wrong size
-# - keyboard for Amiga Player2 is wrong in emulator
 
 
 
