@@ -60,7 +60,6 @@ cd vice-3.6.1
 ./configure --enable-sdlui2 --with-sdlsound --prefix=/usr
 make
 sudo make install
-
 echo /conjurer/FS-UAE >> /root/.config/fs-uae/base-dir 
 
 

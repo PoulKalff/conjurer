@@ -49,7 +49,7 @@ def getCommandlineOptions():
 def TestPaths():
 	# Loads all values from conjurer's json-files and verifies their validity
 	counter = 0
-	with open('gamesList.json') as json_file:
+	with open('gameList.json') as json_file:
 		games = json.load(json_file)
 		print('\n  Veryfying ROM paths:')
 		print('  -------------------------------------------------------------------------------------------')
@@ -87,7 +87,7 @@ class Conjurer:
 		self.doubled = True if self.center_y >= 512 else False
 		self.font_regular = font40 if self.doubled else font20
 		self.font_bold =    font40b if self.doubled else font20b
-		with open('gamesList.json') as json_file:
+		with open('gameList.json') as json_file:
 			fileContents = json.load(json_file)
 			self.gamelist = {}
 			self.gamelist['Amiga'] = sorted(fileContents[0]['Amiga'], key=lambda x : x['name'])
@@ -136,9 +136,13 @@ class Conjurer:
 		_command = systemExecs[gameData['system']][0]
 		if gameData['system'] == 'Amiga':
 			if 'model' in gameData:
-				_command = _command + ' –amiga-model=' + gameData['model']
-			for nr, item in enumerate(gameData['roms']):
-				_command += ' --floppy_drive_{}'.format(nr) + '=' + item
+				_command = _command + ' --amiga-model=' + gameData['model']
+			if gameData['model'].upper() == 'CD32' or gameData['model'] == 'CDTV':
+				for nr, item in enumerate(gameData['roms']):
+					_command += ' --cdrom_drive_{}'.format(nr) + '=' + item
+			else:
+				for nr, item in enumerate(gameData['roms']):
+					_command += ' --floppy_drive_{}'.format(nr) + '=' + item
 		else:
 			for nr, item in enumerate(gameData['roms']):
 				_command += ' ' + item
@@ -482,7 +486,7 @@ print('\n  Application terminated...\n')
 # --- Todo ----------------------------------------------------------------------
 # - testPath should also test emulator bin paths
 # - dialogs have wrong size
-
+# - keyboard for Amiga Player2 is wrong in emulator
 
 
 

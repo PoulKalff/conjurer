@@ -1,1 +1,1017 @@
+fs_data_init fs-uae fs-uae.dat
+checking dat file: /usr/bin/fs-uae
+no dat file: /usr/bin/fs-uae
+checking dat file: /usr/bin/fs-uae.dat
+checking dat file: /usr/bin/../share/fs-uae/fs-uae.dat
+FS-UAE 3.0.5 (Built for Linux x86-64)
+Copyright 1995-2002 Bernd Schmidt, 1999-2017 Toni Wilen,
+2003-2007 Richard Drummond, 2006-2011 Mustafa 'GnoStiC' Tufan,
+2011-2017 Frode Solheim, and contributors.
 
+This is free software; see the file COPYING for copying conditions. There
+is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE. See the README for more copyright info, and the source code for
+a full list of contributors
+
+current directory is /conjurer
+UAE: Initializing core derived from WinUAE 3300b2
+
+----------------------------------------------------------------------------
+config (command line arguments)
+----------------------------------------------------------------------------
+
+amiga_model = cd32
+cdrom_drive_0 = rom/amiga/Banshee (1994)(Core)(M4)[!].zip
+
+----------------------------------------------------------------------------
+libfsemu init
+----------------------------------------------------------------------------
+
+[FSE] Init (early)
+current time() is: 1647350630
+localtime+timegm:  1647354230
+localtime+mktime:  1647350630
+time of day:       1647350630 + (861911 / 1000000)
+localtime offset:  3600
+[FSE] Calling fs_ml_init
+fs_ml_init (operating system: linux)
+load config file
+- using $exe directory "/usr/bin"
+checking config file /usr/bin/Config.fs-uae
+checking config file Config.fs-uae
+checking config file fs-uae.conf
+checking config file /root/.config/fs-uae/fs-uae.conf
+- checking /root/.config/fs-uae/configurations-dir
+checking /usr/bin/Portable.ini
+checking /usr/Portable.ini
+checking /Portable.ini
+- checking /root/.config/fs-uae/base-dir
+- read from file: /conjurer/FS-UAE
+- expanded path: /conjurer/FS-UAE
+- using base ($BASE / $FSUAE) directory "/conjurer/FS-UAE"
+resolve_path /conjurer/FS-UAE/Configurations (absolute)
+- using "Configurations" directory "/conjurer/FS-UAE/Configurations"
+checking config file /conjurer/FS-UAE/Configurations/Default.fs-uae
+loading config from /conjurer/FS-UAE/Configurations/Default.fs-uae
+
+----------------------------------------------------------------------------
+config (/conjurer/FS-UAE/Configurations/Default.fs-uae)
+----------------------------------------------------------------------------
+
+amiga_model = a500 (ignored)
+fullscreen = 1
+fullscreen_height = 1024
+fullscreen_width = 1280
+keep_aspect = 1
+video_sync = full
+video_sync_method = finish-sleep-swap-finish
+checking config file /conjurer/FS-UAE/Configurations/Host.fs-uae
+- checking /root/.config/fs-uae/data-dir
+resolve_path /conjurer/FS-UAE/Data (absolute)
+- using "Data" directory "/conjurer/FS-UAE/Data"
+[I18N] Locale is set to en_US.UTF-8
+[I18N] Using data dir "/usr/bin/../share/fs-uae/share-dir"
+[I18N] Using locale dir "/usr/bin/../share/locale"
+GameMode: Enabled game mode
+CPU scaling governor: 'performance'
+
+----------------------------------------------------------------------------
+fs-uae init
+----------------------------------------------------------------------------
+
+configure logging: none
+[GLIB] Version 2.68.4 (Compiled against 2.64.2)
+- checking /root/.config/fs-uae/kickstarts-dir
+resolve_path /conjurer/FS-UAE/Kickstarts (absolute)
+- using "Kickstarts" directory "/conjurer/FS-UAE/Kickstarts"
+- checking /root/.config/fs-uae/floppies-dir
+resolve_path /conjurer/FS-UAE/Floppies (absolute)
+- using "Floppies" directory "/conjurer/FS-UAE/Floppies"
+- checking /root/.config/fs-uae/cdroms-dir
+resolve_path /conjurer/FS-UAE/CD-ROMs (absolute)
+- using "CD-ROMs" directory "/conjurer/FS-UAE/CD-ROMs"
+- checking /root/.config/fs-uae/hard-drives-dir
+resolve_path /conjurer/FS-UAE/Hard Drives (absolute)
+- using "Hard Drives" directory "/conjurer/FS-UAE/Hard Drives"
+[PLUGINS] Initializing
+- checking /root/.config/fs-uae/plugins-dir
+resolve_path /conjurer/FS-UAE/Plugins (absolute)
+- using "Plugins" directory "/conjurer/FS-UAE/Plugins"
+[PLUGINS] Loading plugins from /conjurer/FS-UAE/Plugins
+[PLUGINS] Could not open plugins dir /conjurer/FS-UAE/Plugins
+fs_uae_configure_amiga_model
+using PAL mode (50Hz)
+[VIDEO] fs_emu_set_video_frame_rate: 50.00 (50)
+[DISPLAY] Sync: g_fs_emu_video_sync_to_vblank = 0
+config match for "CD32"
+fs_uae_state_dir:
+- checking /root/.config/fs-uae/save-states-dir
+resolve_path /conjurer/FS-UAE/Save States (absolute)
+- using "Save States" directory "/conjurer/FS-UAE/Save States"
+save_states_dir: /conjurer/FS-UAE/Save States
+save_dir_name not set, using Default
+- using state dir /conjurer/FS-UAE/Save States/Default
+final state dir path: /conjurer/FS-UAE/Save States/Default
+- checking /root/.config/fs-uae/controllers-dir
+resolve_path /conjurer/FS-UAE/Controllers (absolute)
+- using "Controllers" directory "/conjurer/FS-UAE/Controllers"
+- checking /root/.config/fs-uae/logs-dir
+- checking /root/.config/fs-uae/cache-dir
+resolve_path /conjurer/FS-UAE/Cache (absolute)
+- using "Cache" directory "/conjurer/FS-UAE/Cache"
+resolve_path /conjurer/FS-UAE/Cache/Logs (absolute)
+- using "Logs" directory "/conjurer/FS-UAE/Cache/Logs"
+switch to log file /conjurer/FS-UAE/Cache/Logs/fs-uae.log.txt
+- checking /root/.config/fs-uae/themes-dir
+resolve_path /conjurer/FS-UAE/Themes (absolute)
+- using "Themes" directory "/conjurer/FS-UAE/Themes"
+themes_dir = /conjurer/FS-UAE/Themes
+[FSE] Init
+[FSE] Read config
+THEME: Init
+THEME: Loading ""
+[VIDEO] Initialize
+fs_emu_video_dummy_init
+[VIDEO] Initialize legacy video
+[FSE] fse_init_video_2
+[RENDER] Stretch mode = 2
+[RENDER] Scale mode = 1
+full-scene anti-aliasing is not requested
+checking video sync mode
+will sync video updates to vblank
+[RENDER] Stretch mode = 0
+using default video format BGRA
+using default texture format
+[VIDEO] Using low latency vsync when full vsync is enabled
+[VIDEO] Creating window
+fs_ml_video_create_window
+keyboard input grab: 305419896
+[SDL] Version 2.0.14 (Compiled against 2.0.10)
+[DISPLAY] 0: 1280x1024+0+0 @60
+Monitor - j 0 pos 0
+Monitor - j 1 pos 0
+Monitor - j 2 pos 0
+Monitor - j 3 pos 0
+Monitor index 0 flags 15
+Monitor: found index 0 for flag 2
+Monitor "middle-left" (flag 2) => index 0
+[SDL] Defaulting to fullscreen_mode = desktop for SDL 2
+automatic input grab: 1
+using fullscreen desktop mode
+setting (fullscreen) video mode 1280 1024
+[SDL] CreateWindow(x=0, y=0, w=1280, h=1024, flags=4131)
+[DISPLAY] Host refresh rate: 60 Hz
+[X11] Subsystem is not SDL_SYSWM_X11
+opengl vendor: Intel Open Source Technology Center
+opengl renderer: Mesa DRI Intel(R) Q45/Q43 (ELK)
+opengl version: 2.1 Mesa 21.2.6
+opengl shading language version: 1.20
+opengl extensions: GL_ARB_multisample GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_copy_texture GL_EXT_subtexture GL_EXT_texture_object GL_EXT_vertex_array GL_EXT_compiled_vertex_array GL_EXT_texture GL_EXT_texture3D GL_IBM_rasterpos_clip GL_ARB_point_parameters GL_EXT_draw_range_elements GL_EXT_packed_pixels GL_EXT_point_parameters GL_EXT_rescale_normal GL_EXT_separate_specular_color GL_EXT_texture_edge_clamp GL_SGIS_generate_mipmap GL_SGIS_texture_border_clamp GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_ARB_framebuffer_sRGB GL_ARB_multitexture GL_EXT_framebuffer_sRGB GL_IBM_multimode_draw_arrays GL_IBM_texture_mirrored_repeat GL_3DFX_texture_compression_FXT1 GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_transpose_matrix GL_EXT_blend_func_separate GL_EXT_fog_coord GL_EXT_multi_draw_arrays GL_EXT_secondary_color GL_EXT_texture_env_add GL_EXT_texture_filter_anisotropic GL_EXT_texture_lod_bias GL_INGR_blend_func_separate GL_NV_blend_square GL_NV_light_max_exponent GL_NV_texgen_reflection GL_NV_texture_env_combine4 GL_S3_s3tc GL_SUN_multi_draw_arrays GL_ARB_texture_border_clamp GL_ARB_texture_compression GL_EXT_framebuffer_object GL_EXT_texture_compression_s3tc GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_MESA_window_pos GL_NV_packed_depth_stencil GL_NV_texture_rectangle GL_ARB_depth_texture GL_ARB_occlusion_query GL_ARB_shadow GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_mirrored_repeat GL_ARB_window_pos GL_EXT_stencil_two_side GL_EXT_texture_cube_map GL_NV_depth_clamp GL_NV_fog_distance GL_NV_half_float GL_APPLE_packed_pixels GL_ARB_draw_buffers GL_ARB_fragment_program GL_ARB_fragment_shader GL_ARB_shader_objects GL_ARB_vertex_program GL_ARB_vertex_shader GL_ATI_draw_buffers GL_ATI_texture_env_combine3 GL_ATI_texture_float GL_EXT_shadow_funcs GL_EXT_stencil_wrap GL_MESA_pack_invert GL_NV_primitive_restart GL_ARB_depth_clamp GL_ARB_fragment_program_shadow GL_ARB_half_float_pixel GL_ARB_occlusion_query2 GL_ARB_point_sprite GL_ARB_shading_language_100 GL_ARB_sync GL_ARB_texture_non_power_of_two GL_ARB_vertex_buffer_object GL_ATI_blend_equation_separate GL_EXT_blend_equation_separate GL_OES_read_format GL_ARB_color_buffer_float GL_ARB_pixel_buffer_object GL_ARB_texture_compression_rgtc GL_ARB_texture_float GL_ARB_texture_rectangle GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_texture_shared_exponent GL_ARB_framebuffer_object GL_EXT_framebuffer_blit GL_EXT_packed_depth_stencil GL_APPLE_object_purgeable GL_ARB_vertex_array_object GL_ATI_separate_stencil GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_gpu_program_parameters GL_EXT_texture_array GL_EXT_texture_integer GL_EXT_texture_sRGB_decode GL_OES_EGL_image GL_ARB_copy_buffer GL_ARB_depth_buffer_float GL_ARB_draw_instanced GL_ARB_half_float_vertex GL_ARB_instanced_arrays GL_ARB_map_buffer_range GL_ARB_texture_rg GL_ARB_texture_swizzle GL_ARB_vertex_array_bgra GL_EXT_texture_swizzle GL_EXT_vertex_array_bgra GL_NV_conditional_render GL_AMD_seamless_cubemap_per_texture GL_ARB_ES2_compatibility GL_ARB_debug_output GL_ARB_draw_elements_base_vertex GL_ARB_explicit_attrib_location GL_ARB_fragment_coord_conventions GL_ARB_provoking_vertex GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_shader_texture_lod GL_ARB_texture_rgb10_a2ui GL_ARB_vertex_type_2_10_10_10_rev GL_EXT_provoking_vertex GL_EXT_texture_snorm GL_MESA_texture_signed_rgba GL_NV_texture_barrier GL_ARB_get_program_binary GL_ARB_robustness GL_ARB_separate_shader_objects GL_ARB_shader_bit_encoding GL_EXT_direct_state_access GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_compressed_texture_pixel_storage GL_ARB_internalformat_query GL_ARB_map_buffer_alignment GL_ARB_shading_language_packing GL_ARB_texture_storage GL_AMD_shader_trinary_minmax GL_ARB_arrays_of_arrays GL_ARB_clear_buffer_object GL_ARB_copy_image GL_ARB_explicit_uniform_location GL_ARB_invalidate_subdata GL_ARB_program_interface_query GL_ARB_vertex_attrib_binding GL_KHR_debug GL_KHR_robustness GL_ARB_buffer_storage GL_ARB_clear_texture GL_ARB_internalformat_query2 GL_ARB_multi_bind GL_ARB_seamless_cubemap_per_texture GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shading_language_include GL_ARB_texture_mirror_clamp_to_edge GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_clip_control GL_ARB_get_texture_sub_image GL_ARB_texture_barrier GL_EXT_polygon_offset_clamp GL_KHR_blend_equation_advanced GL_KHR_context_flush_control GL_ARB_parallel_shader_compile GL_EXT_texture_sRGB_R8 GL_KHR_no_error GL_ARB_polygon_offset_clamp GL_ARB_texture_filter_anisotropic GL_KHR_parallel_shader_compile GL_EXT_EGL_image_storage GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_EGL_sync GL_EXT_demote_to_helper_invocation 
+opengl max texture size (estimate): 8192x8192
+*** Setting swap interval to 1 ***
+initial input grab: 1
+[INPUT] Grabbing input
+init_opengl
+fse_init_video_opengl
+setup_opengl
+loaded sub-texture "sidebar_edge.png"
+fs_image_destroy
+loaded sub-texture "sidebar.png"
+fs_image_destroy
+loaded sub-texture "gloss.png"
+fs_image_destroy
+loaded sub-texture "glow_left.png"
+fs_image_destroy
+loaded sub-texture "glow_top.png"
+fs_image_destroy
+loaded sub-texture "glow_top_left.png"
+fs_image_destroy
+loaded sub-texture "close.png"
+fs_image_destroy
+loaded sub-texture "volume.png"
+fs_image_destroy
+loaded sub-texture "volume_muted.png"
+fs_image_destroy
+loaded sub-texture "stretch-aspect.png"
+fs_image_destroy
+loaded sub-texture "stretch.png"
+fs_image_destroy
+loaded sub-texture "item_background.png"
+fs_image_destroy
+loaded sub-texture "top_item_background.png"
+fs_image_destroy
+loaded sub-texture "heading_strip.png"
+fs_image_destroy
+loaded sub-texture "pause_indicator.png"
+fs_image_destroy
+loaded sub-texture "logo-32.png"
+fs_image_destroy
+loaded sub-texture "top_background.png"
+fs_image_destroy
+loaded sub-texture "top_background_fade.png"
+fs_image_destroy
+loaded sub-texture "bezel/left.png"
+fs_image_destroy
+loaded sub-texture "bezel/right.png"
+fs_image_destroy
+loaded sub-texture "stretch-none.png"
+fs_image_destroy
+loaded sub-texture "bezel/left-overlay.png"
+fs_image_destroy
+loaded sub-texture "bezel/right-overlay.png"
+fs_image_destroy
+initializing menu
+load font from data 0x83716c0 size 26822
+font height: 32 pixels
+512 characters
+load font from data 0x8387ec0 size 26832
+font height: 32 pixels
+512 characters
+[SHADERS] Initialize
+create windows is done
+fse_init_renderer
+[RENDER] Stretch mode = 2
+scale: -1.00 -1.00 align: 0.50 0.50
+[FSE] Calling fs_ml_init_2
+[INPUT] fs_ml_input_init
+[INPUT] fs_ml_mouse_init
+[INPUT] Adding system mouse
+[MANYMOUSE] Copyright (c) 2005-2012 Ryan C. Gordon
+[MANYMOUSE] Thread running
+MANYMOUSE: Adding Mouse: Logitech K400 (Linux /dev/input/event* interface)
+[INPUT] Joystick device count: 0
+[INPUT] Initialize
+fs_emu_input_sdl_init
+[INPUT] fs_emu_input_init
+init_input_configs
+reading input device configs from /conjurer/FS-UAE/Controllers
+reading input device configs from /conjurer/FS-UAE/Data/Devs/Keyboards
+could not read directory /conjurer/FS-UAE/Data/Devs/Keyboards
+reading input device configs from /conjurer/FS-UAE/Controllers
+[INPUT] Using default modifier key LALT
+[INPUT] Initializing devices for "menu"
+0 Keyboard
+[INPUT] Config name "Keyboard"
+get system config for device: Keyboard
+checked data "input/Keyboard.conf" = 3
+config file for Keyboard was not found
+[INPUT] Did not find config for device "Keyboard"
+get system config for device: keyboard_0_0_0_0_linux
+checked data "input/keyboard_0_0_0_0_linux.conf" = 3
+config file for keyboard_0_0_0_0_linux was not found
+[INPUT] Did not find menu config for device "keyboard_0_0_0_0_linux"
+get system config for device: keyboard
+checked data "input/keyboard.conf" = 0
+read config for keyboard for menu (from data)
+checked data "input/default_keyboard.conf" = 0
+read config for default_keyboard for menu (from data)
+did not find action for "skip_right"
+key_down (274) => action "down" (4)
+key_backspace (8) => action "back" (6)
+did not find action for "skip_left"
+key_return (13) => action "primary" (5)
+did not find action for "default_keyboard"
+key_left (276) => action "left" (1)
+did not find action for "secondary"
+key_escape (27) => action "escape" (10)
+key_right (275) => action "right" (2)
+key_up (273) => action "up" (3)
+1 MOUSE
+[INPUT] Config name "MOUSE"
+get system config for device: MOUSE
+checked data "input/MOUSE.conf" = 3
+config file for MOUSE was not found
+[INPUT] Did not find config for device "MOUSE"
+get system config for device: mouse_0_0_0_0_linux
+checked data "input/mouse_0_0_0_0_linux.conf" = 3
+config file for mouse_0_0_0_0_linux was not found
+[INPUT] Did not find menu config for device "mouse_0_0_0_0_linux"
+get system config for device: mouse
+checked data "input/mouse.conf" = 0
+read config for mouse for menu (from data)
+no config for platform menu
+[INPUT] Did not find menu config for device"mouse"
+2 Mouse: Logitech K400
+[INPUT] Config name "Mouse: Logitech K400"
+get system config for device: Mouse: Logitech K400
+checked data "input/Mouse: Logitech K400.conf" = 3
+config file for Mouse: Logitech K400 was not found
+[INPUT] Did not find config for device "Mouse: Logitech K400"
+get system config for device: mouse_logitech_k400_0_0_0_0_linux
+checked data "input/mouse_logitech_k400_0_0_0_0_linux.conf" = 3
+config file for mouse_logitech_k400_0_0_0_0_linux was not found
+[INPUT] Did not find menu config for device "mouse_logitech_k400_0_0_0_0_linux"
+get system config for device: mouse_logitech_k400
+checked data "input/mouse_logitech_k400.conf" = 3
+config file for mouse_logitech_k400 was not found
+[INPUT] Did not find menu config for device"mouse_logitech_k400"
+[AUDIO] Initialize
+[AUDIO] Initialize OpenAL audio driver
+[OPENAL] Opened device: OpenAL Soft
+[OPENAL] Information:
+[OPENAL] Devices:
+- OpenAL Soft
+[OPENAL] Default device: OpenAL Soft
+OPENAL: trying frequency 48000
+OPENAL: created context
+OPENAL: made context current
+openal: number of stereo sources is 2
+[AUDIO] Buffer target size (ms) = 40
+fs_uae_init_recording
+not running in record mode
+[AUDIO] Stream 0, frequency: 48000, buffers: 48 buffer size: 512 bytes
+[AUDIO] Stream 1, frequency: 44100, buffers: 48 buffer size: 28224 bytes
+adding rtg resolution 672x540
+adding rtg resolution 960x540
+adding rtg resolution 1344x1080
+adding rtg resolution 960x540
+resolution already exists
+adding rtg resolution 1280x1024
+fs_uae_init_video
+fs_uae_configure_menu
+[FSE] fs_emu_run, main_function at 0x414360
+[FSE] Emulation thread started
+[FSE] Run main function at 0x414360
+amiga_main
+KB: keyboard_settrans
+checking OpenGL capabilities
+GL_ARB_sync extension found
+error looking up functions
+[OPENGL] Deciding video sync method
+[OPENGL] SYNC_FINISH_SLEEP_SWAP_FINISH
+using text cache texture size 2048x2048
+target_default_options p=0x3b763a0 type=0
+target_default_options: enabling floppy sounds
+ -- stub -- target_save_options zfile=0x7f34d8000c30 p=0x3b763a0
+built_in_chipset_prefs, ignore = 0
+fixup_cpu
+built_in_chipset_prefs, ignore = 0
+ -- stub -- target_fixup_options 
+graphics_setup
+preinit_shm
+NATMEM: Total physical RAM 3389 MB, all RAM 3389 MB
+NATMEM: Attempting to reserve: 2048 MB
+NATMEM: jit compiler 0
+VM: Reserve  0x80000000 bytes
+VM: Reserve  0x80000000 bytes, got address 0x7f3458000000
+NATMEM: Reserved 0x7f3458000000-0x7f34d8000000 (0x80000000 2048M)
+ -- stub -- target_cfgfile_load 
+built_in_chipset_prefs, ignore = 0
+fixup_cpu
+built_in_chipset_prefs, ignore = 0
+ -- stub -- target_fixup_options 
+set_device_rom path=(null) romtype=262144 devnum=0
+boardromconfig (nil)
+target_default_options p=0x3b763a0 type=1
+target_default_options: enabling floppy sounds
+built_in_chipset_prefs, ignore = 0
+
+----------------------------------------------------------------------------
+uae configuration
+----------------------------------------------------------------------------
+
+fs_uae_configure_amiga_hardware
+fs_uae_load_rom_files /conjurer/FS-UAE/Kickstarts
+found file "Kickstart v1.3 r34.5 (1987)(Commodore)(A500-A1000-A2000-CDTV)[!].rom"
+amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/Kickstart v1.3 r34.5 (1987)(Commodore)(A500-A1000-A2000-CDTV)[!].rom
+- found cached crc32
+- rom added via cached entry
+found file "CDTV Extended-ROM v1.0 (1991)(Commodore)(CDTV)[!].rom"
+amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/CDTV Extended-ROM v1.0 (1991)(Commodore)(CDTV)[!].rom
+- found cached crc32
+- rom added via cached entry
+found file "Kickstart v3.1 r40.68 (1993)(Commodore)(A1200)[!].rom"
+amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/Kickstart v3.1 r40.68 (1993)(Commodore)(A1200)[!].rom
+- found cached crc32
+- rom added via cached entry
+found file "Kickstart v3.1 r40.60 (1993)(Commodore)(CD32).rom"
+amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/Kickstart v3.1 r40.60 (1993)(Commodore)(CD32).rom
+- found cached crc32
+- rom added via cached entry
+found file "CD32 Extended-ROM r40.60 (1993)(Commodore)(CD32).rom"
+amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/CD32 Extended-ROM r40.60 (1993)(Commodore)(CD32).rom
+- found cached crc32
+- rom added via cached entry
+found file "Kickstart v2.04 r37.175 (1991)(Commodore)(A500+)[!].rom"
+amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/Kickstart v2.04 r37.175 (1991)(Commodore)(A500+)[!].rom
+- found cached crc32
+- rom added via cached entry
+configuring "Amiga CD32", accuracy=1
+amiga_quickstart model=8 config=0 compa=0 (accuracy 1)
+set_device_rom path=(null) romtype=262144 devnum=0
+boardromconfig (nil)
+target_default_options p=0x3b763a0 type=1
+target_default_options: enabling floppy sounds
+built_in_chipset_prefs, ignore = 0
+set option "cachesize" to "0" (result: 1)
+set option "cpu_model" to "68020" (result: 1)
+set option "fpu_model" to "0" (result: 1)
+set option "mmu_model" to "0" (result: 1)
+set option "cpu_24bit_addressing" to "true" (result: 1)
+set option "cpu_speed" to "real" (result: 1)
+set option "blitter_cycle_exact" to "true" (result: 1)
+set option "cpu_compatible" to "true" (result: 1)
+set option "cpu_cycle_exact" to "true" (result: 1)
+set option "waiting_blits" to "true" (result: 1)
+set option "immediate_blits" to "false" (result: 1)
+set option "sound_stereo_separation" to "7" (result: 1)
+set option "sound_filter_type" to "enhanced" (result: 1)
+fs_uae_configure_hard_drives
+configure_cdrom
+resolve_path rom/amiga/Banshee (1994)(Core)(M4)[!].zip (relative)
+checking ./rom/amiga/Banshee (1994)(Core)(M4)[!].zip
+- found ./rom/amiga/Banshee (1994)(Core)(M4)[!].zip
+set option "cdimage0" to "./rom/amiga/Banshee (1994)(Core)(M4)[!].zip,image" (result: 1)
+configuring joystick ports:
+set option "joyport0" to "none" (result: 1)
+set option "joyport1" to "none" (result: 1)
+fs_uae_configure_actions
+fs_uae_read_override_actions_for_port 0
+fs_uae_read_override_actions_for_port 1
+fs_uae_read_override_actions_for_port 2
+fs_uae_read_override_actions_for_port 3
+fs_uae_read_override_actions_for_port 4
+fs_uae_read_override_actions_for_port 5
+fs_uae_read_override_actions_for_port 6
+fs_uae_read_override_actions_for_port 7
+configuring joystick port 1 (auto)
+trying to auto-configure joystick in port 1
+configure joystick "JOYSTICK" for "cd32"
+did not match device #0 (Keyboard)
+did not match device #1 (MOUSE)
+did not match device #2 (Mouse: Logitech K400)
+configure joystick "JOYSTICK #2" for "cd32"
+did not match device #0 (Keyboard)
+did not match device #1 (MOUSE)
+did not match device #2 (Mouse: Logitech K400)
+could not auto-configure joystick,using keyboard emulation
+configuring joystick port 0 (auto)
+configuring joystick port 2 (nothing)
+nothing connected to port
+configuring joystick port 3 (nothing)
+nothing connected to port
+configuring joystick port 4 (nothing)
+nothing connected to port
+configuring joystick port 5 (nothing)
+nothing connected to port
+configuring joystick port 6 (nothing)
+nothing connected to port
+configuring joystick port 7 (nothing)
+nothing connected to port
+set option "statefile" to "/conjurer/FS-UAE/Save States/Default/Saved State.uss" (result: 1)
+set option "flash_file" to "/conjurer/FS-UAE/Save States/Default/CD32 Storage.nvr" (result: 1)
+amiga_set_save_image_dir /conjurer/FS-UAE/Save States/Default
+- checking /root/.config/fs-uae/module-ripper-dir
+resolve_path /conjurer/FS-UAE/Cache/Modules (absolute)
+- using "Modules" directory "/conjurer/FS-UAE/Cache/Modules"
+amiga_set_module_ripper_dir /conjurer/FS-UAE/Cache/Modules
+set option "sound_frequency" to "48000" (result: 1)
+amiga_set_audio_frequency: 48000
+fs_uae_set_uae_paths
+did not find "built-in" driveclick directory
+read_custom_uae_options
+writing uae config to /conjurer/FS-UAE/Cache/Logs/debug.uae
+ -- stub -- target_save_options zfile=0x7f34d80081e0 p=0x3b763a0
+
+----------------------------------------------------------------------------
+end of uae configuration
+----------------------------------------------------------------------------
+
+ -- stub -- init_joystick return 1
+ -- stub -- init_mouse return 1
+ -- stub -- init_kb return 1
+ -- stub -- gui_init 
+ -- stub -- logging_init 
+init_shm
+NATMEM: size            0x10000000
+NATMEM: z3size        + 0x00000000
+NATMEM: z3rtgmem_size + 0x00000000
+NATMEM: othersize     + 0x00000000
+NATMEM: totalsize     = 0x10000000
+Z3 REAL mapping. JIT direct compatible.
+NATMEM: JIT direct compatible: 1
+NATMEM: Our special area: 0x7f3458000000-0x7f3468000000 (0x10000000 256M)
+built_in_chipset_prefs, ignore = 0
+fixup_cpu
+built_in_chipset_prefs, ignore = 0
+ -- stub -- target_fixup_options 
+ -- stub -- target_run 
+ -- stub -- get_mouse_num return 0
+[WARNING] Will not log further calls to get_mouse_num
+ -- stub -- get_joystick_num return 0
+[WARNING] Will not log further calls to get_joystick_num
+ -- stub -- get_kb_num return 0
+[WARNING] Will not log further calls to get_kb_num
+ -- stub -- input_get_default_keyboard num=0 return 0
+ -- stub -- input_get_default_keyboard num=1 return 0
+ -- stub -- input_get_default_keyboard num=2 return 0
+ -- stub -- input_get_default_keyboard num=3 return 0
+ -- stub -- input_get_default_keyboard num=4 return 0
+ -- stub -- input_get_default_keyboard num=5 return 0
+ -- stub -- input_get_default_keyboard num=6 return 0
+ -- stub -- input_get_default_keyboard num=7 return 0
+ -- stub -- input_get_default_keyboard num=8 return 0
+ -- stub -- input_get_default_keyboard num=9 return 0
+ -- stub -- input_get_default_keyboard num=10 return 0
+ -- stub -- input_get_default_keyboard num=11 return 0
+ -- stub -- input_get_default_keyboard num=12 return 0
+ -- stub -- input_get_default_keyboard num=13 return 0
+ -- stub -- input_get_default_keyboard num=14 return 0
+ -- stub -- input_get_default_keyboard num=15 return 0
+ -- stub -- input_get_default_keyboard num=16 return 0
+ -- stub -- input_get_default_keyboard num=17 return 0
+ -- stub -- input_get_default_keyboard num=18 return 0
+ -- stub -- input_get_default_keyboard num=19 return 0
+MMAN: mapped_malloc 0x00010000 start=0x00000000 UAE Boot ROM (rtarea)
+MMAN: Flags: ROMIN
+uaegfx.card magic code: 00F03000-00F0313E ABI=00000000
+segtracker: install
+MMAN: mapped_malloc 0x00010000 start=0x00000000 Filesystem autoconfig (filesys)
+MMAN: Flags: IO SAFE
+bsdsocket.library installed
+MMAN: mapped_malloc 0x00080000 start=0x00000000 Kickstart ROM (kick)
+MMAN: Flags: ROM THREADSAFE
+ -- stub -- my_issamepath 
+ -- stub -- my_issamepath 
+ -- stub -- my_issamepath 
+[WARNING] Will not log further calls to my_issamepath
+MMAN: mapped_malloc 0x00200000 start=0x00000000 Chip memory (chip)
+MMAN: Flags: RAM THREADSAFE
+ROM loader.. (<none>)
+read_rom_name /conjurer/FS-UAE/Kickstarts/CD32 Extended-ROM r40.60 (1993)(Commodore)(CD32).rom
+MMAN: mapped_malloc 0x00080000 start=0x00000000 Extended Kickstart ROM (rom_e0)
+MMAN: Flags: ROM THREADSAFE
+read_rom_name /conjurer/FS-UAE/Kickstarts/Kickstart v3.1 r40.60 (1993)(Commodore)(CD32).rom
+Known ROM 'CD32 KS ROM v3.1' loaded
+ROM loader end
+cpuboard_map currprefs.cpuboard_type = 0
+memory init end
+gfx_set_picasso_state 0
+drive_insert drv=0x200bd40 dnum=3 fname=df3.adf fake=0
+drive_insert drv=0x200bd40 dnum=3 fname=df3.adf fake=1
+gui_disk_image_change drive 3 name df3.adf write protected 1
+driveclick_insert drive=3 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 3 <no disk>
+drive_insert drv=0x1fe9720 dnum=2 fname=df2.adf fake=0
+drive_insert drv=0x1fe9720 dnum=2 fname=df2.adf fake=1
+gui_disk_image_change drive 2 name df2.adf write protected 1
+driveclick_insert drive=2 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 2 <no disk>
+drive_insert drv=0x1fc7100 dnum=1 fname=df1.adf fake=0
+drive_insert drv=0x1fc7100 dnum=1 fname=df1.adf fake=1
+gui_disk_image_change drive 1 name df1.adf write protected 1
+driveclick_insert drive=1 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 1 <no disk>
+drive_insert drv=0x1fa4ae0 dnum=0 fname=df0.adf fake=0
+drive_insert drv=0x1fa4ae0 dnum=0 fname=df0.adf fake=1
+gui_disk_image_change drive 0 name df0.adf write protected 1
+driveclick_insert drive=0 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 0 <no disk>
+No disk in drive 0.
+fixup_cpu
+CPU cycleunit: 128 (0.250)
+1870 CPU functions
+Building CPU, 45912 opcodes (2 -2 1)
+JIT: &countdown =  0x47ca500
+JIT: &build_comp = 0x52e940
+JIT: JIT: JIT compiler is not enabled
+CPU=68020, FPU=0, MMU=0, JIT=0. ~cycle-exact 24-bit
+graphics_init
+calling reset_drawing
+init_colors
+init_sound
+ -- stub -- input_get_default_keyboard num=0 return 0
+ -- stub -- input_get_default_keyboard num=1 return 0
+ -- stub -- input_get_default_keyboard num=2 return 0
+ -- stub -- input_get_default_keyboard num=3 return 0
+ -- stub -- input_get_default_keyboard num=4 return 0
+ -- stub -- input_get_default_keyboard num=5 return 0
+ -- stub -- input_get_default_keyboard num=6 return 0
+ -- stub -- input_get_default_keyboard num=7 return 0
+ -- stub -- input_get_default_keyboard num=8 return 0
+ -- stub -- input_get_default_keyboard num=9 return 0
+ -- stub -- input_get_default_keyboard num=10 return 0
+ -- stub -- input_get_default_keyboard num=11 return 0
+ -- stub -- input_get_default_keyboard num=12 return 0
+ -- stub -- input_get_default_keyboard num=13 return 0
+ -- stub -- input_get_default_keyboard num=14 return 0
+ -- stub -- input_get_default_keyboard num=15 return 0
+ -- stub -- input_get_default_keyboard num=16 return 0
+ -- stub -- input_get_default_keyboard num=17 return 0
+ -- stub -- input_get_default_keyboard num=18 return 0
+ -- stub -- input_get_default_keyboard num=19 return 0
+CPU cycleunit: 128 (0.250)
+ -- stub -- target_reset 
+ -- stub -- filesys_addexternals 
+init_shm
+cpuboard_map currprefs.cpuboard_type = 0
+memory init end
+initparallel
+Reset at 00000000. Chipset mask = 00000007
+00000000    2048K/1 =    2048K Chip memory
+00200000    8704K/0 =    8704K <none>
+00A80000     512K/1 =     512K Kickstart ROM (1E62D4A5)
+=CD32 KS ROM v3.1 rev 40.60 (512k)
+00B00000     512K/1 =     512K Extended Kickstart ROM (87746BE2)
+=CD32 extended ROM rev 40.60 (512k)
+00B80000      64K/0 =      64K Akiko
+00B90000     384K/0 =     384K <none>
+00BF0000      64K/0 =      64K CIA
+00C00000    1792K/0 =    1792K <none>
+00DC0000      64K/0 =      64K Battery backed up clock (none)
+00DD0000     128K/0 =     128K Gayle (high)
+00DF0000      64K/0 =      64K Custom chipset
+00E00000     512K/1 =     512K Extended Kickstart ROM (87746BE2)
+=CD32 extended ROM rev 40.60 (512k)
+00E80000      64K/0 =      64K Autoconfig Z2
+00E90000     960K/0 =     960K <none>
+00F80000     512K/1 =     512K Kickstart ROM (1E62D4A5)
+=CD32 KS ROM v3.1 rev 40.60 (512k)
+uae_start_tread "ide" function at 0x4ed090 arg 0x2e99a20
+drive_insert drv=0x200bd40 dnum=3 fname= fake=0
+drive_insert drv=0x200bd40 dnum=3 fname= fake=1
+gui_disk_image_change drive 3 <no disk>
+driveclick_insert drive=3 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 3 <no disk>
+drive_insert drv=0x1fe9720 dnum=2 fname= fake=0
+drive_insert drv=0x1fe9720 dnum=2 fname= fake=1
+gui_disk_image_change drive 2 <no disk>
+driveclick_insert drive=2 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 2 <no disk>
+drive_insert drv=0x1fc7100 dnum=1 fname= fake=0
+drive_insert drv=0x1fc7100 dnum=1 fname= fake=1
+gui_disk_image_change drive 1 <no disk>
+driveclick_insert drive=1 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 1 <no disk>
+drive_insert drv=0x1fa4ae0 dnum=0 fname= fake=0
+drive_insert drv=0x1fa4ae0 dnum=0 fname= fake=1
+gui_disk_image_change drive 0 <no disk>
+driveclick_insert drive=0 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+gui_disk_image_change drive 0 <no disk>
+install_driver flags=2
+CD: setting device_func[0] = devicetable[2]
+IOCTL driver installed, ok=1
+SCSIDEV: unit = 0, name = ./rom/amiga/Banshee (1994)(Core)(M4)[!].zip, fd = -1
+SCSIDEV: path is not a device
+install_driver flags=1
+CD: setting device_func[0] = devicetable[1]
+Image driver open.
+IMAGE driver installed, ok=1
+ -- stub -- my_setcurrentdir curdir="./rom/amiga" oldcur=""
+CUE TOC: './rom/amiga/Banshee (1994)(Core)(M4)[!].zip'
+ 1:       0 00:02:00 DATA     4          0    3631104 
+ - Banshee (1994)(Core)(M4)(Track 1 of 3)[!].iso
+   PREGAP : 00:02:00
+ 2:    1923 00:27:48 CDA      0         44   22108800 
+ - Banshee (1994)(Core)(M4)(Track 2 of 3)[!].wav
+ 3:   11323 02:32:73 CDA      0         44   31817856 
+ - Banshee (1994)(Core)(M4)(Track 3 of 3)[!].wav
+      24851 05:33:26
+uae_start_tread "cdimage_unpack" function at 0x62f7c0 arg (nil)
+using drive IMG:./rom/amiga/Banshee (1994)(Core)(M4)[!].zip (unit 0, media 1)
+uae_start_tread "akiko" function at 0x612580 arg (nil)
+CD32: media changed = 1
+mousehack_reset
+PAL mode V=50.0000Hz H=15625.0881Hz (227x312+0) IDX=10 (PAL) D=0 RTG=0/0
+target_graphics_buffer_update - clearing buffer
+RTGFREQ: 312*50.0000 = 15600.0000 / 50.0 = 312
+[AUDIO] fs_emu_audio_resume_stream 0
+gfx_set_picasso_state 0
+ -- stub -- fpux_restore 
+hardreset, memory cleared
+init_sound
+driveclick_init
+open_sound returning 1
+[AUDIO] Buffer underrun in stream 0
+wait_for_frame_no_netplay: new frame rate 50.00 (time: 20000)
+fs_uae_reconfigure_input_ports_amiga
+sending event to set port 0 to mode 1
+sending event to set port 1 to mode 6
+fs_uae_reconfigure_input_ports_host
+configuring joystick port 0
+* nothing in port
+* FIXME
+configuring joystick port 1
+* nothing in port
+* FIXME
+configuring joystick port 2
+* nothing in port
+* FIXME
+configuring joystick port 3
+* nothing in port
+* FIXME
+configuring joystick port 4
+* nothing in port
+* FIXME
+configuring joystick port 5
+* nothing in port
+* FIXME
+configuring joystick port 6
+* nothing in port
+* FIXME
+configuring joystick port 7
+* nothing in port
+* FIXME
+map_custom_keyboard_actions
+map_custom_joystick_actions
+[INPUT] Map custom joystick actions for keyboard
+[INPUT] Config name "keyboard_0_0_0_0_linux"
+get system config for device: keyboard_0_0_0_0_linux
+checked data "input/keyboard_0_0_0_0_linux.conf" = 3
+config file for keyboard_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "keyboard_0_0_0_0_linux"
+config name "keyboard"
+get system config for device: keyboard
+checked data "input/keyboard.conf" = 0
+read config for keyboard for universal (from data)
+checked data "input/default_keyboard.conf" = 0
+read config for default_keyboard for universal (from data)
+no config for platform universal
+[INPUT] Did not find generic gamepad config for device"keyboard"
+[INPUT] Map custom joystick actions for mouse
+[INPUT] Config name "mouse_0_0_0_0_linux"
+get system config for device: mouse_0_0_0_0_linux
+checked data "input/mouse_0_0_0_0_linux.conf" = 3
+config file for mouse_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "mouse_0_0_0_0_linux"
+config name "mouse"
+get system config for device: mouse
+checked data "input/mouse.conf" = 0
+read config for mouse for universal (from data)
+no config for platform universal
+[INPUT] Did not find generic gamepad config for device"mouse"
+[INPUT] Map custom joystick actions for mouse_logitech_k400
+[INPUT] Config name "mouse_logitech_k400_0_0_0_0_linux"
+get system config for device: mouse_logitech_k400_0_0_0_0_linux
+checked data "input/mouse_logitech_k400_0_0_0_0_linux.conf" = 3
+config file for mouse_logitech_k400_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "mouse_logitech_k400_0_0_0_0_linux"
+config name "mouse_logitech_k400"
+get system config for device: mouse_logitech_k400
+checked data "input/mouse_logitech_k400.conf" = 3
+config file for mouse_logitech_k400 was not found
+[INPUT] Did not find generic gamepad config for device"mouse_logitech_k400"
+amiga_set_joystick_port_mode port=0 mode=1
+fs_uae_reconfigure_input_ports_host
+configuring joystick port 0
+* amiga mouse
+* using device MOUSE
+mapping mouse to port 0
+fs_emu_configure_mouse (device: MOUSE)
+did not match device #0 (Keyboard)
+matched device #1
+configuring joystick port 1
+* nothing in port
+* FIXME
+configuring joystick port 2
+* nothing in port
+* FIXME
+configuring joystick port 3
+* nothing in port
+* FIXME
+configuring joystick port 4
+* nothing in port
+* FIXME
+configuring joystick port 5
+* nothing in port
+* FIXME
+configuring joystick port 6
+* nothing in port
+* FIXME
+configuring joystick port 7
+* nothing in port
+* FIXME
+map_custom_keyboard_actions
+map_custom_joystick_actions
+[INPUT] Map custom joystick actions for keyboard
+[INPUT] Config name "keyboard_0_0_0_0_linux"
+get system config for device: keyboard_0_0_0_0_linux
+checked data "input/keyboard_0_0_0_0_linux.conf" = 3
+config file for keyboard_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "keyboard_0_0_0_0_linux"
+config name "keyboard"
+get system config for device: keyboard
+checked data "input/keyboard.conf" = 0
+read config for keyboard for universal (from data)
+checked data "input/default_keyboard.conf" = 0
+read config for default_keyboard for universal (from data)
+no config for platform universal
+[INPUT] Did not find generic gamepad config for device"keyboard"
+[INPUT] Map custom joystick actions for mouse
+[INPUT] Config name "mouse_0_0_0_0_linux"
+get system config for device: mouse_0_0_0_0_linux
+checked data "input/mouse_0_0_0_0_linux.conf" = 3
+config file for mouse_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "mouse_0_0_0_0_linux"
+config name "mouse"
+get system config for device: mouse
+checked data "input/mouse.conf" = 0
+read config for mouse for universal (from data)
+no config for platform universal
+[INPUT] Did not find generic gamepad config for device"mouse"
+[INPUT] Map custom joystick actions for mouse_logitech_k400
+[INPUT] Config name "mouse_logitech_k400_0_0_0_0_linux"
+get system config for device: mouse_logitech_k400_0_0_0_0_linux
+checked data "input/mouse_logitech_k400_0_0_0_0_linux.conf" = 3
+config file for mouse_logitech_k400_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "mouse_logitech_k400_0_0_0_0_linux"
+config name "mouse_logitech_k400"
+get system config for device: mouse_logitech_k400
+checked data "input/mouse_logitech_k400.conf" = 3
+config file for mouse_logitech_k400 was not found
+[INPUT] Did not find generic gamepad config for device"mouse_logitech_k400"
+amiga_set_joystick_port_mode port=1 mode=6
+fs_uae_reconfigure_input_ports_host
+configuring joystick port 0
+* amiga mouse
+* using device MOUSE
+mapping mouse to port 0
+fs_emu_configure_mouse (device: MOUSE)
+did not match device #0 (Keyboard)
+matched device #1
+configuring joystick port 1
+* amiga cd32 gamepad
+* using device KEYBOARD
+configure joystick "KEYBOARD" for "cd32"
+matched device #0
+config name "Keyboard"
+get system config for device: Keyboard
+checked data "input/Keyboard.conf" = 3
+config file for Keyboard was not found
+did not find config for device "Keyboard"
+config name "keyboard_0_0_0_0_linux"
+get system config for device: keyboard_0_0_0_0_linux
+checked data "input/keyboard_0_0_0_0_linux.conf" = 3
+config file for keyboard_0_0_0_0_linux was not found
+did not find config for device "keyboard_0_0_0_0_linux"
+config name "keyboard"
+get system config for device: keyboard
+checked data "input/keyboard.conf" = 0
+read config for keyboard for cd32 (from data)
+checked data "input/default_keyboard.conf" = 0
+read config for default_keyboard for cd32 (from data)
+did not find action for "default_keyboard"
+key_x (120) => action "blue" (77)
+key_up (273) => action "up" (62)
+key_d (100) => action "green" (74)
+key_down (274) => action "down" (63)
+key_z (122) => action "rewind" (72)
+key_s (115) => action "yellow" (75)
+key_return (13) => action "play" (71)
+key_ralt (307) => action "red" (76)
+key_left (276) => action "left" (60)
+key_a (97) => action "forward" (73)
+key_rctrl (305) => action "red" (76)
+key_right (275) => action "right" (61)
+key_c (99) => action "red" (76)
+configuring joystick port 2
+* nothing in port
+* FIXME
+configuring joystick port 3
+* nothing in port
+* FIXME
+configuring joystick port 4
+* nothing in port
+* FIXME
+configuring joystick port 5
+* nothing in port
+* FIXME
+configuring joystick port 6
+* nothing in port
+* FIXME
+configuring joystick port 7
+* nothing in port
+* FIXME
+map_custom_keyboard_actions
+map_custom_joystick_actions
+[INPUT] Map custom joystick actions for keyboard
+[INPUT] Config name "keyboard_0_0_0_0_linux"
+get system config for device: keyboard_0_0_0_0_linux
+checked data "input/keyboard_0_0_0_0_linux.conf" = 3
+config file for keyboard_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "keyboard_0_0_0_0_linux"
+config name "keyboard"
+get system config for device: keyboard
+checked data "input/keyboard.conf" = 0
+read config for keyboard for universal (from data)
+checked data "input/default_keyboard.conf" = 0
+read config for default_keyboard for universal (from data)
+no config for platform universal
+[INPUT] Did not find generic gamepad config for device"keyboard"
+[INPUT] Map custom joystick actions for mouse
+[INPUT] Config name "mouse_0_0_0_0_linux"
+get system config for device: mouse_0_0_0_0_linux
+checked data "input/mouse_0_0_0_0_linux.conf" = 3
+config file for mouse_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "mouse_0_0_0_0_linux"
+config name "mouse"
+get system config for device: mouse
+checked data "input/mouse.conf" = 0
+read config for mouse for universal (from data)
+no config for platform universal
+[INPUT] Did not find generic gamepad config for device"mouse"
+[INPUT] Map custom joystick actions for mouse_logitech_k400
+[INPUT] Config name "mouse_logitech_k400_0_0_0_0_linux"
+get system config for device: mouse_logitech_k400_0_0_0_0_linux
+checked data "input/mouse_logitech_k400_0_0_0_0_linux.conf" = 3
+config file for mouse_logitech_k400_0_0_0_0_linux was not found
+[INPUT] Did not find generic gamepad config for device "mouse_logitech_k400_0_0_0_0_linux"
+config name "mouse_logitech_k400"
+get system config for device: mouse_logitech_k400
+checked data "input/mouse_logitech_k400.conf" = 3
+config file for mouse_logitech_k400 was not found
+[INPUT] Did not find generic gamepad config for device"mouse_logitech_k400"
+Display Size: 640x480 Offset: 74x36
+First: 26 Last: 0 MinV: 0 MaxV: 0 Min: 26
+[VIDEO] fs_emu_set_video_frame_rate: 50.00 (50)
+[DISPLAY] Sync: g_fs_emu_video_sync_to_vblank = 1
+[DISPLAY] Sync: g_fs_emu_video_allow_full_sync = 1
+[DISPLAY] Sync: Frame rate (50.00) does not equal screen refresh (60)
+fs_ml_video_sync_enable(0)
+[AUDIO] Buffer underrun in stream 0
+SERIAL: period=372, baud=9600, hsyncs=14, bits=8, PC=f8018a
+6888x no FPU: F201-9000 PC=00F80CAC
+B-Trap F201 at 00F80CAC -> 00F80CCC
+PAL mode V=50.0000Hz H=15625.0881Hz (227x312+1) IDX=10 (PAL) D=0 RTG=0/0
+target_graphics_buffer_update - clearing buffer
+Display Size: 724x478 Offset: 6x96
+First: 74 Last: 313 MinV: 72 MaxV: 313 Min: 26
+Display Size: 716x476 Offset: 10x96
+First: 74 Last: 312 MinV: 72 MaxV: 312 Min: 26
+Display Size: 716x478 Offset: 10x96
+First: 74 Last: 313 MinV: 72 MaxV: 313 Min: 26
+Display Size: 716x476 Offset: 10x96
+First: 74 Last: 312 MinV: 72 MaxV: 312 Min: 26
+PAL mode lace V=50.0000Hz H=15625.0881Hz (227x312+1) IDX=10 (PAL) D=0 RTG=0/0
+target_graphics_buffer_update - clearing buffer
+Display Size: 716x478 Offset: 10x96
+First: 74 Last: 313 MinV: 72 MaxV: 313 Min: 26
+[AUDIO] fs_emu_audio_resume_stream 0
+PAL mode V=50.0000Hz H=15625.0881Hz (227x312+1) IDX=10 (PAL) D=0 RTG=0/0
+target_graphics_buffer_update - clearing buffer
+PAL mode V=50.0000Hz H=15625.0881Hz (227x312+1) IDX=10 (PAL) D=0 RTG=0/0
+target_graphics_buffer_update - clearing buffer
+Display Size: 640x512 Offset: 74x36
+First: 44 Last: 300 MinV: 40 MaxV: 313 Min: 26
+[AUDIO] fs_emu_audio_resume_stream 0
+[AUDIO] fs_emu_audio_resume_stream 0
+uae_start_tread "cdimage_cdda_play" function at 0x632b50 arg 0x4c3c3a0
+cda_audio::cda_audio(num_sectors=12)
+WARNING: ignoring samplerate
+IMAGE CDDA: playing from 11323 to 24850, track 3 ('Banshee (1994)(Core)(M4)(Track 3 of 3)[!].wav', offset 44, secoffset 0 (0))
+IMAGE CDDA: track 2 ('Banshee (1994)(Core)(M4)(Track 2 of 3)[!].wav', offset 44, secoffset 9390 (0))
+IMAGE CDDA: track 3 ('Banshee (1994)(Core)(M4)(Track 3 of 3)[!].wav', offset 44, secoffset 0 (0))
+[AUDIO] Buffer underrun in stream 1
+cda_audio::~cda_audio()
+IMAGE CDDA: thread killed
+EMU: Enter menu
+update_main_menu
+CD in 0: ./rom/amiga/Banshee (1994)(Core)(M4)[!].zip
+EMU: Ungrab input
+[INPUT] Releasing input
+update_main_menu
+CD in 0: ./rom/amiga/Banshee (1994)(Core)(M4)[!].zip
+on_quit selected from menu
+fs_emu_quit
+executing quit function
+quit_function
+fs_ml_quit
+running g_quit_function
+calling amiga_quit
+uae_quit
+UAE: Stopping
+ -- stub -- close_joystick 
+ -- stub -- close_mouse 
+ -- stub -- close_kb 
+serial: close fd=-1
+ -- stub -- gui_exit 
+mapped_free nondirect Filesystem autoconfig
+hdf_close_target
+hdf_close_target
+hdf_close_target
+hdf_close_target
+hdf_close_target
+hdf_close_target
+hdf_close_target
+mapped_free nondirect Kickstart ROM
+mapped_free nondirect Chip memory
+ -- stub -- machdep_free 
+real_main returned
+calling filesys_flush_cache
+flushing all file streams
+[CORE] Return from amiga_main
+fs_ml_quit
+fs_ml_quit already called
+calling fs_ml_stop because emu thread is done
+[FSE] fs_emu_run: main loop is done
+[FSE] Waiting for emulation thread to stop...
+[FSE] Emulation thread stopped
+[OPENAL] fs_emu_audio_shutdown
+OPENAL: Stopping stream 0
+OPENAL: Stopping stream 1
+OPENAL: alcDestroyContext
+OPENAL: alcCloseDevice
+[FSE] Returning from fs_emu_run
+fs-uae shutting down, fs_emu_run returned
+state dir /conjurer/FS-UAE/Save States/Default was not removed (non-empty)
+end of main function
