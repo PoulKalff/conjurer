@@ -44,7 +44,7 @@ sudo rm /usr/share/plymouth/themes/default.plymouth
 sudo ln -sf /usr/share/plymouth/themes/arcade-theme/arcade-theme.plymouth /usr/share/plymouth/themes/default.plymouth
 sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/arcade-theme/arcade-theme.plymouth 100
 sudo update-alternatives --config default.plymouth
-	<Vælg theme>
+	<Vaelg theme>
 sudo echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash
 sudo update-initramfs -u
 sudo init 6

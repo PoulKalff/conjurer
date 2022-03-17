@@ -1,1064 +1,1203 @@
-[
-    {
-        "Amiga": [
-            {
-                "name": "Another World",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/AnotherWorld_1.adf",
-                    "rom/amiga/AnotherWorld_2.adf"
-                ],
-                "screenpath": "gfx/amiga/another_world.png"
-            },
-            {
-                "name": "Banshee (CD32)",
-                "players": "2",
-                "model": "cd32",
-                "roms": [
-                    "rom/amiga/Banshee (1994)(Core)(M4)[!].zip"
-                ],
-                "screenpath": "gfx/amiga/banshee.png"
-            },
-            {
-                "name": "Banshee",
-                "players": "2",
-                "model": "a1200",
-                "roms": [
-                    "rom/amiga/Banshee_1.adf",
-                    "rom/amiga/Banshee_2.adf",
-                    "rom/amiga/Banshee_3.adf",
-                    "rom/amiga/Banshee_4.adf"
-                ],
-                "screenpath": "gfx/amiga/banshee.png"
-            },
-            {
-                "name": "Barbarian",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/Barbarian.adf"
-                ],
-                "screenpath": "gfx/amiga/barbarian.png"
-            },
-            {
-                "name": "Barbarian II",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/BarbarianII_1.adf",
-                    "rom/amiga/BarbarianII_2.adf"
-                ],
-                "screenpath": "gfx/amiga/barbarian2.png"
-            },
-            {
-                "name": "Batman - The Caped Crusader",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/Batman-TheCapedCrusader.adf"
-                ],
-                "screenpath": "gfx/amiga/batmantcc.png"
-            },
-            {
-                "name": "Batman - The Movie",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/Batman-TheMovie_1.adf",
-                    "rom/amiga/Batman-TheMovie_2.adf"
-                ],
-                "screenpath": "gfx/amiga/batmantm.png"
-            },
-            {
-                "name": "Battle Squadron",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/BattleSquadron.adf"
-                ],
-                "screenpath": "gfx/amiga/battle_squadron.png"
-            },
-            {
-                "name": "Brian the Lion",
-                "players": "1",
-                "model": "a1200",
-                "roms": [
-                    "rom/amiga/BrianTheLion_1.adf",
-                    "rom/amiga/BrianTheLion_2.adf",
-                    "rom/amiga/BrianTheLion_3.adf"
-                ],
-                "screenpath": "gfx/amiga/brian_the_lion.png"
-            },
-            {
-                "name": "California Games",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/CaliforniaGames_1.adf",
-                    "rom/amiga/CaliforniaGames_2.adf"
-                ],
-                "screenpath": "gfx/amiga/california_games.png"
-            },
-            {
-                "name": "Chip's Challenge",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/ChipsChallenge.adf"
-                ],
-                "screenpath": "gfx/amiga/chips_challenge.png"
-            },
-            {
-                "name": "Fire and Ice",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/FireAndIce.adf"
-                ],
-                "screenpath": "gfx/amiga/fire_and_ice.png"
-            },
-            {
-                "name": "Gods",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/Gods1.adf",
-                    "rom/amiga/Gods2.adf"
-                ],
-                "screenpath": "gfx/amiga/gods.png"
-            },
-            {
-                "name": "Jim Power",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/Jim.Power.in.Mutant.Planet.-.Disk1.adf",
-                    "rom/amiga/Jim.Power.in.Mutant.Planet.-.Disk2.adf"
-                ],
-                "screenpath": "gfx/amiga/jimpower.png"
-            },
-            {
-                "name": "Lotus Esprit II",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/lotus2.adf"
-                ],
-                "screenpath": "gfx/amiga/lotus_esprit_turbo_challenge.png"
-            },
-            {
-                "name": "Midnight Resistance",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/MidnightResistance.adf"
-                ],
-                "screenpath": "gfx/amiga/midnight_resistance.png"
-            },
-            {
-                "name": "Moonstone",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/Moonstone_1.adf",
-                    "rom/amiga/Moonstone_2.adf",
-                    "rom/amiga/Moonstone_3.adf"
-                ],
-                "screenpath": "gfx/amiga/moonstone.png"
-            },
-            {
-                "name": "Myth - History in the Making",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/Myth-HistoryInTheMaking_1.adf",
-                    "rom/amiga/Myth-HistoryInTheMaking_2.adf",
-                    "rom/amiga/Myth-HistoryInTheMaking_3.adf"
-                ],
-                "screenpath": "gfx/amiga/myth.png"
-            },
-            {
-                "name": "Nitro",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/nitro.adf"
-                ],
-                "screenpath": "gfx/amiga/nitro.png"
-            },
-            {
-                "name": "Over the Net",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/OverTheNet.adf"
-                ],
-                "screenpath": "gfx/amiga/over_the_net.png"
-            },
-            {
-                "name": "Overdrive",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/Overdrive_1.adf",
-                    "rom/amiga/Overdrive_2.adf"
-                ],
-                "screenpath": "gfx/amiga/overdrive.png"
-            },
-            {
-                "name": "Paradroid '90",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/Paradroid90.adf"
-                ],
-                "screenpath": "gfx/amiga/paradroid90.png"
-            },
-            {
-                "name": "Prince of Persia",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/PrinceOfPersia.adf"
-                ],
-                "screenpath": "gfx/amiga/prince_of_persia.png"
-            },
-            {
-                "name": "Project X",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/Project-X_SpecialEdition93_1.adf",
-                    "rom/amiga/Project-X_SpecialEdition93_2.adf",
-                    "rom/amiga/Project-X_SpecialEdition93_3.adf"
-                ],
-                "screenpath": "gfx/amiga/project-x.png"
-            },
-            {
-                "name": "Rambo III",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/rambo3.adf"
-                ],
-                "screenpath": "gfx/amiga/rambo3.png"
-            },
-            {
-                "name": "Ruff'nTumble",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/RuffNTumble_1.adf",
-                    "rom/amiga/RuffNTumble_2.adf"
-                ],
-                "screenpath": "gfx/amiga/ruff_n_tumble.png"
-            },
-            {
-                "name": "Skidmarks 2.2.1",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/SkidmarksV221_1.adf",
-                    "rom/amiga/SkidmarksV221_2.adf",
-                    "rom/amiga/SkidmarksV221_3.adf"
-                ],
-                "screenpath": "gfx/amiga/skidmarks.png"
-            },
-            {
-                "name": "Speedball II",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/Speedball2-BrutalDeluxe.adf"
-                ],
-                "screenpath": "gfx/amiga/speedball2.png"
-            },
-            {
-                "name": "Super Cars II",
-                "players": "2",
-                "roms": [
-                    "rom/amiga/SuperCarsII_1.adf",
-                    "rom/amiga/SuperCarsII_2.adf"
-                ],
-                "screenpath": "gfx/amiga/super_cars2.png"
-            },
-            {
-                "name": "Superfrog",
-                "players": "1",
-                "model": "a1200",
-                "roms": [
-                    "rom/amiga/Superfrog_1.adf",
-                    "rom/amiga/Superfrog_2.adf",
-                    "rom/amiga/Superfrog_3.adf",
-                    "rom/amiga/Superfrog_4.adf"
-                ],
-                "screenpath": "gfx/amiga/superfrog.png"
-            },
-            {
-                "name": "Sword of Sodan",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/SwordOfSodan1.adf",
-                    "rom/amiga/SwordOfSodan2.adf",
-                    "rom/amiga/SwordOfSodan3.adf",
-                    "rom/amiga/SwordOfSodan4.adf"
-                ],
-                "screenpath": "gfx/amiga/swordofsodan.jpg"
-            },
-            {
-                "name": "Turrican",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/turrican.adf"
-                ],
-                "screenpath": "gfx/amiga/turrican.png"
-            },
-            {
-                "name": "Turrican II",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/TurricanII_1.adf",
-                    "rom/amiga/TurricanII_2.adf"
-                ],
-                "screenpath": "gfx/amiga/turrican2.png"
-            },
-            {
-                "name": "Turrican III",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/TurricanIII_1.adf",
-                    "rom/amiga/TurricanIII_2.adf"
-                ],
-                "screenpath": "gfx/amiga/turrican3.png"
-            },
-            {
-                "name": "Wings of Fury",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/WingsofFury.adf"
-                ],
-                "screenpath": "gfx/amiga/wings_of_fury.png"
-            },
-            {
-                "name": "X-Out",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/x-out_1.adf",
-                    "rom/amiga/x-out_2.adf"
-                ],
-                "screenpath": "gfx/amiga/x-out.png"
-            },
-            {
-                "name": "Xenon II",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/XenonII-Megablast_1.adf",
-                    "rom/amiga/XenonII-Megablast_2.adf"
-                ],
-                "screenpath": "gfx/amiga/xenon2.png"
-            },
-            {
-                "name": "Z-Out",
-                "players": "1",
-                "roms": [
-                    "rom/amiga/z-out.adf"
-                ],
-                "screenpath": "gfx/amiga/z-out.png"
-            }
-        ],
-        "Arcade": [
-            {
-                "name": "1942",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/1942.zip"
-                ],
-                "screenpath": "gfx/arcade/1942.png"
-            },
-            {
-                "name": "Altered Beast",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/altbeast.zip"
-                ],
-                "screenpath": "gfx/arcade/alteredbeast.png"
-            },
-            {
-                "name": "Arkanoid",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/arkanoid.zip"
-                ],
-                "screenpath": "gfx/arcade/arkanoid.png"
-            },
-            {
-                "name": "Arkanoid 2",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/arknoid2.zip"
-                ],
-                "screenpath": "gfx/arcade/arkanoid2.png"
-            },
-            {
-                "name": "Atomic Robokid",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/robokid.zip"
-                ],
-                "screenpath": "gfx/arcade/atomicRobokid.png"
-            },
-            {
-                "name": "Bad Dudes Vs. Dragonninja",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/baddudes.zip"
-                ],
-                "screenpath": "gfx/arcade/dragonninja.png"
-            },
-            {
-                "name": "Black Tiger",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/blktiger.zip"
-                ],
-                "screenpath": "gfx/arcade/blacktiger.png"
-            },
-            {
-                "name": "Blade Master",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/bmaster.zip"
-                ],
-                "screenpath": "gfx/arcade/blademaster.png"
-            },
-            {
-                "name": "Blades of Steel",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/bladestl.zip"
-                ],
-                "screenpath": "gfx/arcade/bladesofsteel.png"
-            },
-            {
-                "name": "Bomb Jack",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/bombjack.zip"
-                ],
-                "screenpath": "gfx/arcade/bombjack.png"
-            },
-            {
-                "name": "Bomberman World",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/bbmanw.zip"
-                ],
-                "screenpath": "gfx/arcade/bomberman.png"
-            },
-            {
-                "name": "Boulder Dash 90",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/bouldash.zip"
-                ],
-                "screenpath": "gfx/arcade/boulderdash90.png"
-            },
-            {
-                "name": "Bubble Bobble",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/bublbobl.zip"
-                ],
-                "screenpath": "gfx/arcade/bubblebobble.png"
-            },
-            {
-                "name": "Cabal",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/cabal.zip"
-                ],
-                "screenpath": "gfx/arcade/cabal.png"
-            },
-            {
-                "name": "Combat School",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/combatsc.zip"
-                ],
-                "screenpath": "gfx/arcade/combatschool.png"
-            },
-            {
-                "name": "Commando",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/commando.zip"
-                ],
-                "screenpath": "gfx/arcade/commando.png"
-            },
-            {
-                "name": "Crime Fighters",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/crimfght.zip"
-                ],
-                "screenpath": "gfx/arcade/crimefighters.png"
-            },
-            {
-                "name": "Donkey Kong",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/dkong.zip"
-                ],
-                "screenpath": "gfx/arcade/dkong.gif"
-            },
-            {
-                "name": "Double Dragon",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/ddragon.zip"
-                ],
-                "screenpath": "gfx/arcade/ddragon.jpg"
-            },
-            {
-                "name": "Double Dragon 2",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/ddragon2.zip"
-                ],
-                "screenpath": "gfx/arcade/ddragon2.png"
-            },
-            {
-                "name": "Double Dragon 3",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/ddragon3.zip"
-                ],
-                "screenpath": "gfx/arcade/ddragon3.png"
-            },
-            {
-                "name": "Final Fight",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/ffight.zip"
-                ],
-                "screenpath": "gfx/arcade/ffight.png"
-            },
-            {
-                "name": "G-LOC",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/gloc.zip"
-                ],
-                "screenpath": "gfx/arcade/gloc.png"
-            },
-            {
-                "name": "Gauntlet",
-                "players": "4",
-                "roms": [
-                    "rom/arcade/gauntlet.zip"
-                ],
-                "screenpath": "gfx/arcade/gauntlet.png"
-            },
-            {
-                "name": "Gauntlet II",
-                "players": "4",
-                "roms": [
-                    "rom/arcade/gaunt2.zip"
-                ],
-                "screenpath": "gfx/arcade/gauntlet2.png"
-            },
-            {
-                "name": "Ghosts'n Goblins",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/gng.zip"
-                ],
-                "screenpath": "gfx/arcade/ghostngoblins.png"
-            },
-            {
-                "name": "Ghouls'n Ghosts",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/ghouls.zip"
-                ],
-                "screenpath": "gfx/arcade/ghoulsnghosts.gif"
-            },
-            {
-                "name": "Golden Axe",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/goldnaxe.zip"
-                ],
-                "screenpath": "gfx/arcade/goldenaxe.png"
-            },
-            {
-                "name": "Karnov",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/karnov.zip"
-                ],
-                "screenpath": "gfx/arcade/karnov.png"
-            },
-            {
-                "name": "Klax",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/klax.zip"
-                ],
-                "screenpath": "gfx/arcade/klax.png"
-            },
-            {
-                "name": "Kung Fu Master",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/kungfum.zip"
-                ],
-                "screenpath": "gfx/arcade/kungfumaster.png"
-            },
-            {
-                "name": "Loderunner",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/ldrun.zip"
-                ],
-                "screenpath": "gfx/arcade/loderunner.png"
-            },
-            {
-                "name": "Mikie",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/mikie.zip"
-                ],
-                "screenpath": "gfx/arcade/mikie.png"
-            },
-            {
-                "name": "Moon Patrol",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/mpatrol.zip"
-                ],
-                "screenpath": "gfx/arcade/moonpatrol.png"
-            },
-            {
-                "name": "Mortal Kombat 3",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/mk3.zip"
-                ],
-                "screenpath": "gfx/arcade/mk3.png"
-            },
-            {
-                "name": "Mr. Do's Castle",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/docastle.zip"
-                ],
-                "screenpath": "gfx/arcade/mrdo.png"
-            },
-            {
-                "name": "NBA Hangtime",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/nbahangt.zip"
-                ],
-                "screenpath": "gfx/arcade/hangtime.jpg"
-            },
-            {
-                "name": "Nibbler",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/nibbler.zip"
-                ],
-                "screenpath": "gfx/arcade/nibbler.png"
-            },
-            {
-                "name": "Operation Thunderbolt",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/othunder.zip"
-                ],
-                "screenpath": "gfx/arcade/oprthunderbolt.png"
-            },
-            {
-                "name": "Operation Wolf",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/opwolf.zip"
-                ],
-                "screenpath": "gfx/arcade/oprwolf.png"
-            },
-            {
-                "name": "Outrun",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/outrun.zip"
-                ],
-                "screenpath": "gfx/arcade/outrun.png"
-            },
-            {
-                "name": "Pacman Plus",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/pacplus.zip"
-                ],
-                "screenpath": "gfx/arcade/pacman.png"
-            },
-            {
-                "name": "Pang",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/pang.zip"
-                ],
-                "screenpath": "gfx/arcade/pang.png"
-            },
-            {
-                "name": "Paperboy",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/paperboy.zip"
-                ],
-                "screenpath": "gfx/arcade/paperboy.png"
-            },
-            {
-                "name": "Plotting",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/plotting.zip"
-                ],
-                "screenpath": "gfx/arcade/plotting.png"
-            },
-            {
-                "name": "Powerdrift",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/pdrift.zip"
-                ],
-                "screenpath": "gfx/arcade/pdrift.png"
-            },
-            {
-                "name": "Prehistoric Isle",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/prehisle.zip"
-                ],
-                "screenpath": "gfx/arcade/prehistisle.png"
-            },
-            {
-                "name": "Puzznic",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/puzznic.zip"
-                ],
-                "screenpath": "gfx/arcade/puzznic.png"
-            },
-            {
-                "name": "R-type",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/rtype.zip"
-                ],
-                "screenpath": "gfx/arcade/rtype.png"
-            },
-            {
-                "name": "R-type 2",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/rtype2.zip"
-                ],
-                "screenpath": "gfx/arcade/rtype2.png"
-            },
-            {
-                "name": "Rainbow Islands",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/rbisland.zip"
-                ],
-                "screenpath": "gfx/arcade/rainbowislands.png"
-            },
-            {
-                "name": "Rampage",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/rampage.zip"
-                ],
-                "screenpath": "gfx/arcade/rampage.png"
-            },
-            {
-                "name": "Saint Dragon",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/stdragon.zip"
-                ],
-                "screenpath": "gfx/arcade/stdragon.png"
-            },
-            {
-                "name": "Salamander",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/salamand.zip"
-                ],
-                "screenpath": "gfx/arcade/salamander.png"
-            },
-            {
-                "name": "Salamander 2",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/salmndr2.zip"
-                ],
-                "screenpath": "gfx/arcade/salamander2.gif"
-            },
-            {
-                "name": "Shadow Dancer",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/shdancer.zip"
-                ],
-                "screenpath": "gfx/arcade/shadowdancer.png"
-            },
-            {
-                "name": "Shadow Warriors",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/shadoww.zip"
-                ],
-                "screenpath": "gfx/arcade/shadowwarriors.png"
-            },
-            {
-                "name": "Shinobi",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/shinobi.zip"
-                ],
-                "screenpath": "gfx/arcade/shinobi.png"
-            },
-            {
-                "name": "Space Invaders",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/invaders.zip"
-                ],
-                "screenpath": "gfx/arcade/spaceinvaders.png"
-            },
-            {
-                "name": "Splatterhouse",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/splatter.zip"
-                ],
-                "screenpath": "gfx/arcade/splatterhouse.jpg"
-            },
-            {
-                "name": "Street Fighter 2",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/sf2ce.zip"
-                ],
-                "screenpath": "gfx/arcade/streetfigther2.jpg"
-            },
-            {
-                "name": "Super Sidekicks",
-                "players": "2",
-                "roms": [
-                    "rom/arcade/ssideki2.zip"
-                ],
-                "screenpath": "gfx/arcade/ssidekicks.png"
-            },
-            {
-                "name": "Tetris",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/tetris.zip"
-                ],
-                "screenpath": "gfx/arcade/tetris.png"
-            },
-            {
-                "name": "Toki",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/toki.zip"
-                ],
-                "screenpath": "gfx/arcade/toki.png"
-            },
-            {
-                "name": "Turbo Outrun",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/toutrun.zip"
-                ],
-                "screenpath": "gfx/arcade/turbooutrun.jpg"
-            },
-            {
-                "name": "Volfied",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/volfied.zip"
-                ],
-                "screenpath": "gfx/arcade/volfied.png"
-            },
-            {
-                "name": "Wonderboy",
-                "players": "1",
-                "roms": [
-                    "rom/arcade/wboy.zip"
-                ],
-                "screenpath": "gfx/arcade/wonderboy.png"
-            }
-        ],
-        "C64": [
-            {
-                "name": "Aztec Challenge",
-                "system": "C64",
-                "players": "1",
-                "roms": [
-                    "rom/c64/azteca.t64"
-                ],
-                "screenpath": "gfx/c64/aztec_challenge.png"
-            },
-            {
-                "name": "Beamrider",
-                "players": "1",
-                "roms": [
-                    "rom/c64/beamrider.d64"
-                ],
-                "screenpath": "gfx/c64/beamrider.gif"
-            },
-            {
-                "name": "Blue Max",
-                "players": "1",
-                "roms": [
-                    "rom/c64/bluemax.t64"
-                ],
-                "screenpath": "gfx/c64/blue_max.gif"
-            },
-            {
-                "name": "Bruce Lee",
-                "players": "1",
-                "roms": [
-                    "rom/c64/brucelee.t64"
-                ],
-                "screenpath": "gfx/c64/brucelee.gif"
-            },
-            {
-                "name": "Buggy Boy",
-                "players": "1",
-                "roms": [
-                    "rom/c64/buggyboy.d64"
-                ],
-                "screenpath": "gfx/c64/buggyboy.gif"
-            },
-            {
-                "name": "Commando",
-                "players": "1",
-                "roms": [
-                    "rom/c64/commando.d64"
-                ],
-                "screenpath": "gfx/c64/commando.gif"
-            },
-            {
-                "name": "Denaris",
-                "players": "2",
-                "roms": [
-                    "rom/c64/denaris.d64"
-                ],
-                "screenpath": "gfx/c64/denaris.gif"
-            },
-            {
-                "name": "Gringos",
-                "players": "2",
-                "roms": [
-                    "rom/c64/gringos.t64"
-                ],
-                "screenpath": "gfx/c64/gringos.png"
-            },
-            {
-                "name": "IK+",
-                "players": "2",
-                "roms": [
-                    "rom/c64/ikplus.d64"
-                ],
-                "screenpath": "gfx/c64/ikplus.gif"
-            },
-            {
-                "name": "Krakout",
-                "players": "1",
-                "roms": [
-                    "rom/c64/krakout.d64"
-                ],
-                "screenpath": "gfx/c64/krakout.gif"
-            },
-            {
-                "name": "Last Ninja",
-                "players": "1",
-                "roms": [
-                    "rom/c64/lastninja.d64"
-                ],
-                "screenpath": "gfx/c64/last_ninja.gif"
-            },
-            {
-                "name": "Last Ninja 2",
-                "players": "1",
-                "roms": [
-                    "rom/c64/lastn2-1.d64",
-                    "rom/c64/lastn2-2.d64"
-                ],
-                "screenpath": "gfx/c64/last_ninja2.gif"
-            },
-            {
-                "name": "Leaderboad Golf",
-                "players": "2",
-                "roms": [
-                    "rom/c64/myth.d64"
-                ],
-                "screenpath": "gfx/c64/leaderboard.gif"
-            },
-            {
-                "name": "Microprose Soccer",
-                "players": "2",
-                "roms": [
-                    "rom/c64/microsoc.d64"
-                ],
-                "screenpath": "gfx/c64/microprosesoccer.gif"
-            },
-            {
-                "name": "Montezuma's Revenge",
-                "players": "1",
-                "roms": [
-                    "rom/c64/montezum.t64"
-                ],
-                "screenpath": "gfx/c64/montezumas.gif"
-            },
-            {
-                "name": "Myth",
-                "players": "1",
-                "roms": [
-                    "rom/c64/myth.d64"
-                ],
-                "screenpath": "gfx/c64/myth.gif"
-            },
-            {
-                "name": "North and South",
-                "players": "1",
-                "roms": [
-                    "rom/c64/northsouth.d64"
-                ],
-                "screenpath": "gfx/c64/north_and_south.gif"
-            },
-            {
-                "name": "Paperboy",
-                "players": "1",
-                "roms": [
-                    "rom/c64/paperboy.d64"
-                ],
-                "screenpath": "gfx/c64/paperboy.gif"
-            },
-            {
-                "name": "Pitstop 2",
-                "players": "1",
-                "roms": [
-                    "rom/c64/pitstop2.t64"
-                ],
-                "screenpath": "gfx/c64/pitstop2.gif"
-            },
-            {
-                "name": "Slimey's Mine",
-                "players": "1",
-                "roms": [
-                    "rom/c64/slimey.t64"
-                ],
-                "screenpath": "gfx/c64/slimeysmine.gif"
-            },
-            {
-                "name": "Target; Renegade",
-                "players": "1",
-                "roms": [
-                    "rom/c64/target_renegade.d64"
-                ],
-                "screenpath": "gfx/c64/targetrenegade.gif"
-            },
-            {
-                "name": "The Great Giana Sisters",
-                "players": "1",
-                "roms": [
-                    "rom/c64/gianasisters.t64"
-                ],
-                "screenpath": "gfx/c64/giana.gif"
-            }
-        ]
-    }
-]
+[{
+	"Amiga": [{
+			"name": "Alien Breed - Tower Assault",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Alien Breed - Tower Assault (1994)(Team 17)(OCS-AGA)(Disk 1 of 4)[cr PDX].adf",
+				"rom/amiga/Alien Breed - Tower Assault (1994)(Team 17)(OCS-AGA)(Disk 2 of 4)[cr PDX].adf",
+				"rom/amiga/Alien Breed - Tower Assault (1994)(Team 17)(OCS-AGA)(Disk 3 of 4)[cr PDX].adf",
+				"rom/amiga/Alien Breed - Tower Assault (1994)(Team 17)(OCS-AGA)(Disk 4 of 4)[cr PDX].adf"
+			],
+			"screenpath": "gfx/amiga/alienbreedtowerassault.png"
+		},
+		{
+			"name": "Shadow of the Beast III",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Shadow of the Beast III (1992)(Psygnosis)[m][ISO].zip"
+			],
+			"screenpath": "gfx/amiga/shadowofthebeast3.png"
+		},
+		{
+			"name": "Rise of the Robots",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Rise of the Robots (1994)(Time Warner Interactive)[!].zip"
+			],
+			"screenpath": "gfx/amiga/riseoftherobots.png"
+		},
+		{
+			"name": "Apidya",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip"
+			],
+			"screenpath": "gfx/amiga/apidya.png"
+		},
+		{
+			"name": "The Chaos Engine",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Chaos Engine, The (1994)(Renegade)[!][CDD3445].zip"
+			],
+			"screenpath": "gfx/amiga/thechaosengine.png"
+		},
+		{
+			"name": "The Chaos Engine 2",
+			"players": "1",
+			"model": "a1200",
+			"roms": [
+				"rom/amiga/Chaos Engine 2, The (1996)(Renegade)(AGA)(Disk 1 of 3)[cr LFC].adf",
+				"rom/amiga/Chaos Engine 2, The (1996)(Renegade)(AGA)(Disk 2 of 3)[cr LFC].adf",
+				"rom/amiga/Chaos Engine 2, The (1996)(Renegade)(AGA)(Disk 3 of 3)[cr LFC].adf"
+			],
+			"screenpath": "gfx/amiga/thechaosengine2.png"
+		},
+		{
+			"name": "Chuck Rock",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Chuck Rock (1994)(Core)[!].zip"
+			],
+			"screenpath": "gfx/amiga/chuckrock.png"
+		},
+		{
+			"name": "Chuck Rock II",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Chuck Rock II - Son of Chuck (1994)(Core)[!].zip"
+			],
+			"screenpath": "gfx/amiga/chuckrock2.png"
+		},
+		{
+			"name": "Classic Lotus Trilogy",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Classic Lotus Trilogy, The (1994)(Gremlin)(PAL)[!][compilation].zip"
+			],
+			"screenpath": "gfx/amiga/lotus.png"
+		},
+		{
+			"name": "Fury of the Furries",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Fury of the Furries (1994)(Kalisto - Mindscape)[!].zip"
+			],
+			"screenpath": "gfx/amiga/furyofthefurries.png"
+		},
+		{
+			"name": "Super Skidmarks",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Super Skidmarks v2.2 (1995)(Acid Software)[!][GH 1 10 AUG 95].zip"
+			],
+			"screenpath": "gfx/amiga/skidmarks.png"
+		},
+		{
+			"name": "Wrath of the Demon",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Wrath of the Demon (1990)(ReadySoft)[!].zip"
+			],
+			"screenpath": "gfx/amiga/wrathofthedemon.png"
+		},
+		{
+			"name": "Zool 2",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Zool 2 (1994)(Gremlin)[!].zip"
+			],
+			"screenpath": "gfx/amiga/zool2.png"
+		},
+		{
+			"name": "Zool",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Zool - Ninja of the Nth Dimension (1993)(Gremlin)(PAL)[!].zip"
+			],
+			"screenpath": "gfx/amiga/zool.png"
+		},
+		{
+			"name": "Another World",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Another World (1991)(Delphine - U.S. Gold)(Disk 1 of 2)[cr CSL].adf",
+				"rom/amiga/Another World (1991)(Delphine - U.S. Gold)(Disk 2 of 2)[cr CSL].adf"
+			],
+			"screenpath": "gfx/amiga/another_world.png"
+		},
+		{
+			"name": "Banshee",
+			"players": "2",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Banshee (1994)(Core)(M4)[!].zip"
+			],
+			"screenpath": "gfx/amiga/banshee.png"
+		},
+		{
+			"name": "Barbarian",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Barbarian - The Ultimate Warrior (1988)(Palace)[cr BS1 - TKT - INR].adf"
+			],
+			"screenpath": "gfx/amiga/barbarian.png"
+		},
+		{
+			"name": "Barbarian II",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Barbarian II - The Dungeon of Drax (1989)(Palace)(Disk 1 of 2)[cr ACC][a].adf",
+				"rom/amiga/Barbarian II - The Dungeon of Drax (1989)(Palace)(Disk 2 of 2)[cr ACC][a].adf"
+			],
+			"screenpath": "gfx/amiga/barbarian2.png"
+		},
+		{
+			"name": "Batman - The Caped Crusader",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Batman - The Caped Crusader (1988)(Ocean)[cr QTX].adf"
+			],
+			"screenpath": "gfx/amiga/batmantcc.png"
+		},
+		{
+			"name": "Parasol Stars",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Parasol Stars - Rainbow Islands 2 (1992)(Ocean)[cr SKR][m Ridge][t SKR][req. 2Mb Fast RAM - mouse][ISO].zip"
+			],
+			"screenpath": "gfx/amiga/parasolstars.png"
+		},
+		{
+			"name": "Magic Pockets",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Magic Pockets v1.00 (1991-09-11)(Renegade)[cr CSL][t +4 LGD].adf"
+			],
+			"screenpath": "gfx/amiga/magicpockets.png"
+		},
+		{
+			"name": "Batman - The Movie",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Batman - The Movie (1989)(Ocean)(Disk 1 of 2)[cr Dragons].adf",
+				"rom/amiga/Batman - The Movie (1989)(Ocean)(Disk 2 of 2)[cr Dragons].adf"
+			],
+			"screenpath": "gfx/amiga/batmantm.png"
+		},
+		{
+			"name": "Battle Squadron",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Battle Squadron - The Destruction of the Barrax Empire! (1989)(Innerprise)[cr CP].adf"
+			],
+			"screenpath": "gfx/amiga/battle_squadron.png"
+		},
+		{
+			"name": "Brian the Lion",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Brian the Lion Starring in Rumble in the Jungle (1994)(Psygnosis)(M4)[!].zip"
+			],
+			"screenpath": "gfx/amiga/brian_the_lion.png"
+		},
+		{
+			"name": "California Games",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/California Games (1989)(Epyx - U.S. Gold)(Disk 1 of 2)(Program)[cr WOW].adf",
+				"rom/amiga/California Games (1989)(Epyx - U.S. Gold)(Disk 2 of 2)(Data)[cr WOW].adf"
+			],
+			"screenpath": "gfx/amiga/california_games.png"
+		},
+		{
+			"name": "Chip's Challenge",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Chips Challenge (1990)(Epyx - U.S. Gold)[cr CSL].adf"
+			],
+			"screenpath": "gfx/amiga/chips_challenge.png"
+		},
+		{
+			"name": "Fire and Ice",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Fire & Ice - The Daring Adventures of Cool Coyote (1994)(Renegade)[!].zip"
+			],
+			"screenpath": "gfx/amiga/fire_and_ice.png"
+		},
+		{
+			"name": "Gods",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Gods v1.00 (1991-03-28)(Renegade)(Disk 1 of 2)[cr CSL][t +7 Setrox].adf",
+				"rom/amiga/Gods v1.00 (1991-03-28)(Renegade)(Disk 2 of 2)[cr CSL][t +7 Setrox].adf"
+			],
+			"screenpath": "gfx/amiga/gods.png"
+		},
+		{
+			"name": "Jim Power",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Jim Power in Mutant Planet (1992)(Loriciel)(Disk 1 of 2)[cr FLT][t +32 ATX].adf",
+				"rom/amiga/Jim Power in Mutant Planet (1992)(Loriciel)(Disk 2 of 2)[cr FLT][t +32 ATX].adf"
+			],
+			"screenpath": "gfx/amiga/jimpower.png"
+		},
+		{
+			"name": "Midnight Resistance",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Midnight Resistance (1990)(Ocean)[cr HZ - TSL][f NTSC HZ - TSL][t HZ - TSL][a2].adf"
+			],
+			"screenpath": "gfx/amiga/midnight_resistance.png"
+		},
+		{
+			"name": "Moonstone",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Moonstone - A Hard Day's Knight (1991)(Mindscape)(Disk 1 of 3)[cr CSL][f AGA LSA].adf",
+				"rom/amiga/Moonstone - A Hard Day's Knight (1991)(Mindscape)(Disk 2 of 3)[cr CSL][f AGA LSA].adf",
+				"rom/amiga/Moonstone - A Hard Day's Knight (1991)(Mindscape)(Disk 3 of 3)[cr CSL][f AGA LSA].adf"
+			],
+			"screenpath": "gfx/amiga/moonstone.png"
+		},
+		{
+			"name": "Myth - History in the Making",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Myth - History in the Making (1994)(System 3)[!].zip"
+			],
+			"screenpath": "gfx/amiga/myth.png"
+		},
+		{
+			"name": "Nitro",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Nitro (1990)(Psygnosis)(Disk 1 of 2)[cr QTX][h Spaikers].adf",
+				"rom/amiga/Nitro (1990)(Psygnosis)(Disk 2 of 2)[cr QTX][h Spaikers].adf"
+			],
+			"screenpath": "gfx/amiga/nitro.png"
+		},
+		{
+			"name": "Over the Net",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Over the Net (1990)(Genias)(PAL)[cr SR - Valhalla].adf"
+			],
+			"screenpath": "gfx/amiga/over_the_net.png"
+		},
+		{
+			"name": "Overdrive",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Overdrive (1993)(Team 17)(Disk 1 of 3)[cr FLT].adf",
+				"rom/amiga/Overdrive (1993)(Team 17)(Disk 2 of 3)[cr FLT].adf",
+				"rom/amiga/Overdrive (1993)(Team 17)(Disk 3 of 3)[cr FLT].adf"
+			],
+			"screenpath": "gfx/amiga/overdrive.png"
+		},
+		{
+			"name": "Paradroid '90",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Paradroid 90 (1990)(Hewson)[cr CLS][t +3 TWF].adf"
+			],
+			"screenpath": "gfx/amiga/paradroid90.png"
+		},
+		{
+			"name": "Prince of Persia",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Prince of Persia v1.0 (1991)(Domark)[cr Angels][f AGA SR][t +2 Angels].adf"
+			],
+			"screenpath": "gfx/amiga/prince_of_persia.png"
+		},
+		{
+			"name": "Project X",
+			"players": "2",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Project-X & Ultimate Body Blows (1994)(Team 17)[!][compilation].zip"
+			],
+			"screenpath": "gfx/amiga/project-x.png"
+		},
+		{
+			"name": "Rambo III",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Rambo III (1989)(Ocean)[cr Band][t +4 Band][a2].adf"
+			],
+			"screenpath": "gfx/amiga/rambo3.png"
+		},
+		{
+			"name": "RuffnTumble",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Ruff n Tumble (1994)(Renegade)(Disk 1 of 2)[cr PDX].adf",
+				"rom/amiga/Ruff n Tumble (1994)(Renegade)(Disk 2 of 2)[cr PDX].adf"
+			],
+			"screenpath": "gfx/amiga/ruff_n_tumble.png"
+		},
+		{
+			"name": "Speedball II",
+			"players": "2",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Speedball 2 (1995)(Renegade)[!].zip"
+			],
+			"screenpath": "gfx/amiga/speedball2.png"
+		},
+		{
+			"name": "Super Cars II",
+			"players": "2",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Super Cars II (1991)(Gremlin)(Disk 1 of 2)[cr SR][f AGA Motion].adf",
+				"rom/amiga/Super Cars II (1991)(Gremlin)(Disk 2 of 2)[cr SR][f AGA Motion].adf"
+			],
+			"screenpath": "gfx/amiga/super_cars2.png"
+		},
+		{
+			"name": "Superfrog",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Superfrog (1994)(Team 17)[!].zip"
+			],
+			"screenpath": "gfx/amiga/superfrog.png"
+		},
+		{
+			"name": "Sword of Sodan",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Sword of Sodan (1988)(Discovery)(Disk 1 of 4)[cr QTX][t +2 MFC].adf",
+				"rom/amiga/Sword of Sodan (1988)(Discovery)(Disk 2 of 4)[cr QTX][t +2 MFC].adf",
+				"rom/amiga/Sword of Sodan (1988)(Discovery)(Disk 3 of 4)[cr QTX][t +2 MFC].adf",
+				"rom/amiga/Sword of Sodan (1988)(Discovery)(Disk 4 of 4)[cr QTX][t +2 MFC].adf"
+			],
+			"screenpath": "gfx/amiga/swordofsodan.jpg"
+		},
+		{
+			"name": "Turrican",
+			"players": "1",
+			"model": "cd32",
+			"roms": [
+				"rom/amiga/Turrican (1992)(Rainbow Arts).zip"
+			],
+			"screenpath": "gfx/amiga/turrican.png"
+		},
+		{
+			"name": "Turrican II",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Turrican II - The Final Fight (1991)(Rainbow Arts)(Disk 1 of 2)[m HD Divine][t +2 Divine][HD].adf",
+				"rom/amiga/Turrican II - The Final Fight (1991)(Rainbow Arts)(Disk 2 of 2)[m HD Divine][t +2 Divine][HD].adf"
+			],
+			"screenpath": "gfx/amiga/turrican2.png"
+		},
+		{
+			"name": "Turrican III",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Turrican 3 (1993)(Softgold)(DE)(en)(Disk 1 of 2)[cr Two Live Crew][t +11 Two Live Crew].adf",
+				"rom/amiga/Turrican 3 (1993)(Softgold)(DE)(en)(Disk 2 of 2)[cr Two Live Crew][t +11 Two Live Crew].adf"
+			],
+			"screenpath": "gfx/amiga/turrican3.png"
+		},
+		{
+			"name": "Wings of Fury",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Wings of Fury (1990)(Broderbund)[cr Hysteria][t +2 Full Evil].adf"
+			],
+			"screenpath": "gfx/amiga/wings_of_fury.png"
+		},
+		{
+			"name": "X-Out",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/X-Out (1990)(Rainbow Arts)(Disk 1 of 2)[cr PNA].adf",
+				"rom/amiga/X-Out (1990)(Rainbow Arts)(Disk 2 of 2)[cr PNA].adf"
+			],
+			"screenpath": "gfx/amiga/x-out.png"
+		},
+		{
+			"name": "Xenon II",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Xenon 2 - Megablast (1989)(Image Works)(Disk 1 of 2)[cr Flashtro][t +16 Flashtro].adf",
+				"rom/amiga/Xenon 2 - Megablast (1989)(Image Works)(Disk 2 of 2).adf"
+			],
+			"screenpath": "gfx/amiga/xenon2.png"
+		},
+		{
+			"name": "Z-Out",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Z-Out (1991)(Rainbow Arts)(Disk 2 of 2)[cr SR][a].adf"
+			],
+			"screenpath": "gfx/amiga/z-out.png"
+		}
+	],
+	"Arcade": [{
+			"name": "1942",
+			"players": "1",
+			"roms": [
+				"rom/arcade/1942.zip"
+			],
+			"screenpath": "gfx/arcade/1942.png"
+		},
+		{
+			"name": "Altered Beast",
+			"players": "2",
+			"roms": [
+				"rom/arcade/altbeast.zip"
+			],
+			"screenpath": "gfx/arcade/alteredbeast.png"
+		},
+		{
+			"name": "Arkanoid",
+			"players": "1",
+			"roms": [
+				"rom/arcade/arkanoid.zip"
+			],
+			"screenpath": "gfx/arcade/arkanoid.png"
+		},
+		{
+			"name": "Arkanoid 2",
+			"players": "1",
+			"roms": [
+				"rom/arcade/arknoid2.zip"
+			],
+			"screenpath": "gfx/arcade/arkanoid2.png"
+		},
+		{
+			"name": "Atomic Robokid",
+			"players": "1",
+			"roms": [
+				"rom/arcade/robokid.zip"
+			],
+			"screenpath": "gfx/arcade/atomicRobokid.png"
+		},
+		{
+			"name": "Bad Dudes Vs. Dragonninja",
+			"players": "2",
+			"roms": [
+				"rom/arcade/baddudes.zip"
+			],
+			"screenpath": "gfx/arcade/dragonninja.png"
+		},
+		{
+			"name": "Black Tiger",
+			"players": "1",
+			"roms": [
+				"rom/arcade/blktiger.zip"
+			],
+			"screenpath": "gfx/arcade/blacktiger.png"
+		},
+		{
+			"name": "Blade Master",
+			"players": "2",
+			"roms": [
+				"rom/arcade/bmaster.zip"
+			],
+			"screenpath": "gfx/arcade/blademaster.png"
+		},
+		{
+			"name": "Blades of Steel",
+			"players": "2",
+			"roms": [
+				"rom/arcade/bladestl.zip"
+			],
+			"screenpath": "gfx/arcade/bladesofsteel.png"
+		},
+		{
+			"name": "Bomb Jack",
+			"players": "1",
+			"roms": [
+				"rom/arcade/bombjack.zip"
+			],
+			"screenpath": "gfx/arcade/bombjack.png"
+		},
+		{
+			"name": "Bomberman World",
+			"players": "1",
+			"roms": [
+				"rom/arcade/bbmanw.zip"
+			],
+			"screenpath": "gfx/arcade/bomberman.png"
+		},
+		{
+			"name": "Boulder Dash 90",
+			"players": "1",
+			"roms": [
+				"rom/arcade/bouldash.zip"
+			],
+			"screenpath": "gfx/arcade/boulderdash90.png"
+		},
+		{
+			"name": "Bubble Bobble",
+			"players": "2",
+			"roms": [
+				"rom/arcade/bublbobl.zip"
+			],
+			"screenpath": "gfx/arcade/bubblebobble.png"
+		},
+		{
+			"name": "Cabal",
+			"players": "2",
+			"roms": [
+				"rom/arcade/cabal.zip"
+			],
+			"screenpath": "gfx/arcade/cabal.png"
+		},
+		{
+			"name": "Combat School",
+			"players": "2",
+			"roms": [
+				"rom/arcade/combatsc.zip"
+			],
+			"screenpath": "gfx/arcade/combatschool.png"
+		},
+		{
+			"name": "Commando",
+			"players": "1",
+			"roms": [
+				"rom/arcade/commando.zip"
+			],
+			"screenpath": "gfx/arcade/commando.png"
+		},
+		{
+			"name": "Crime Fighters",
+			"players": "2",
+			"roms": [
+				"rom/arcade/crimfght.zip"
+			],
+			"screenpath": "gfx/arcade/crimefighters.png"
+		},
+		{
+			"name": "Donkey Kong",
+			"players": "1",
+			"roms": [
+				"rom/arcade/dkong.zip"
+			],
+			"screenpath": "gfx/arcade/dkong.gif"
+		},
+		{
+			"name": "Double Dragon",
+			"players": "2",
+			"roms": [
+				"rom/arcade/ddragon.zip"
+			],
+			"screenpath": "gfx/arcade/ddragon.jpg"
+		},
+		{
+			"name": "Double Dragon 2",
+			"players": "2",
+			"roms": [
+				"rom/arcade/ddragon2.zip"
+			],
+			"screenpath": "gfx/arcade/ddragon2.png"
+		},
+		{
+			"name": "Double Dragon 3",
+			"players": "2",
+			"roms": [
+				"rom/arcade/ddragon3.zip"
+			],
+			"screenpath": "gfx/arcade/ddragon3.png"
+		},
+		{
+			"name": "Final Fight",
+			"players": "2",
+			"roms": [
+				"rom/arcade/ffight.zip"
+			],
+			"screenpath": "gfx/arcade/ffight.png"
+		},
+		{
+			"name": "G-LOC",
+			"players": "1",
+			"roms": [
+				"rom/arcade/gloc.zip"
+			],
+			"screenpath": "gfx/arcade/gloc.png"
+		},
+		{
+			"name": "Gauntlet",
+			"players": "4",
+			"roms": [
+				"rom/arcade/gauntlet.zip"
+			],
+			"screenpath": "gfx/arcade/gauntlet.png"
+		},
+		{
+			"name": "Gauntlet II",
+			"players": "4",
+			"roms": [
+				"rom/arcade/gaunt2.zip"
+			],
+			"screenpath": "gfx/arcade/gauntlet2.png"
+		},
+		{
+			"name": "Ghosts'n Goblins",
+			"players": "1",
+			"roms": [
+				"rom/arcade/gng.zip"
+			],
+			"screenpath": "gfx/arcade/ghostngoblins.png"
+		},
+		{
+			"name": "Ghouls'n Ghosts",
+			"players": "1",
+			"roms": [
+				"rom/arcade/ghouls.zip"
+			],
+			"screenpath": "gfx/arcade/ghoulsnghosts.gif"
+		},
+		{
+			"name": "Golden Axe",
+			"players": "2",
+			"roms": [
+				"rom/arcade/goldnaxe.zip"
+			],
+			"screenpath": "gfx/arcade/goldenaxe.png"
+		},
+		{
+			"name": "Karnov",
+			"players": "1",
+			"roms": [
+				"rom/arcade/karnov.zip"
+			],
+			"screenpath": "gfx/arcade/karnov.png"
+		},
+		{
+			"name": "Klax",
+			"players": "1",
+			"roms": [
+				"rom/arcade/klax.zip"
+			],
+			"screenpath": "gfx/arcade/klax.png"
+		},
+		{
+			"name": "Kung Fu Master",
+			"players": "1",
+			"roms": [
+				"rom/arcade/kungfum.zip"
+			],
+			"screenpath": "gfx/arcade/kungfumaster.png"
+		},
+		{
+			"name": "Loderunner",
+			"players": "1",
+			"roms": [
+				"rom/arcade/ldrun.zip"
+			],
+			"screenpath": "gfx/arcade/loderunner.png"
+		},
+		{
+			"name": "Mikie",
+			"players": "1",
+			"roms": [
+				"rom/arcade/mikie.zip"
+			],
+			"screenpath": "gfx/arcade/mikie.png"
+		},
+		{
+			"name": "Moon Patrol",
+			"players": "1",
+			"roms": [
+				"rom/arcade/mpatrol.zip"
+			],
+			"screenpath": "gfx/arcade/moonpatrol.png"
+		},
+		{
+			"name": "Mortal Kombat 3",
+			"players": "2",
+			"roms": [
+				"rom/arcade/mk3.zip"
+			],
+			"screenpath": "gfx/arcade/mk3.png"
+		},
+		{
+			"name": "Mr. Do's Castle",
+			"players": "1",
+			"roms": [
+				"rom/arcade/docastle.zip"
+			],
+			"screenpath": "gfx/arcade/mrdo.png"
+		},
+		{
+			"name": "NBA Hangtime",
+			"players": "2",
+			"roms": [
+				"rom/arcade/nbahangt.zip"
+			],
+			"screenpath": "gfx/arcade/hangtime.jpg"
+		},
+		{
+			"name": "Nibbler",
+			"players": "1",
+			"roms": [
+				"rom/arcade/nibbler.zip"
+			],
+			"screenpath": "gfx/arcade/nibbler.png"
+		},
+		{
+			"name": "Operation Thunderbolt",
+			"players": "2",
+			"roms": [
+				"rom/arcade/othunder.zip"
+			],
+			"screenpath": "gfx/arcade/oprthunderbolt.png"
+		},
+		{
+			"name": "Operation Wolf",
+			"players": "2",
+			"roms": [
+				"rom/arcade/opwolf.zip"
+			],
+			"screenpath": "gfx/arcade/oprwolf.png"
+		},
+		{
+			"name": "Outrun",
+			"players": "1",
+			"roms": [
+				"rom/arcade/outrun.zip"
+			],
+			"screenpath": "gfx/arcade/outrun.png"
+		},
+		{
+			"name": "Pacman Plus",
+			"players": "1",
+			"roms": [
+				"rom/arcade/pacplus.zip"
+			],
+			"screenpath": "gfx/arcade/pacman.png"
+		},
+		{
+			"name": "Pang",
+			"players": "2",
+			"roms": [
+				"rom/arcade/pang.zip"
+			],
+			"screenpath": "gfx/arcade/pang.png"
+		},
+		{
+			"name": "Paperboy",
+			"players": "1",
+			"roms": [
+				"rom/arcade/paperboy.zip"
+			],
+			"screenpath": "gfx/arcade/paperboy.png"
+		},
+		{
+			"name": "Plotting",
+			"players": "1",
+			"roms": [
+				"rom/arcade/plotting.zip"
+			],
+			"screenpath": "gfx/arcade/plotting.png"
+		},
+		{
+			"name": "Powerdrift",
+			"players": "1",
+			"roms": [
+				"rom/arcade/pdrift.zip"
+			],
+			"screenpath": "gfx/arcade/pdrift.png"
+		},
+		{
+			"name": "Prehistoric Isle",
+			"players": "2",
+			"roms": [
+				"rom/arcade/prehisle.zip"
+			],
+			"screenpath": "gfx/arcade/prehistisle.png"
+		},
+		{
+			"name": "Puzznic",
+			"players": "1",
+			"roms": [
+				"rom/arcade/puzznic.zip"
+			],
+			"screenpath": "gfx/arcade/puzznic.png"
+		},
+		{
+			"name": "R-type",
+			"players": "2",
+			"roms": [
+				"rom/arcade/rtype.zip"
+			],
+			"screenpath": "gfx/arcade/rtype.png"
+		},
+		{
+			"name": "R-type 2",
+			"players": "2",
+			"roms": [
+				"rom/arcade/rtype2.zip"
+			],
+			"screenpath": "gfx/arcade/rtype2.png"
+		},
+		{
+			"name": "Rainbow Islands",
+			"players": "2",
+			"roms": [
+				"rom/arcade/rbisland.zip"
+			],
+			"screenpath": "gfx/arcade/rainbowislands.png"
+		},
+		{
+			"name": "Rampage",
+			"players": "2",
+			"roms": [
+				"rom/arcade/rampage.zip"
+			],
+			"screenpath": "gfx/arcade/rampage.png"
+		},
+		{
+			"name": "Saint Dragon",
+			"players": "1",
+			"roms": [
+				"rom/arcade/stdragon.zip"
+			],
+			"screenpath": "gfx/arcade/stdragon.png"
+		},
+		{
+			"name": "Salamander",
+			"players": "2",
+			"roms": [
+				"rom/arcade/salamand.zip"
+			],
+			"screenpath": "gfx/arcade/salamander.png"
+		},
+		{
+			"name": "Salamander 2",
+			"players": "2",
+			"roms": [
+				"rom/arcade/salmndr2.zip"
+			],
+			"screenpath": "gfx/arcade/salamander2.gif"
+		},
+		{
+			"name": "Shadow Dancer",
+			"players": "1",
+			"roms": [
+				"rom/arcade/shdancer.zip"
+			],
+			"screenpath": "gfx/arcade/shadowdancer.png"
+		},
+		{
+			"name": "Shadow Warriors",
+			"players": "2",
+			"roms": [
+				"rom/arcade/shadoww.zip"
+			],
+			"screenpath": "gfx/arcade/shadowwarriors.png"
+		},
+		{
+			"name": "Shinobi",
+			"players": "1",
+			"roms": [
+				"rom/arcade/shinobi.zip"
+			],
+			"screenpath": "gfx/arcade/shinobi.png"
+		},
+		{
+			"name": "Space Invaders",
+			"players": "1",
+			"roms": [
+				"rom/arcade/invaders.zip"
+			],
+			"screenpath": "gfx/arcade/spaceinvaders.png"
+		},
+		{
+			"name": "Splatterhouse",
+			"players": "1",
+			"roms": [
+				"rom/arcade/splatter.zip"
+			],
+			"screenpath": "gfx/arcade/splatterhouse.jpg"
+		},
+		{
+			"name": "Street Fighter 2",
+			"players": "2",
+			"roms": [
+				"rom/arcade/sf2ce.zip"
+			],
+			"screenpath": "gfx/arcade/streetfigther2.jpg"
+		},
+		{
+			"name": "Super Sidekicks",
+			"players": "2",
+			"roms": [
+				"rom/arcade/ssideki2.zip"
+			],
+			"screenpath": "gfx/arcade/ssidekicks.png"
+		},
+		{
+			"name": "Tetris",
+			"players": "1",
+			"roms": [
+				"rom/arcade/tetris.zip"
+			],
+			"screenpath": "gfx/arcade/tetris.png"
+		},
+		{
+			"name": "Toki",
+			"players": "1",
+			"roms": [
+				"rom/arcade/toki.zip"
+			],
+			"screenpath": "gfx/arcade/toki.png"
+		},
+		{
+			"name": "Turbo Outrun",
+			"players": "1",
+			"roms": [
+				"rom/arcade/toutrun.zip"
+			],
+			"screenpath": "gfx/arcade/turbooutrun.jpg"
+		},
+		{
+			"name": "Volfied",
+			"players": "1",
+			"roms": [
+				"rom/arcade/volfied.zip"
+			],
+			"screenpath": "gfx/arcade/volfied.png"
+		},
+		{
+			"name": "Wonderboy",
+			"players": "1",
+			"roms": [
+				"rom/arcade/wboy.zip"
+			],
+			"screenpath": "gfx/arcade/wonderboy.png"
+		}
+	],
+	"C64": [{
+			"name": "Aztec Challenge",
+			"system": "C64",
+			"players": "1",
+			"roms": [
+				"rom/c64/azteca.t64"
+			],
+			"screenpath": "gfx/c64/aztec_challenge.png"
+		},
+		{
+			"name": "Beamrider",
+			"players": "1",
+			"roms": [
+				"rom/c64/beamrider.d64"
+			],
+			"screenpath": "gfx/c64/beamrider.gif"
+		},
+		{
+			"name": "Blue Max",
+			"players": "1",
+			"roms": [
+				"rom/c64/bluemax.t64"
+			],
+			"screenpath": "gfx/c64/blue_max.gif"
+		},
+		{
+			"name": "Bruce Lee",
+			"players": "1",
+			"roms": [
+				"rom/c64/brucelee.t64"
+			],
+			"screenpath": "gfx/c64/brucelee.gif"
+		},
+		{
+			"name": "Buggy Boy",
+			"players": "1",
+			"roms": [
+				"rom/c64/buggyboy.d64"
+			],
+			"screenpath": "gfx/c64/buggyboy.gif"
+		},
+		{
+			"name": "Commando",
+			"players": "1",
+			"roms": [
+				"rom/c64/commando.d64"
+			],
+			"screenpath": "gfx/c64/commando.gif"
+		},
+		{
+			"name": "Denaris",
+			"players": "2",
+			"roms": [
+				"rom/c64/denaris.d64"
+			],
+			"screenpath": "gfx/c64/denaris.gif"
+		},
+		{
+			"name": "Gringos",
+			"players": "2",
+			"roms": [
+				"rom/c64/gringos.t64"
+			],
+			"screenpath": "gfx/c64/gringos.png"
+		},
+		{
+			"name": "IK+",
+			"players": "2",
+			"roms": [
+				"rom/c64/ikplus.d64"
+			],
+			"screenpath": "gfx/c64/ikplus.gif"
+		},
+		{
+			"name": "Krakout",
+			"players": "1",
+			"roms": [
+				"rom/c64/krakout.d64"
+			],
+			"screenpath": "gfx/c64/krakout.gif"
+		},
+		{
+			"name": "Last Ninja",
+			"players": "1",
+			"roms": [
+				"rom/c64/lastninja.d64"
+			],
+			"screenpath": "gfx/c64/last_ninja.gif"
+		},
+		{
+			"name": "Last Ninja 2",
+			"players": "1",
+			"roms": [
+				"rom/c64/lastn2-1.d64",
+				"rom/c64/lastn2-2.d64"
+			],
+			"screenpath": "gfx/c64/last_ninja2.gif"
+		},
+		{
+			"name": "Leaderboad Golf",
+			"players": "2",
+			"roms": [
+				"rom/c64/myth.d64"
+			],
+			"screenpath": "gfx/c64/leaderboard.gif"
+		},
+		{
+			"name": "Microprose Soccer",
+			"players": "2",
+			"roms": [
+				"rom/c64/microsoc.d64"
+			],
+			"screenpath": "gfx/c64/microprosesoccer.gif"
+		},
+		{
+			"name": "Montezuma's Revenge",
+			"players": "1",
+			"roms": [
+				"rom/c64/montezum.t64"
+			],
+			"screenpath": "gfx/c64/montezumas.gif"
+		},
+		{
+			"name": "Myth",
+			"players": "1",
+			"roms": [
+				"rom/c64/myth.d64"
+			],
+			"screenpath": "gfx/c64/myth.gif"
+		},
+		{
+			"name": "North and South",
+			"players": "1",
+			"roms": [
+				"rom/c64/northsouth.d64"
+			],
+			"screenpath": "gfx/c64/north_and_south.gif"
+		},
+		{
+			"name": "Paperboy",
+			"players": "1",
+			"roms": [
+				"rom/c64/paperboy.d64"
+			],
+			"screenpath": "gfx/c64/paperboy.gif"
+		},
+		{
+			"name": "Pitstop 2",
+			"players": "1",
+			"roms": [
+				"rom/c64/pitstop2.t64"
+			],
+			"screenpath": "gfx/c64/pitstop2.gif"
+		},
+		{
+			"name": "Slimey's Mine",
+			"players": "1",
+			"roms": [
+				"rom/c64/slimey.t64"
+			],
+			"screenpath": "gfx/c64/slimeysmine.gif"
+		},
+		{
+			"name": "Target; Renegade",
+			"players": "1",
+			"roms": [
+				"rom/c64/target_renegade.d64"
+			],
+			"screenpath": "gfx/c64/targetrenegade.gif"
+		},
+		{
+			"name": "The Great Giana Sisters",
+			"players": "1",
+			"roms": [
+				"rom/c64/gianasisters.t64"
+			],
+			"screenpath": "gfx/c64/giana.gif"
+		}
+	]
+}]

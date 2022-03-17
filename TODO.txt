@@ -1,7 +1,0 @@
-
- - testPath should also test emulator bin paths
- - dialogs have wrong size
- - keyboard for Amiga Player2 is wrong in emulator
- - add and test CD32/CDTV games
- - forbedre/kombinere plymouth-themes
-

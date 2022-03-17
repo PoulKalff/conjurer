@@ -16,17 +16,9 @@ from optparse import OptionParser
 pygame.init()
 pygame.mouse.set_visible(0)
 pygame.key.set_repeat(500, 100)
-font10 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 10)
-font12 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 12)
-font14 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 14)
-font14b = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 14)
-font20 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 20)
-font20b = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 20)
-font40 =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 40)
-font40b = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 40)
 systemExecs =	{
-			'Arcade':	['mame -inipath .'],
-			'C64'	:	['x64sc -config vice.cfg -autostart'],
+			'Arcade':	['mame', '-inipath', '.'],
+			'C64'	:	['x64sc', '-config', 'vice.cfg', '-autostart'],
 			'Amiga'	:	['fs-uae']
 		}
 
@@ -46,9 +38,11 @@ def getCommandlineOptions():
 	return _options
 
 
+
 def TestPaths():
 	# Loads all values from conjurer's json-files and verifies their validity
-	counter = 0
+	counterMissing = 0
+	listMissing = []
 	with open('gameList.json') as json_file:
 		games = json.load(json_file)
 		print('\n  Veryfying ROM paths:')
@@ -59,7 +53,8 @@ def TestPaths():
 					if os.path.exists(rom):
 						print('    Found "' + rom + '"')
 					else:
-						print('    COULD NOT FIND "' + rom + '"!!!!!!')
+						listMissing.append('    COULD NOT FIND "' + rom + '"!!!!!!')
+						counterMissing += 1
 		print('\n  Veryfying screenshot paths:')
 		print('  -------------------------------------------------------------------------------------------')
 		for system in games[0]:
@@ -67,9 +62,14 @@ def TestPaths():
 				if os.path.exists(game['screenpath']):
 					print('    Found "' + game['screenpath'] + '"')
 				else:
-					print('    COULD NOT FIND "' + game['screenpath'] + '"!!!!!!')
+					listMissing.append('    COULD NOT FIND "' + game['screenpath'] + '"!!!!!!')
+					counterMissing += 1
+	for l in listMissing:
+		print(l)
 	print('  -------------------------------------------------------------------------------------------')
+	print('   ', counterMissing, 'files missing')
 	sys.exit('\n  All done\n')
+
 
 
 # --- Classes -------------------------------------------------------------------
@@ -82,11 +82,10 @@ class Conjurer:
 		self.extPath = '/mnt/roms/'
 		self._showPoweroff = 4
 		self._showExitProgram = 4
-		self._showHelp = FlipSwitch(0)
 		self.initDisplay()
 		self.doubled = True if self.center_y >= 512 else False
-		self.font_regular = font40 if self.doubled else font20
-		self.font_bold =    font40b if self.doubled else font20b
+		self.font_regular = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 40 if self.doubled else 20)
+		self.font_bold = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 40 if self.doubled else 20)
 		with open('gameList.json') as json_file:
 			fileContents = json.load(json_file)
 			self.gamelist = {}
@@ -130,34 +129,30 @@ class Conjurer:
 
 
 
-
-	def _stringBuilder(self, gameData):
-		"""Builds an executable string to be passed to the OS"""
-		_command = systemExecs[gameData['system']][0]
+	def stringBuilder(self, gameData):
+		"""Builds an array of strings to be passed for execution """
+		commandArray = systemExecs[gameData['system']].copy()
 		if gameData['system'] == 'Amiga':
-			if 'model' in gameData:
-				_command = _command + ' --amiga-model=' + gameData['model']
-			if gameData['model'].upper() == 'CD32' or gameData['model'] == 'CDTV':
-				for nr, item in enumerate(gameData['roms']):
-					_command += ' --cdrom_drive_{}'.format(nr) + '=' + item
-			else:
-				for nr, item in enumerate(gameData['roms']):
-					_command += ' --floppy_drive_{}'.format(nr) + '=' + item
+			commandArray.append('--amiga-model=' + gameData['model'])
+			driveType = 'cdrom' if gameData['model'].upper() == 'CD32' or gameData['model'] == 'CDTV' else 'floppy'
+			for nr, item in enumerate(gameData['roms']):
+				commandArray.append('--{}_drive_{}'.format(driveType, nr) + '=' + item)
 		else:
 			for nr, item in enumerate(gameData['roms']):
-				_command += ' ' + item
-		return _command
+				commandArray.append(item)
+		return commandArray
+
 
 
 	def run_game(self, System, gameData):
 		"""Runs a game of type System, using files in FileList"""
 		gameData['system'] = System
-		command = self._stringBuilder(gameData)
+		command = self.stringBuilder(gameData)
 		# ----------- Start Process -----------
 		if cmd_options.dontRun:
-			print('\n(' + command + ')')
+			print(command)
 			sys.exit('Stopped because -norun parameter was given\n')
-		emulatorProcess = subprocess.Popen(command.split(),
+		emulatorProcess = subprocess.Popen(command,
 				stdout=subprocess.PIPE,
 				stderr=subprocess.STDOUT)
 		stdout, stderr = emulatorProcess.communicate()
@@ -166,97 +161,44 @@ class Conjurer:
 
 
 
+	def dialogBox(self, width, height, textList):
+		""" Shows a dialogbox in center of screen """
+		# find top left corner of box
+		posX = int(self.center_x - (width / 2))
+		posY = int(self.center_y - (height / 2))
+		pygame.draw.rect(self.display, (255, 255, 255), (posX, posY, width, height))
+		pygame.draw.rect(self.display, (0, 0, 0), (posX, posY, width, height), 2)
+		pygame.draw.line(self.display, (0, 0, 0), (posX + 20, posY + 70), (posX + width - 20, posY + 70), 2)
+		fontSize = [45, 30, 40]
+		textPos = [10, 90, 140]
+		for pos, text in enumerate(textList):
+			renderedFont =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', fontSize[pos])
+			renderedText = renderedFont.render(text, True, (0, 0, 0), (255,255,255))
+			w, h = renderedText.get_size()
+			textRect = pygame.Rect(	posX + int(width / 2) - int(w / 2),
+						posY + textPos[pos],
+						posX + int(width / 2) - int(w / 2) + w,
+						posY + textPos[pos])
+			self.display.blit(renderedText, textRect)
+		return
+
+
+
 	def _displayPoweroff(self):
 		if self._showPoweroff == 0:
 			self._showPoweroff = 'Bye!'
-		pygame.draw.rect(self.display, (255,255,255), (200, 200, 400, 100))
-		pygame.draw.line(self.display, (0, 0, 0), (210, 240), (590, 240), 1)
-		textRect1 = pygame.Rect(220, 210, 600, 300)
-		textRect2 = pygame.Rect(240, 250, 600, 300)
-		textRect3 = pygame.Rect(395, 270, 405, 290)
-		test_message1 = font20.render('Please confirm system shutdown', True, (0, 0, 0), (255,255,255))
-		test_message2 = font14.render('Press Button 5 again to shutdown Arcade', True, (0, 0, 0), (255,255,255))
-		test_message3 = font20.render(str(self._showPoweroff), True, (0, 0, 0), (255,255,255))
-		self.display.blit(test_message1, textRect1)
-		self.display.blit(test_message2, textRect2)
-		self.display.blit(test_message3, textRect3)
+		self.dialogBox(1000, 200, ['Please confirm system shutdown', 'Press Green Button again to shutdown Arcade', str(self._showPoweroff)])
 		if self._showPoweroff == 'Bye!':
 			os.system('poweroff 0')
+
 
 
 	def _displayExitProgram(self):
 		if self._showExitProgram == 0:
 				self._showExitProgram = 'Bye!'
-		pygame.draw.rect(self.display, (255,255,255), (200, 200, 400, 100)) 
-		pygame.draw.line(self.display, (0, 0, 0), (210, 240), (590, 240), 1)
-		textRect1 = pygame.Rect(220, 210, 600, 300)
-		textRect2 = pygame.Rect(240, 250, 600, 300)
-		textRect3 = pygame.Rect(395, 270, 405, 290)
-		test_message1 = font20.render('Please confirm exit program', True, (0, 0, 0), (255,255,255))
-		test_message2 = font14.render('Press Button 4 again to exit Conjurer', True, (0, 0, 0), (255,255,255))
-		test_message3 = font20.render(str(self._showExitProgram), True, (0, 0, 0), (255,255,255))
-		self.display.blit(test_message1, textRect1)
-		self.display.blit(test_message2, textRect2)
-		self.display.blit(test_message3, textRect3)
+		self.dialogBox(1000, 200, ['Please confirm program exit', 'Press Blue Button again to shutdown Arcade', str(self._showExitProgram)])
 		if self._showExitProgram == 'Bye!':
 			self._running = False
-
-
-	def _displayHelp(self):
-		_helpImage = pygame.image.load('help.jpg').convert()
-		_helpImage = pygame.transform.scale2x(_helpImage)
-		self.display.blit(_helpImage, (200, 100, 400, 410))
-		_head =   font20.render('Conjurer Help', True, (255, 0, 0))
-		_main1 =  font14.render('Keys to Quit Emulators:', True, (0, 0, 255))
-		_main2 =  font14.render('Amiga  : F12 + Q', True, (0, 0, 255))
-		_main3 =  font14.render('C64    : F12', True, (0, 0, 255))
-		_main4 =  font14.render('Arcade : <escape>', True, (0, 0, 255))
-		_main5 =  font14.render('Keys used in Conjurer:', True, (0, 0, 255))
-		_main6 =  font14.render('Change System:    P1 joystick Left/Right', True, (0, 0, 255))
-		_main7 =  font14.render('Change Game:      P1 joystick Up/Down', True, (0, 0, 255))
-		_main8 =  font14.render('Change x10 Games: Shift + P1 joy Up/Down', True, (0, 0, 255))
-		_main9 =  font14.render('Start Selected:   P1 Button 1', True, (0, 0, 255))
-		_main10 = font14.render('Show Help:        P1 Button 2', True, (0, 0, 255))
-		_main11 = font14.render('<not used>:       P1 Button 3', True, (0, 0, 255))
-		_main12 = font14.render('Exit Conjurer:    P1 Button 4', True, (0, 0, 255))
-		_main13 = font14.render('Poweroff Machine: P1 Button 5', True, (0, 0, 255))
-		pygame.draw.line(self.display, (255, 0, 0), (210, 150), (590, 150), 2)
-		pygame.draw.line(self.display, (0, 0, 255), (320, 195), (480, 195), 1)
-		pygame.draw.line(self.display, (0, 0, 255), (480, 195), (480, 260), 1)
-		pygame.draw.line(self.display, (0, 0, 255), (320, 195), (320, 260), 1)
-		pygame.draw.line(self.display, (0, 0, 255), (320, 260), (480, 260), 1)
-		head_rect = _head.get_rect();   head_rect.centerx = self.center_x; head_rect.top = 120
-		main1_rect = head_rect.copy();  main1_rect.left = 310;        main1_rect.top = 173
-		main2_rect = head_rect.copy();  main2_rect.left = 335;        main2_rect.top = 200
-		main3_rect = head_rect.copy();  main3_rect.left = 335;        main3_rect.top = 220
-		main4_rect = head_rect.copy();  main4_rect.left = 335;        main4_rect.top = 240
-		main5_rect = head_rect.copy();  main5_rect.left = 310;        main5_rect.top = 300
-		main6_rect = head_rect.copy();  main6_rect.left = 240;        main6_rect.top = 340
-		main7_rect = head_rect.copy();  main7_rect.left = 240;        main7_rect.top = 355
-		main8_rect = head_rect.copy();  main8_rect.left = 240;        main8_rect.top = 370
-		main9_rect = head_rect.copy();  main9_rect.left = 240;        main9_rect.top = 385
-		main10_rect = head_rect.copy(); main10_rect.left = 240;       main10_rect.top = 400
-		main11_rect = head_rect.copy(); main11_rect.left = 240;       main11_rect.top = 415
-		main12_rect = head_rect.copy(); main12_rect.left = 240;       main12_rect.top = 430
-		main13_rect = head_rect.copy(); main13_rect.left = 240;       main13_rect.top = 445
-		pygame.draw.line(self.display, (0, 0, 255), (220, 320), (580, 320), 1)
-		pygame.draw.line(self.display, (0, 0, 255), (580, 320), (580, 480), 1)
-		pygame.draw.line(self.display, (0, 0, 255), (220, 320), (220, 480), 1)
-		pygame.draw.line(self.display, (0, 0, 255), (220, 480), (580, 480), 1)
-		self.display.blit(_head, head_rect)
-		self.display.blit(_main1, main1_rect)
-		self.display.blit(_main2, main2_rect)
-		self.display.blit(_main3, main3_rect)
-		self.display.blit(_main4, main4_rect)
-		self.display.blit(_main5, main5_rect)
-		self.display.blit(_main6, main6_rect)
-		self.display.blit(_main7, main7_rect)
-		self.display.blit(_main8, main8_rect)
-		self.display.blit(_main9, main9_rect)
-		self.display.blit(_main10, main10_rect)
-		self.display.blit(_main11, main11_rect)
-		self.display.blit(_main12, main12_rect)
-		self.display.blit(_main13, main13_rect)
 
 
 	def _displayScreen(self, _systemName, foc_game):
@@ -308,9 +250,7 @@ class Conjurer:
 		self._displayScreen(self.systems.GetCentral(), self.game_pointers[self.systems.GetFocusedIndex()].Get())
 		self._displayGamesList(self.systems.GetCentral(), self.game_pointers[self.systems.GetFocusedIndex()].Get())
 		self._displaySystems(self.systems.GetCentral(), self.windowHeight - 50)
-		if self._showHelp.Get():
-			self._displayHelp()
-		elif self._showPoweroff < 4:
+		if self._showPoweroff < 4:
 			self._displayPoweroff()
 		elif self._showExitProgram < 4:
 			self._displayExitProgram()
@@ -327,14 +267,12 @@ class Conjurer:
 					system = self.systems.GetCentral()
 					no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
 					self.run_game(system, self.gamelist[system][no])
-				elif event.key == K_LALT:                                    # Button 2 = Show Help
-					self._showHelp.flip()
 				elif event.key == K_LSHIFT:                                  # Button 4 = Kill Conjurer
 					self._showExitProgram -= 1
-				elif event.key == K_x:                                       # Button 5 = Power off
-					self._showPoweroff -= 1
-				elif event.key == K_z:                                       # Button 6 = NOT CURRENTLY USED
+				elif event.key == K_z:                                       # Button 5 = NOT CURRENTLY USED
 					pass
+				elif event.key == K_x:                                       # Button 6 = Power off
+					self._showPoweroff -= 1
 				elif event.key == K_BACKSPACE:                               # Backspace = Change lock status
 					self._locked.flip()
 				elif event.key == K_RIGHT and not self._locked.Get():        # Key RIGHT
@@ -467,7 +405,7 @@ class StringIterator:
 # --- Main ----------------------------------------------------------------------
 
 
-version = 1.24		# ( switched to fs-uae for amiga emulation )
+version = 1.26		# ( fixed bug in rungame that prevented space in rom paths )
 cmd_options = getCommandlineOptions()
 
 if cmd_options.testPaths:
