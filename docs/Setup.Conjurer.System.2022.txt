@@ -39,10 +39,8 @@ sudo nano /root/.bashrc
 
 # --- Setup Boot Theme -------------------------------------------------------------------
 sudo apt install plymouth-themes
-sudo cp /conjurer/boot/arcade-theme /usr/share/plymouth/themes/ -r
-sudo rm /usr/share/plymouth/themes/default.plymouth
-sudo ln -sf /usr/share/plymouth/themes/arcade-theme/arcade-theme.plymouth /usr/share/plymouth/themes/default.plymouth
-sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/arcade-theme/arcade-theme.plymouth 100
+sudo cp /conjurer/plymouth/conjurer-theme/ /usr/share/plymouth/themes/ -r
+sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/conjurer-theme/conjurer.plymouth 110
 sudo update-alternatives --config default.plymouth
 	<Vaelg theme>
 sudo echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash
