@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=Conjurer Theme
-Description=A theme that features a blank background with a conjurer logo
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/conjurer-theme
-ScriptFile=/usr/share/plymouth/themes/conjurer-theme/conjurer.script

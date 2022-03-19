@@ -189,8 +189,7 @@ class Conjurer:
 			self._showPoweroff = 'Bye!'
 		self.dialogBox(1000, 200, ['Please confirm system shutdown', 'Press Green Button again to shutdown Arcade', str(self._showPoweroff)])
 		if self._showPoweroff == 'Bye!':
-			os.system('poweroff 0')
-
+			os.system('poweroff')
 
 
 	def _displayExitProgram(self):
