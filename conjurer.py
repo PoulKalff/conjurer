@@ -209,7 +209,7 @@ class Conjurer:
 
 	def _displayGamesList(self, _systemName, foc_game):
 		spacer = int(self.windowHeight / 20)
-		for entry, nr in enumerate(range(19)):
+		for entry, nr in enumerate(range(1, 19)):
 			if nr + foc_game - 10 < 0 or nr + foc_game - 10 > len(self.gamelist[_systemName]) - 1:
 				_game = self.font_regular.render(' ', True, (0, 255, 255))
 			else:
