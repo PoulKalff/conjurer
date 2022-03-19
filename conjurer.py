@@ -83,9 +83,8 @@ class Conjurer:
 		self._showPoweroff = 4
 		self._showExitProgram = 4
 		self.initDisplay()
-		self.doubled = True if self.center_y >= 512 else False
-		self.font_regular = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', 40 if self.doubled else 20)
-		self.font_bold = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', 40 if self.doubled else 20)
+		self.font_regular = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', int(self.windowHeight / 26))
+		self.font_bold = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', int(self.windowHeight / 26))
 		with open('gameList.json') as json_file:
 			fileContents = json.load(json_file)
 			self.gamelist = {}
@@ -202,17 +201,14 @@ class Conjurer:
 
 	def _displayScreen(self, _systemName, foc_game):
 		_image = image.load(self.gamelist[_systemName][foc_game]['screenpath']).convert()
-		_image = pygame.transform.scale2x(_image)
-		if self.doubled :	# scale twice if picture is high enough
-			_image = pygame.transform.scale2x(_image)
+		_image = pygame.transform.scale(_image, (int(self.windowWidth * 0.95), int(self.windowHeight * 0.95)))
 		_hw = int(_image.get_width() / 2)
 		_hh = int(_image.get_height() / 2)
 		self.display.blit(_image,(self.center_x - _hw, self.center_y - _hh))
 
 
 	def _displayGamesList(self, _systemName, foc_game):
-		spacer = 50 if self.doubled else 25
-		calulatedCenter = 470 if self.doubled else 250
+		spacer = int(self.windowHeight / 20)
 		for entry, nr in enumerate(range(19)):
 			if nr + foc_game - 10 < 0 or nr + foc_game - 10 > len(self.gamelist[_systemName]) - 1:
 				_game = self.font_regular.render(' ', True, (0, 255, 255))
@@ -224,7 +220,7 @@ class Conjurer:
 					_game = self.font_regular.render(name, True, (0, 255, 255))
 			entry_rect = _game.get_rect()
 			entry_rect.centerx = self.center_x
-			entry_rect.centery = self.center_y - calulatedCenter + nr * spacer
+			entry_rect.centery = nr * spacer
 			self.display.blit(_game, entry_rect)
 		return
 		# For testing output
@@ -234,14 +230,13 @@ class Conjurer:
 
 
 	def _displaySystems(self, focused, ypos):
-		spacer = 2 if self.doubled else 1
 		_systems_string1 = self.font_regular.render(self.systems.GetLeft(), True, (0, 0, 255))
 		_systems_string2 = self.font_bold.render(self.systems.GetCentral() , True, (0, 200, 0))
 		_systems_string3 = self.font_regular.render(self.systems.GetRight() , True, (0, 0, 255))
 		self.display.blit(_systems_string2, pygame.Rect((self.center_x - 50 + (84 - int(_systems_string2.get_width() / 2)), ypos), (120, 50)))
 		if not self._locked.Get():
-			self.display.blit(_systems_string1, pygame.Rect((self.center_x - 50 - (100 * spacer) + (84 - int(_systems_string1.get_width() / 2)), ypos), (120, 50)))
-			self.display.blit(_systems_string3, pygame.Rect((self.center_x - 50 + (100 * spacer) + (84 - int(_systems_string3.get_width() / 2)), ypos), (120, 50)))
+			self.display.blit(_systems_string1, pygame.Rect((self.center_x - 50 - 200 + (84 - int(_systems_string1.get_width() / 2)), ypos), (120, 50)))
+			self.display.blit(_systems_string3, pygame.Rect((self.center_x - 50 + 200 + (84 - int(_systems_string3.get_width() / 2)), ypos), (120, 50)))
 
 
 	def _render(self):
@@ -404,7 +399,7 @@ class StringIterator:
 # --- Main ----------------------------------------------------------------------
 
 
-version = 1.26		# ( fixed bug in rungame that prevented space in rom paths )
+version = 1.27		# ( removed self.doubled, replaced with scaling to screen size )
 cmd_options = getCommandlineOptions()
 
 if cmd_options.testPaths:
