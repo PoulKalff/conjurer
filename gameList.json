@@ -482,6 +482,17 @@
 				"rom/amiga/Z-Out (1991)(Rainbow Arts)(Disk 2 of 2)[cr SR][a].adf"
 			],
 			"screenpath": "gfx/amiga/z-out.png"
+		},
+		{
+			"name": "Disposable Hero",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 1 of 3)[cr CLS].adf",
+				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 1 of 3)[cr CLS].adf",
+				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 1 of 3)[cr CLS].adf"
+			],
+			"screenpath": "gfx/amiga/disposablehero.png"
 		}
 	],
 	"Arcade": [{

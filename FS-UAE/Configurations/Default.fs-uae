@@ -1,0 +1,28 @@
+[config]
+amiga_model = a500
+fullscreen = 1
+fullscreen_width = 1280
+fullscreen_height = 1024
+keep_aspect = 1
+
+video_sync = full
+video_sync_method = finish-sleep-swap-finish
+
+chip_memory = 2048
+fast_memory = 8192
+
+joystick_port_0 = Keyboard
+joystick_port_0_mode = joystick
+keyboard_key_i = action_joy_0_up
+keyboard_key_k = action_joy_0_down
+keyboard_key_j = action_joy_0_left
+keyboard_key_l = action_joy_0_right
+keyboard_key_o = action_joy_0_fire_button
+
+joystick_port_1 = Keyboard
+joystick_port_1_mode = joystick
+keyboard_key_up = action_joy_1_up
+keyboard_key_down = action_joy_1_down
+keyboard_key_left = action_joy_1_left
+keyboard_key_right = action_joy_1_right
+keyboard_key_rctrl = action_joy_1_fire_button
