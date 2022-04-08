@@ -28,10 +28,10 @@ libfsemu init
 ----------------------------------------------------------------------------
 
 [FSE] Init (early)
-current time() is: 1649267064
+current time() is: 1649427531
 localtime+timegm:  -1
-localtime+mktime:  1649267064
-time of day:       1649267064 + (818987 / 1000000)
+localtime+mktime:  1649427531
+time of day:       1649427531 + (152429 / 1000000)
 localtime offset:  7200
 [FSE] Calling fs_ml_init
 fs_ml_init (operating system: linux)
@@ -69,15 +69,16 @@ joystick_port_0_mode = joystick
 joystick_port_1 = Keyboard
 joystick_port_1_mode = joystick
 keep_aspect = 1
+keyboard_key_q = action_joy_0_fire_button
+keyboard_key_backslash = action_joy_0_right
 keyboard_key_down = action_joy_1_down
-keyboard_key_i = action_joy_0_up
-keyboard_key_j = action_joy_0_left
-keyboard_key_k = action_joy_0_down
-keyboard_key_l = action_joy_0_right
+keyboard_key_lalt = action_key_p
 keyboard_key_left = action_joy_1_left
-keyboard_key_o = action_joy_0_fire_button
+keyboard_key_leftbracket = action_joy_0_up
+keyboard_key_quote = action_joy_0_down
 keyboard_key_rctrl = action_joy_1_fire_button
 keyboard_key_right = action_joy_1_right
+keyboard_key_semicolon = action_joy_0_left
 keyboard_key_up = action_joy_1_up
 video_sync = full
 video_sync_method = finish-sleep-swap-finish
@@ -237,10 +238,10 @@ fs_image_destroy
 loaded sub-texture "bezel/right-overlay.png"
 fs_image_destroy
 initializing menu
-load font from data 0x80cc200 size 26822
+load font from data 0x8476800 size 26822
 font height: 32 pixels
 512 characters
-load font from data 0x80e2a00 size 26832
+load font from data 0x848d000 size 26832
 font height: 32 pixels
 512 characters
 [SHADERS] Initialize
@@ -358,7 +359,7 @@ error looking up functions
 using text cache texture size 2048x2048
 target_default_options p=0x3b763a0 type=0
 target_default_options: enabling floppy sounds
- -- stub -- target_save_options zfile=0x7fcb60000c40 p=0x3b763a0
+ -- stub -- target_save_options zfile=0x7f1428000c40 p=0x3b763a0
 built_in_chipset_prefs, ignore = 0
 fixup_cpu
 built_in_chipset_prefs, ignore = 0
@@ -369,8 +370,8 @@ NATMEM: Total physical RAM 3389 MB, all RAM 3389 MB
 NATMEM: Attempting to reserve: 2048 MB
 NATMEM: jit compiler 0
 VM: Reserve  0x80000000 bytes
-VM: Reserve  0x80000000 bytes, got address 0x7fcae0000000
-NATMEM: Reserved 0x7fcae0000000-0x7fcb60000000 (0x80000000 2048M)
+VM: Reserve  0x80000000 bytes, got address 0x7f13a8000000
+NATMEM: Reserved 0x7f13a8000000-0x7f1428000000 (0x80000000 2048M)
  -- stub -- target_cfgfile_load 
 built_in_chipset_prefs, ignore = 0
 fixup_cpu
@@ -514,7 +515,7 @@ fs_uae_set_uae_paths
 did not find "built-in" driveclick directory
 read_custom_uae_options
 writing uae config to /conjurer/FS-UAE/Cache/Logs/debug.uae
- -- stub -- target_save_options zfile=0x7fcb60009e10 p=0x3b763a0
+ -- stub -- target_save_options zfile=0x7f142800a070 p=0x3b763a0
 
 ----------------------------------------------------------------------------
 end of uae configuration
@@ -533,7 +534,7 @@ NATMEM: othersize     + 0x00000000
 NATMEM: totalsize     = 0x10000000
 Z3 REAL mapping. JIT direct compatible.
 NATMEM: JIT direct compatible: 1
-NATMEM: Our special area: 0x7fcae0000000-0x7fcaf0000000 (0x10000000 256M)
+NATMEM: Our special area: 0x7f13a8000000-0x7f13b8000000 (0x10000000 256M)
 built_in_chipset_prefs, ignore = 0
 fixup_cpu
 built_in_chipset_prefs, ignore = 0
@@ -1001,6 +1002,98 @@ First: 44 Last: 300 MinV: 42 MaxV: 313 Min: 26
 Display Size: 640x512 Offset: 74x36
 First: 44 Last: 300 MinV: 42 MaxV: 313 Min: 26
 [AUDIO] fs_emu_audio_resume_stream 0
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
 [AUDIO] fs_emu_audio_resume_stream 0
 Display Size: 640x538 Offset: 74x36
 First: 44 Last: 332 MinV: 26 MaxV: 313 Min: 26
@@ -1010,8 +1103,8 @@ Display Size: 652x518 Offset: 74x28
 First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
 Display Size: 608x512 Offset: 74x30
 First: 41 Last: 297 MinV: 32 MaxV: 313 Min: 26
-Display Size: 652x488 Offset: 74x58
-First: 41 Last: 299 MinV: 55 MaxV: 313 Min: 26
+Display Size: 608x384 Offset: 74x22
+First: 41 Last: 297 MinV: 26 MaxV: 225 Min: 26
 Display Size: 652x516 Offset: 74x30
 First: 41 Last: 299 MinV: 26 MaxV: 313 Min: 26
 Display Size: 652x518 Offset: 74x28
@@ -1020,12 +1113,40 @@ EMU: Ungrab input
 [INPUT] Releasing input
 EMU: Grab input
 [INPUT] Grabbing input
-Display Size: 652x504 Offset: 74x28
-First: 40 Last: 299 MinV: 26 MaxV: 292 Min: 26
-Display Size: 652x384 Offset: 74x103
-First: 41 Last: 299 MinV: 173 MaxV: 174 Min: 26
-Display Size: 608x512 Offset: 74x30
-First: 41 Last: 297 MinV: 32 MaxV: 313 Min: 26
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+EMU: Ungrab input
+[INPUT] Releasing input
+EMU: Grab input
+[INPUT] Grabbing input
+Display Size: 652x526 Offset: 74x30
+First: 41 Last: 304 MinV: 26 MaxV: 313 Min: 26
+Display Size: 652x518 Offset: 74x28
+First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
+Display Size: 652x516 Offset: 74x30
+First: 41 Last: 299 MinV: 32 MaxV: 313 Min: 26
+Display Size: 652x518 Offset: 74x28
+First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
+Exception 3 (2950) at 2950 -> f80b1a!
+[AUDIO] fs_emu_audio_resume_stream 0
+EMU: Enter menu
+update_main_menu
+CD in 0: ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
+EMU: Ungrab input
+[INPUT] Releasing input
+update_main_menu
+CD in 0: ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
+on_quit selected from menu
 fs_emu_quit
 executing quit function
 quit_function
