@@ -20,18 +20,20 @@ UAE: Initializing core derived from WinUAE 3300b2
 config (command line arguments)
 ----------------------------------------------------------------------------
 
-amiga_model = cd32
-cdrom_drive_0 = rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
+amiga_model = a500
+floppy_drive_0 = rom/amiga/Apidya1.adf
+floppy_image_1 = rom/amiga/Apidya2.adf
+floppy_image_2 = rom/amiga/Apidya3.adf
 
 ----------------------------------------------------------------------------
 libfsemu init
 ----------------------------------------------------------------------------
 
 [FSE] Init (early)
-current time() is: 1649427531
+current time() is: 1649520697
 localtime+timegm:  -1
-localtime+mktime:  1649427531
-time of day:       1649427531 + (152429 / 1000000)
+localtime+mktime:  1649520697
+time of day:       1649520697 + (426065 / 1000000)
 localtime offset:  7200
 [FSE] Calling fs_ml_init
 fs_ml_init (operating system: linux)
@@ -72,7 +74,6 @@ keep_aspect = 1
 keyboard_key_q = action_joy_0_fire_button
 keyboard_key_backslash = action_joy_0_right
 keyboard_key_down = action_joy_1_down
-keyboard_key_lalt = action_key_p
 keyboard_key_left = action_joy_1_left
 keyboard_key_leftbracket = action_joy_0_up
 keyboard_key_quote = action_joy_0_down
@@ -120,7 +121,7 @@ fs_uae_configure_amiga_model
 using PAL mode (50Hz)
 [VIDEO] fs_emu_set_video_frame_rate: 50.00 (50)
 [DISPLAY] Sync: g_fs_emu_video_sync_to_vblank = 0
-config match for "CD32"
+config match for "A500"
 fs_uae_state_dir:
 - checking /root/.config/fs-uae/save-states-dir
 resolve_path /conjurer/FS-UAE/Save States (absolute)
@@ -238,10 +239,10 @@ fs_image_destroy
 loaded sub-texture "bezel/right-overlay.png"
 fs_image_destroy
 initializing menu
-load font from data 0x8476800 size 26822
+load font from data 0x8af1200 size 26822
 font height: 32 pixels
 512 characters
-load font from data 0x848d000 size 26832
+load font from data 0x8b07a00 size 26832
 font height: 32 pixels
 512 characters
 [SHADERS] Initialize
@@ -359,7 +360,7 @@ error looking up functions
 using text cache texture size 2048x2048
 target_default_options p=0x3b763a0 type=0
 target_default_options: enabling floppy sounds
- -- stub -- target_save_options zfile=0x7f1428000c40 p=0x3b763a0
+ -- stub -- target_save_options zfile=0x7f3df4000c40 p=0x3b763a0
 built_in_chipset_prefs, ignore = 0
 fixup_cpu
 built_in_chipset_prefs, ignore = 0
@@ -370,8 +371,8 @@ NATMEM: Total physical RAM 3389 MB, all RAM 3389 MB
 NATMEM: Attempting to reserve: 2048 MB
 NATMEM: jit compiler 0
 VM: Reserve  0x80000000 bytes
-VM: Reserve  0x80000000 bytes, got address 0x7f13a8000000
-NATMEM: Reserved 0x7f13a8000000-0x7f1428000000 (0x80000000 2048M)
+VM: Reserve  0x80000000 bytes, got address 0x7f3d74000000
+NATMEM: Reserved 0x7f3d74000000-0x7f3df4000000 (0x80000000 2048M)
  -- stub -- target_cfgfile_load 
 built_in_chipset_prefs, ignore = 0
 fixup_cpu
@@ -413,15 +414,15 @@ found file "Kickstart v2.04 r37.175 (1991)(Commodore)(A500+)[!].rom"
 amiga_add_rom_file /conjurer/FS-UAE/Kickstarts/Kickstart v2.04 r37.175 (1991)(Commodore)(A500+)[!].rom
 - found cached crc32
 - rom added via cached entry
-configuring "Amiga CD32", accuracy=1
-amiga_quickstart model=8 config=0 compa=0 (accuracy 1)
+configuring "Amiga 500", accuracy=1
+amiga_quickstart model=0 config=0 compa=0 (accuracy 1)
 set_device_rom path=(null) romtype=262144 devnum=0
 boardromconfig (nil)
 target_default_options p=0x3b763a0 type=1
 target_default_options: enabling floppy sounds
 built_in_chipset_prefs, ignore = 0
 set option "cachesize" to "0" (result: 1)
-set option "cpu_model" to "68020" (result: 1)
+set option "cpu_model" to "68000" (result: 1)
 set option "fpu_model" to "0" (result: 1)
 set option "mmu_model" to "0" (result: 1)
 set option "cpu_24bit_addressing" to "true" (result: 1)
@@ -429,18 +430,65 @@ set option "cpu_speed" to "real" (result: 1)
 set option "blitter_cycle_exact" to "true" (result: 1)
 set option "cpu_compatible" to "true" (result: 1)
 set option "cpu_cycle_exact" to "true" (result: 1)
-set option "waiting_blits" to "true" (result: 1)
+set option "waiting_blits" to "false" (result: 1)
 set option "immediate_blits" to "false" (result: 1)
 set option "chipmem_size" to "4" (result: 1)
+[CONFIG] >= 1 MB chip RAM, enabling ECS Agnus
+set option "chipset" to "ecs_agnus" (result: 1)
 set option "fastmem_size" to "8" (result: 1)
 set option "sound_stereo_separation" to "7" (result: 1)
-set option "sound_filter_type" to "enhanced" (result: 1)
+configure_floppies
+value for option floppy_drive_0: rom/amiga/Apidya1.adf
+resolve_path rom/amiga/Apidya1.adf (relative)
+checking ./rom/amiga/Apidya1.adf
+- found ./rom/amiga/Apidya1.adf
+set option "floppy0" to "./rom/amiga/Apidya1.adf" (result: 1)
+set option "floppy0type" to "0" (result: 1)
+value for option floppy_drive_1: (null)
+set option "floppy1" to "" (result: 1)
+set option "floppy1type" to "0" (result: 1)
+value for option floppy_drive_2: (null)
+set option "floppy2" to "" (result: 1)
+set option "floppy2type" to "0" (result: 1)
+value for option floppy_drive_3: (null)
+set option "floppy3" to "" (result: 1)
+set option "floppy3type" to "0" (result: 1)
+set option "nr_floppies" to "1" (result: 1)
+set option "floppy1" to "" (result: 1)
+set option "floppy1type" to "-1" (result: 1)
+set option "floppy2" to "" (result: 1)
+set option "floppy2type" to "-1" (result: 1)
+set option "floppy3" to "" (result: 1)
+set option "floppy3type" to "-1" (result: 1)
+set option "floppy_volume" to "80" (result: 1)
+resolve_path rom/amiga/Apidya2.adf (relative)
+checking ./rom/amiga/Apidya2.adf
+- found ./rom/amiga/Apidya2.adf
+set option "diskimage0" to "./rom/amiga/Apidya2.adf" (result: 1)
+resolve_path rom/amiga/Apidya3.adf (relative)
+checking ./rom/amiga/Apidya3.adf
+- found ./rom/amiga/Apidya3.adf
+set option "diskimage1" to "./rom/amiga/Apidya3.adf" (result: 1)
+set option "diskimage2" to "" (result: 1)
+set option "diskimage3" to "" (result: 1)
+set option "diskimage4" to "" (result: 1)
+set option "diskimage5" to "" (result: 1)
+set option "diskimage6" to "" (result: 1)
+set option "diskimage7" to "" (result: 1)
+set option "diskimage8" to "" (result: 1)
+set option "diskimage9" to "" (result: 1)
+set option "diskimage10" to "" (result: 1)
+set option "diskimage11" to "" (result: 1)
+set option "diskimage12" to "" (result: 1)
+set option "diskimage13" to "" (result: 1)
+set option "diskimage14" to "" (result: 1)
+set option "diskimage15" to "" (result: 1)
+set option "diskimage16" to "" (result: 1)
+set option "diskimage17" to "" (result: 1)
+set option "diskimage18" to "" (result: 1)
+set option "diskimage19" to "" (result: 1)
 fs_uae_configure_hard_drives
 configure_cdrom
-resolve_path rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip (relative)
-checking ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
-- found ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
-set option "cdimage0" to "./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip,image" (result: 1)
 configuring joystick ports:
 set option "joyport0" to "none" (result: 1)
 set option "joyport1" to "none" (result: 1)
@@ -454,7 +502,7 @@ fs_uae_read_override_actions_for_port 5
 fs_uae_read_override_actions_for_port 6
 fs_uae_read_override_actions_for_port 7
 configuring joystick port 1 (Keyboard)
-configure joystick "Keyboard" for "cd32"
+configure joystick "Keyboard" for "amiga"
 matched device #0
 config name "Keyboard"
 get system config for device: Keyboard
@@ -469,25 +517,18 @@ did not find config for device "keyboard_0_0_0_0_linux"
 config name "keyboard"
 get system config for device: keyboard
 checked data "input/keyboard.conf" = 0
-read config for keyboard for cd32 (from data)
+read config for keyboard for amiga (from data)
 checked data "input/default_keyboard.conf" = 0
-read config for default_keyboard for cd32 (from data)
-did not find action for "default_keyboard"
-key_x (120) => action "blue" (77)
-key_up (273) => action "up" (62)
-key_d (100) => action "green" (74)
+read config for default_keyboard for amiga (from data)
+key_ralt (307) => action "1" (68)
 key_down (274) => action "down" (63)
-key_z (122) => action "rewind" (72)
-key_s (115) => action "yellow" (75)
-key_return (13) => action "play" (71)
-key_ralt (307) => action "red" (76)
-key_left (276) => action "left" (60)
-key_a (97) => action "forward" (73)
-key_rctrl (305) => action "red" (76)
 key_right (275) => action "right" (61)
-key_c (99) => action "red" (76)
+did not find action for "default_keyboard"
+key_up (273) => action "up" (62)
+key_left (276) => action "left" (60)
+key_rctrl (305) => action "1" (68)
 configuring joystick port 0 (Keyboard)
-configure joystick "Keyboard" for "cd32"
+configure joystick "Keyboard" for "amiga"
 matched device #0
 existing usage (1) - cannot reuse
 configuring joystick port 2 (nothing)
@@ -503,7 +544,6 @@ nothing connected to port
 configuring joystick port 7 (nothing)
 nothing connected to port
 set option "statefile" to "/conjurer/FS-UAE/Save States/Default/Saved State.uss" (result: 1)
-set option "flash_file" to "/conjurer/FS-UAE/Save States/Default/CD32 Storage.nvr" (result: 1)
 amiga_set_save_image_dir /conjurer/FS-UAE/Save States/Default
 - checking /root/.config/fs-uae/module-ripper-dir
 resolve_path /conjurer/FS-UAE/Cache/Modules (absolute)
@@ -515,7 +555,7 @@ fs_uae_set_uae_paths
 did not find "built-in" driveclick directory
 read_custom_uae_options
 writing uae config to /conjurer/FS-UAE/Cache/Logs/debug.uae
- -- stub -- target_save_options zfile=0x7f142800a070 p=0x3b763a0
+ -- stub -- target_save_options zfile=0x7f3df400ab30 p=0x3b763a0
 
 ----------------------------------------------------------------------------
 end of uae configuration
@@ -527,14 +567,14 @@ end of uae configuration
  -- stub -- gui_init 
  -- stub -- logging_init 
 init_shm
-NATMEM: size            0x10000000
+NATMEM: size            0x01000000
 NATMEM: z3size        + 0x00000000
 NATMEM: z3rtgmem_size + 0x00000000
 NATMEM: othersize     + 0x00000000
-NATMEM: totalsize     = 0x10000000
-Z3 REAL mapping. JIT direct compatible.
-NATMEM: JIT direct compatible: 1
-NATMEM: Our special area: 0x7f13a8000000-0x7f13b8000000 (0x10000000 256M)
+NATMEM: totalsize     = 0x01000000
+Z3 REAL mapping. Not JIT direct compatible.
+NATMEM: JIT direct compatible: 0
+NATMEM: Our special area: 0x7f3d74000000-0x7f3d75000000 (0x01000000 16M)
 built_in_chipset_prefs, ignore = 0
 fixup_cpu
 built_in_chipset_prefs, ignore = 0
@@ -583,45 +623,49 @@ MMAN: Flags: ROM THREADSAFE
 [WARNING] Will not log further calls to my_issamepath
 MMAN: mapped_malloc 0x00200000 start=0x00000000 Chip memory (chip)
 MMAN: Flags: RAM THREADSAFE
+MMAN: mapped_malloc 0x00080000 start=0x00c00000 Slow memory (bogo)
+MMAN: Flags: RAM THREADSAFE
 ROM loader.. (<none>)
-read_rom_name /conjurer/FS-UAE/Kickstarts/CD32 Extended-ROM r40.60 (1993)(Commodore)(CD32).rom
-MMAN: mapped_malloc 0x00080000 start=0x00000000 Extended Kickstart ROM (rom_e0)
-MMAN: Flags: ROM THREADSAFE
-read_rom_name /conjurer/FS-UAE/Kickstarts/Kickstart v3.1 r40.60 (1993)(Commodore)(CD32).rom
-Known ROM 'CD32 KS ROM v3.1' loaded
+read_rom_name /conjurer/FS-UAE/Kickstarts/Kickstart v1.3 r34.5 (1987)(Commodore)(A500-A1000-A2000-CDTV)[!].rom
+Known ROM 'KS ROM v1.3 (A500,A1000,A2000)' loaded
 ROM loader end
 cpuboard_map currprefs.cpuboard_type = 0
+MAPROM: cs_ksmirror_e0 set - mirroring kickstart at 0x00e00000
 memory init end
 gfx_set_picasso_state 0
-drive_insert drv=0x200bd40 dnum=3 fname=df3.adf fake=0
-drive_insert drv=0x200bd40 dnum=3 fname=df3.adf fake=1
-gui_disk_image_change drive 3 name df3.adf write protected 1
+drive_insert drv=0x200bd40 dnum=3 fname= fake=0
+drive_insert drv=0x200bd40 dnum=3 fname= fake=1
+gui_disk_image_change drive 3 <no disk>
 driveclick_insert drive=3 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
 gui_disk_image_change drive 3 <no disk>
-drive_insert drv=0x1fe9720 dnum=2 fname=df2.adf fake=0
-drive_insert drv=0x1fe9720 dnum=2 fname=df2.adf fake=1
-gui_disk_image_change drive 2 name df2.adf write protected 1
+drive_insert drv=0x1fe9720 dnum=2 fname= fake=0
+drive_insert drv=0x1fe9720 dnum=2 fname= fake=1
+gui_disk_image_change drive 2 <no disk>
 driveclick_insert drive=2 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
 gui_disk_image_change drive 2 <no disk>
-drive_insert drv=0x1fc7100 dnum=1 fname=df1.adf fake=0
-drive_insert drv=0x1fc7100 dnum=1 fname=df1.adf fake=1
-gui_disk_image_change drive 1 name df1.adf write protected 1
+drive_insert drv=0x1fc7100 dnum=1 fname= fake=0
+drive_insert drv=0x1fc7100 dnum=1 fname= fake=1
+gui_disk_image_change drive 1 <no disk>
 driveclick_insert drive=1 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
 gui_disk_image_change drive 1 <no disk>
-drive_insert drv=0x1fa4ae0 dnum=0 fname=df0.adf fake=0
-drive_insert drv=0x1fa4ae0 dnum=0 fname=df0.adf fake=1
-gui_disk_image_change drive 0 name df0.adf write protected 1
-driveclick_insert drive=0 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
-gui_disk_image_change drive 0 <no disk>
-No disk in drive 0.
+drive_insert drv=0x1fa4ae0 dnum=0 fname=./rom/amiga/Apidya1.adf fake=0
+drive_insert drv=0x1fa4ae0 dnum=0 fname=./rom/amiga/Apidya1.adf fake=1
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+drive_insert returning, drv->wrprot=0
+gui_disk_image_change drive 0 name ./rom/amiga/Apidya1.adf write protected 0
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+driveclick_insert drive=0 eject=0 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+drive_insert returning, drv->wrprot=0
 fixup_cpu
-CPU cycleunit: 128 (0.250)
+CPU cycleunit: 256 (0.500)
 1870 CPU functions
-Building CPU, 45912 opcodes (2 -2 1)
+Building CPU, 44274 opcodes (0 -2 1)
 JIT: &countdown =  0x47ca500
 JIT: &build_comp = 0x52e940
 JIT: JIT: JIT compiler is not enabled
-CPU=68020, FPU=0, MMU=0, JIT=0. ~cycle-exact 24-bit
+CPU=68000, FPU=0, MMU=0, JIT=0. prefetch and cycle-exact 24-bit
 graphics_init
 calling reset_drawing
 init_colors
@@ -646,33 +690,30 @@ init_sound
  -- stub -- input_get_default_keyboard num=17 return 0
  -- stub -- input_get_default_keyboard num=18 return 0
  -- stub -- input_get_default_keyboard num=19 return 0
-CPU cycleunit: 128 (0.250)
+CPU cycleunit: 256 (0.500)
  -- stub -- target_reset 
  -- stub -- filesys_addexternals 
 init_shm
 cpuboard_map currprefs.cpuboard_type = 0
+MAPROM: cs_ksmirror_e0 set - mirroring kickstart at 0x00e00000
 memory init end
 initparallel
-Reset at 00000000. Chipset mask = 00000007
+Reset at 00000000. Chipset mask = 00000001
 00000000    2048K/1 =    2048K Chip memory
-00200000    8704K/0 =    8704K <none>
-00A80000     512K/1 =     512K Kickstart ROM (1E62D4A5)
-=CD32 KS ROM v3.1 rev 40.60 (512k)
-00B00000     512K/1 =     512K Extended Kickstart ROM (87746BE2)
-=CD32 extended ROM rev 40.60 (512k)
-00B80000      64K/0 =      64K Akiko
-00B90000     384K/0 =     384K <none>
-00BF0000      64K/0 =      64K CIA
-00C00000    1792K/0 =    1792K <none>
+00200000    8192K/0 =    8192K <none>
+00A00000    2048K/0 =    2048K CIA
+00C00000     512K/1 =     512K Slow memory
+00C80000    1024K/0 =    1024K Custom chipset
+00D80000     256K/0 =     256K <none>
 00DC0000      64K/0 =      64K Battery backed up clock (none)
-00DD0000     128K/0 =     128K Gayle (high)
-00DF0000      64K/0 =      64K Custom chipset
-00E00000     512K/1 =     512K Extended Kickstart ROM (87746BE2)
-=CD32 extended ROM rev 40.60 (512k)
+00DD0000      64K/0 =      64K <none>
+00DE0000     128K/0 =     128K Custom chipset
+00E00000     512K/2 =     256K Kickstart ROM (C4F0F55F)
+=KS ROM v1.3 (A500,A1000,A2000) rev 34.5 (256k) [315093-02]
 00E80000      64K/0 =      64K Autoconfig Z2
 00E90000     960K/0 =     960K <none>
-00F80000     512K/1 =     512K Kickstart ROM (1E62D4A5)
-=CD32 KS ROM v3.1 rev 40.60 (512k)
+00F80000     512K/2 =     256K Kickstart ROM (C4F0F55F)
+=KS ROM v1.3 (A500,A1000,A2000) rev 34.5 (256k) [315093-02]
 uae_start_tread "ide" function at 0x4ed090 arg 0x2e99a20
 drive_insert drv=0x200bd40 dnum=3 fname= fake=0
 drive_insert drv=0x200bd40 dnum=3 fname= fake=1
@@ -689,29 +730,16 @@ drive_insert drv=0x1fc7100 dnum=1 fname= fake=1
 gui_disk_image_change drive 1 <no disk>
 driveclick_insert drive=1 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
 gui_disk_image_change drive 1 <no disk>
-drive_insert drv=0x1fa4ae0 dnum=0 fname= fake=0
-drive_insert drv=0x1fa4ae0 dnum=0 fname= fake=1
-gui_disk_image_change drive 0 <no disk>
-driveclick_insert drive=0 eject=1 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
-gui_disk_image_change drive 0 <no disk>
-install_driver flags=2
-CD: setting device_func[0] = devicetable[2]
-IOCTL driver installed, ok=1
-SCSIDEV: unit = 0, name = ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip, fd = -1
-SCSIDEV: path is not a device
-install_driver flags=1
-CD: setting device_func[0] = devicetable[1]
-Image driver open.
-IMAGE driver installed, ok=1
- -- stub -- my_setcurrentdir curdir="./rom/amiga" oldcur=""
-CD: plain CD image mounted!
- 1:       0 00:02:00 DATA     4          0    2304000 
- - ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
-       1125 00:17:00
-uae_start_tread "cdimage_unpack" function at 0x62f7c0 arg (nil)
-using drive IMG:./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip (unit 0, media 1)
-uae_start_tread "akiko" function at 0x612580 arg (nil)
-CD32: media changed = 1
+drive_insert drv=0x1fa4ae0 dnum=0 fname=./rom/amiga/Apidya1.adf fake=0
+drive_insert drv=0x1fa4ae0 dnum=0 fname=./rom/amiga/Apidya1.adf fake=1
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+drive_insert returning, drv->wrprot=0
+gui_disk_image_change drive 0 name ./rom/amiga/Apidya1.adf write protected 0
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+DISK_get_saveimagepath returning /conjurer/FS-UAE/Save States/Default/Apidya1.sdf
+driveclick_insert drive=0 eject=0 click_initialized=0 wave_initialized=0 currprefs.floppyslots[drive].dfxclick=1
+drive_insert returning, drv->wrprot=0
 mousehack_reset
 PAL mode V=50.0000Hz H=15625.0881Hz (227x312+0) IDX=10 (PAL) D=0 RTG=0/0
 target_graphics_buffer_update - clearing buffer
@@ -723,7 +751,6 @@ hardreset, memory cleared
 init_sound
 driveclick_init
 open_sound returning 1
-[AUDIO] Buffer underrun in stream 0
 [AUDIO] Buffer underrun in stream 0
 wait_for_frame_no_netplay: new frame rate 50.00 (time: 20000)
 fs_uae_reconfigure_input_ports_amiga
@@ -968,184 +995,75 @@ First: 26 Last: 0 MinV: 0 MaxV: 0 Min: 26
 [DISPLAY] Sync: Frame rate (50.00) does not equal screen refresh (60)
 fs_ml_video_sync_enable(0)
 [AUDIO] Buffer underrun in stream 0
-SERIAL: period=372, baud=9600, hsyncs=14, bits=8, PC=f8018a
-6888x no FPU: F201-9000 PC=00F80CAC
-B-Trap F201 at 00F80CAC -> 00F80CCC
+[AUDIO] Buffer underrun in stream 0
+Illegal instruction: 4e7b at 00FC0564 -> 00FC0582
+SERIAL: period=372, baud=9600, hsyncs=14, bits=8, PC=fc2234
 Card 1: Z2 0x00200000 8192K RAM Fast memory
 Memory map after autoconfig:
 00000000    2048K/1 =    2048K Chip memory
 00200000    8192K/1 =    8192K Fast memory
-00A00000     512K/0 =     512K <none>
-00A80000     512K/1 =     512K Kickstart ROM (1E62D4A5)
-=CD32 KS ROM v3.1 rev 40.60 (512k)
-00B00000     512K/1 =     512K Extended Kickstart ROM (87746BE2)
-=CD32 extended ROM rev 40.60 (512k)
-00B80000      64K/0 =      64K Akiko
-00B90000     384K/0 =     384K <none>
-00BF0000      64K/0 =      64K CIA
-00C00000    1792K/0 =    1792K <none>
-00DC0000      64K/0 =      64K Battery backed up clock (none)
-00DD0000     128K/0 =     128K Gayle (high)
-00DF0000      64K/0 =      64K Custom chipset
-00E00000     512K/1 =     512K Extended Kickstart ROM (87746BE2)
-=CD32 extended ROM rev 40.60 (512k)
+00A00000    2048K/0 =    2048K CIA
+00C00000     512K/1 =     512K Slow memory
+00C80000    1024K/0 =    1024K Custom chipset
+00D80000     256K/0 =     256K <none>
+00DC0000      64K/0 =      64K Battery backed up clock (MSM6242B)
+00DD0000      64K/0 =      64K <none>
+00DE0000     128K/0 =     128K Custom chipset
+00E00000     512K/2 =     256K Kickstart ROM (C4F0F55F)
+=KS ROM v1.3 (A500,A1000,A2000) rev 34.5 (256k) [315093-02]
 00E80000    1024K/0 =    1024K <none>
-00F80000     512K/1 =     512K Kickstart ROM (1E62D4A5)
-=CD32 KS ROM v3.1 rev 40.60 (512k)
+00F80000     512K/2 =     256K Kickstart ROM (C4F0F55F)
+=KS ROM v1.3 (A500,A1000,A2000) rev 34.5 (256k) [315093-02]
 PAL mode V=50.0000Hz H=15625.0881Hz (227x312+1) IDX=10 (PAL) D=0 RTG=0/0
 target_graphics_buffer_update - clearing buffer
-Warning: Bad playfield pointer 001fffb0
-Display Size: 724x400 Offset: 6x36
-First: 44 Last: 244 MinV: 42 MaxV: 313 Min: 26
-Display Size: 724x512 Offset: 6x36
-First: 44 Last: 300 MinV: 42 MaxV: 313 Min: 26
-Display Size: 640x512 Offset: 74x36
-First: 44 Last: 300 MinV: 42 MaxV: 313 Min: 26
-[AUDIO] fs_emu_audio_resume_stream 0
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-[AUDIO] fs_emu_audio_resume_stream 0
-Display Size: 640x538 Offset: 74x36
-First: 44 Last: 332 MinV: 26 MaxV: 313 Min: 26
-Display Size: 724x518 Offset: 6x28
-First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
-Display Size: 652x518 Offset: 74x28
-First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
-Display Size: 608x512 Offset: 74x30
-First: 41 Last: 297 MinV: 32 MaxV: 313 Min: 26
-Display Size: 608x384 Offset: 74x22
-First: 41 Last: 297 MinV: 26 MaxV: 225 Min: 26
-Display Size: 652x516 Offset: 74x30
-First: 41 Last: 299 MinV: 26 MaxV: 313 Min: 26
-Display Size: 652x518 Offset: 74x28
-First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-EMU: Ungrab input
-[INPUT] Releasing input
-EMU: Grab input
-[INPUT] Grabbing input
-Display Size: 652x526 Offset: 74x30
-First: 41 Last: 304 MinV: 26 MaxV: 313 Min: 26
-Display Size: 652x518 Offset: 74x28
-First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
-Display Size: 652x516 Offset: 74x30
-First: 41 Last: 299 MinV: 32 MaxV: 313 Min: 26
-Display Size: 652x518 Offset: 74x28
-First: 40 Last: 299 MinV: 26 MaxV: 313 Min: 26
-Exception 3 (2950) at 2950 -> f80b1a!
-[AUDIO] fs_emu_audio_resume_stream 0
+Display Size: 640x400 Offset: 74x36
+First: 44 Last: 244 MinV: 26 MaxV: 313 Min: 26
+Display Size: 640x384 Offset: 74x188
+First: 44 Last: 244 MinV: 188 MaxV: 313 Min: 26
+Display Size: 640x450 Offset: 74x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 512x450 Offset: 120x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 520x450 Offset: 116x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 528x450 Offset: 112x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 536x450 Offset: 108x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 544x450 Offset: 104x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 552x450 Offset: 100x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 560x450 Offset: 96x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 568x450 Offset: 92x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 576x450 Offset: 88x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 584x450 Offset: 84x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 592x450 Offset: 80x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 600x450 Offset: 76x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 608x450 Offset: 72x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 616x450 Offset: 68x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 624x450 Offset: 64x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 632x450 Offset: 60x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
+Display Size: 640x450 Offset: 56x14
+First: 33 Last: 288 MinV: 33 MaxV: 258 Min: 26
 EMU: Enter menu
 update_main_menu
-CD in 0: ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
+floppy in 0: ./rom/amiga/Apidya1.adf
 EMU: Ungrab input
 [INPUT] Releasing input
 update_main_menu
-CD in 0: ./rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip
+floppy in 0: ./rom/amiga/Apidya1.adf
+disk_menu_function for df13022224
 on_quit selected from menu
 fs_emu_quit
 executing quit function
@@ -1169,6 +1087,7 @@ hdf_close_target
 hdf_close_target
 hdf_close_target
 hdf_close_target
+mapped_free nondirect Slow memory
 mapped_free nondirect Kickstart ROM
 mapped_free nondirect Chip memory
  -- stub -- machdep_free 

@@ -146,7 +146,10 @@ class Conjurer:
 	def run_game(self, System, gameData):
 		"""Runs a game of type System, using files in FileList"""
 		gameData['system'] = System
-		command = self.stringBuilder(gameData)
+		if 'execPath' in gameData:
+			command = list(gameData['execPath'].split())
+		else:
+			command = self.stringBuilder(gameData)
 		# ----------- Start Process -----------
 		if cmd_options.dontRun:
 			print(command)

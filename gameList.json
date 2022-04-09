@@ -32,11 +32,10 @@
 		{
 			"name": "Apidya",
 			"players": "1",
-			"model": "cd32",
-			"roms": [
-				"rom/amiga/Apidya (1992)(Kaiko - Play Byte)[cr Pyrodex][m Ridge][t +1 Pyrodex][req. 4Mb Fast RAM - mouse][ISO].zip"
-			],
-			"screenpath": "gfx/amiga/apidya.png"
+			"model": "a500",
+			"roms": [],
+			"screenpath": "gfx/amiga/apidya.png",
+			"execPath": "fs-uae --amiga-model=a500 --floppy_drive_0=rom/amiga/Apidya1.adf --floppy_image_1=rom/amiga/Apidya2.adf --floppy_image_2=rom/amiga/Apidya3.adf"
 		},
 		{
 			"name": "The Chaos Engine",
