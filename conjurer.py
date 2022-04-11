@@ -136,6 +136,12 @@ class Conjurer:
 			driveType = 'cdrom' if gameData['model'].upper() == 'CD32' or gameData['model'] == 'CDTV' else 'floppy'
 			for nr, item in enumerate(gameData['roms']):
 				commandArray.append('--{}_drive_{}'.format(driveType, nr) + '=' + item)
+
+
+				commandArray.append('--{}_image_{}'.format(driveType, nr) + '=' + item)
+
+
+
 		else:
 			for nr, item in enumerate(gameData['roms']):
 				commandArray.append(item)
