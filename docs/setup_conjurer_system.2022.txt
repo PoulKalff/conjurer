@@ -11,8 +11,8 @@ gnome-session-quit
 # --- Set root user to autologin  --------------------------------------------------------
 sudo apt-get install mingetty 
 sudo nano /etc/systemd/system/getty.target.wants/getty@tty1.service
-	(Find line that starts with "ExecStart" and change to "ExecStart=-/sbin/agetty -a root %I $TERM" )
-
+	(Find line that starts with "ExecStart" and change to:)
+		ExecStart=-/sbin/mingetty --autologin root --noclear tty1
 
 
 # --- Set screen resolution -------------------------------------------------------------

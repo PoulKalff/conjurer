@@ -182,9 +182,9 @@
 		{
 			"name": "Parasol Stars",
 			"players": "1",
-			"model": "cd32",
+			"model": "a500",
 			"roms": [
-				"rom/amiga/Parasol Stars - Rainbow Islands 2 (1992)(Ocean)[cr SKR][m Ridge][t SKR][req. 2Mb Fast RAM - mouse][ISO].zip"
+				"rom/amiga/Parasol Stars - Rainbow Islands 2 (1992)(Ocean)[cr SR][t +28 Tribe - Unique].adf"
 			],
 			"screenpath": "gfx/amiga/parasolstars.png"
 		},
@@ -219,9 +219,11 @@
 		{
 			"name": "Brian the Lion",
 			"players": "1",
-			"model": "cd32",
+			"model": "a500",
 			"roms": [
-				"rom/amiga/Brian the Lion Starring in Rumble in the Jungle (1994)(Psygnosis)(M4)[!].zip"
+				"rom/amiga/Brian the Lion (1994)(Psygnosis)(Disk 1 of 3)[cr CLS][t +17 GOD].adf",
+				"rom/amiga/Brian the Lion (1994)(Psygnosis)(Disk 2 of 3).adf",
+				"rom/amiga/Brian the Lion (1994)(Psygnosis)(Disk 3 of 3)[cr CLS][a3].adf"
 			],
 			"screenpath": "gfx/amiga/brian_the_lion.png"
 		},
@@ -400,11 +402,15 @@
 		{
 			"name": "Superfrog",
 			"players": "1",
-			"model": "cd32",
+			"model": "a500",
 			"roms": [
-				"rom/amiga/Superfrog (1994)(Team 17)[!].zip"
+				"rom/amiga/Superfrog (1993)(Team 17)(Disk 1 of 4)[cr CSL][t +5 PDX].adf",
+				"rom/amiga/Superfrog (1993)(Team 17)(Disk 2 of 4)[cr CSL].adf",
+				"rom/amiga/Superfrog (1993)(Team 17)(Disk 3 of 4)[cr CSL].adf",
+				"rom/amiga/Superfrog (1993)(Team 17)(Disk 4 of 4)[cr CSL].adf"
 			],
-			"screenpath": "gfx/amiga/superfrog.png"
+			"screenpath": "gfx/amiga/superfrog.png",
+			"notes": "'WORLD:                LEVEL 1:    LEVEL 2:    LEVEL 3:    LEVEL 4:', '-----                 -------     -------     -------     -------', '1: Magic Woods        (none)      234644      447464      747822', '2: Spooky Castle      392822      446364      984448      477444', '3: Fun Park           343522      882311      992334      091332', '4: Ancient Level      467464      818234      182394      298383', '5: Ice World          452234      984841      383772      093152', '6: Space Level        387211      981122      017632      398112', '7: Project-F          837122'"
 		},
 		{
 			"name": "Sword of Sodan",
@@ -504,6 +510,22 @@
 				"rom/arcade/1942.zip"
 			],
 			"screenpath": "gfx/arcade/1942.png"
+		},
+		{
+			"name": "Contra",
+			"players": "1",
+			"roms": [
+				"rom/arcade/contra.7z"
+			],
+			"screenpath": "gfx/arcade/contra.png"
+		},
+		{
+			"name": "Midnight Ressistance",
+			"players": "2",
+			"roms": [
+				"rom/arcade/midres.png"
+			],
+			"screenpath": "gfx/arcade/midnightressistance_arcade.png"
 		},
 		{
 			"name": "Altered Beast",
@@ -765,7 +787,7 @@
 			"name": "Moon Patrol",
 			"players": "1",
 			"roms": [
-				"rom/arcade/mpatrol.zip"
+				"rom/arcade/mpatrol.7z"
 			],
 			"screenpath": "gfx/arcade/moonpatrol.png"
 		},

@@ -97,6 +97,7 @@ class Conjurer:
 		for game in self.gamelist.keys():
 			self.game_pointers.append(RangeIterator(len(self.gamelist[game]) - 1, False))
 		self._locked = FlipSwitch(options.locked)
+		self._showDialog = False
 		self._running = True
 		if options.runGame: # Run the game, enter the loop when it exits
 			system = self.systems.GetByNr(int(options.runGame[0]))
@@ -136,12 +137,8 @@ class Conjurer:
 			driveType = 'cdrom' if gameData['model'].upper() == 'CD32' or gameData['model'] == 'CDTV' else 'floppy'
 			for nr, item in enumerate(gameData['roms']):
 				commandArray.append('--{}_drive_{}'.format(driveType, nr) + '=' + item)
-
-
-				commandArray.append('--{}_image_{}'.format(driveType, nr) + '=' + item)
-
-
-
+				if driveType == 'floppy':
+					commandArray.append('--{}_image_{}'.format(driveType, nr) + '=' + item)
 		else:
 			for nr, item in enumerate(gameData['roms']):
 				commandArray.append(item)
@@ -177,35 +174,56 @@ class Conjurer:
 		pygame.draw.rect(self.display, (255, 255, 255), (posX, posY, width, height))
 		pygame.draw.rect(self.display, (0, 0, 0), (posX, posY, width, height), 2)
 		pygame.draw.line(self.display, (0, 0, 0), (posX + 20, posY + 70), (posX + width - 20, posY + 70), 2)
-		fontSize = [45, 30, 40]
-		textPos = [10, 90, 140]
-		for pos, text in enumerate(textList):
-			renderedFont =  pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', fontSize[pos])
-			renderedText = renderedFont.render(text, True, (0, 0, 0), (255,255,255))
+		for row in textList:
+
+#			sys.exit(str(textList))
+
+			renderedFont = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', int(row[1]))
+			renderedText = renderedFont.render(row[2], True, (0, 0, 0), (255,255,255))
 			w, h = renderedText.get_size()
 			textRect = pygame.Rect(	posX + int(width / 2) - int(w / 2),
-						posY + textPos[pos],
+						posY + int(row[0]),
 						posX + int(width / 2) - int(w / 2) + w,
-						posY + textPos[pos])
+						posY + int(row[0]))
 			self.display.blit(renderedText, textRect)
 		return
 
 
-
-	def _displayPoweroff(self):
-		if self._showPoweroff == 0:
-			self._showPoweroff = 'Bye!'
-		self.dialogBox(1000, 200, ['Please confirm system shutdown', 'Press Green Button again to shutdown Arcade', str(self._showPoweroff)])
-		if self._showPoweroff == 'Bye!':
-			os.system('poweroff')
-
-
-	def _displayExitProgram(self):
-		if self._showExitProgram == 0:
+	def showDialog(self):
+		if self._showDialog == 1:
+			if self._showExitProgram == 0:
 				self._showExitProgram = 'Bye!'
-		self.dialogBox(1000, 200, ['Please confirm program exit', 'Press Blue Button again to shutdown Arcade', str(self._showExitProgram)])
-		if self._showExitProgram == 'Bye!':
-			self._running = False
+				self._running = False
+			self.dialogBox(1000, 200, [	[10, 45, 'Please confirm program exit'],
+							[90, 30, 'Press Blue Button again to shutdown Arcade'],
+							[140, 40, str(self._showExitProgram)]])
+		elif self._showDialog == 2:
+			system = self.systems.GetCentral()
+			no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
+			gameInfo = self.gamelist[system][no]
+
+
+			if 'notes' in gameInfo:
+				notes = []
+				for nr, l in enumerate(gameInfo['notes'].split(',')):
+					notes.append([ 90 + (12 + nr), 10, l])
+			else:
+				notes = [[90, 30, '<no notes found>']]
+
+#			sys.exit('killed for DEV' + str(gameInfo))
+
+
+			self.dialogBox(1000, 200, [	[10, 45, gameInfo['name']],
+							*notes])
+		elif self._showDialog == 3:
+			if self._showPoweroff == 0:
+				self._showPoweroff = 'Bye!'
+			self.dialogBox(1000, 200, [	[10, 45, 'Please confirm system shutdown'],
+							[90, 30, 'Press Green Button again to shutdown Arcade'],
+							[140, 40, str(self._showPoweroff)]])
+			if self._showPoweroff == 'Bye!':
+				pygame.display.update()
+				os.system('poweroff')
 
 
 	def _displayScreen(self, _systemName, foc_game):
@@ -253,10 +271,8 @@ class Conjurer:
 		self._displayScreen(self.systems.GetCentral(), self.game_pointers[self.systems.GetFocusedIndex()].Get())
 		self._displayGamesList(self.systems.GetCentral(), self.game_pointers[self.systems.GetFocusedIndex()].Get())
 		self._displaySystems(self.systems.GetCentral(), self.windowHeight - 50)
-		if self._showPoweroff < 4:
-			self._displayPoweroff()
-		elif self._showExitProgram < 4:
-			self._displayExitProgram()
+		if self._showDialog:
+			self.showDialog()
 		pygame.display.update()
 
 
@@ -270,12 +286,14 @@ class Conjurer:
 					system = self.systems.GetCentral()
 					no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
 					self.run_game(system, self.gamelist[system][no])
-				elif event.key == K_LSHIFT:                                  # Button 4 = Kill Conjurer
+				elif event.key == K_LSHIFT:                                  # Button 4 = Exit Conjurer
 					self._showExitProgram -= 1
-				elif event.key == K_z:                                       # Button 5 = NOT CURRENTLY USED
-					pass
+					self._showDialog = 1 if self._showExitProgram < 4 else 0
+				elif event.key == K_z:                                       # Button 5 = Show Notes for game, if any
+					self._showDialog = 2 if self._showDialog != 2 else 0
 				elif event.key == K_x:                                       # Button 6 = Power off
 					self._showPoweroff -= 1
+					self._showDialog = 3 if self._showPoweroff < 4 else 0
 				elif event.key == K_BACKSPACE:                               # Backspace = Change lock status
 					self._locked.flip()
 				elif event.key == K_RIGHT and not self._locked.Get():        # Key RIGHT
@@ -286,9 +304,9 @@ class Conjurer:
 					self.game_pointers[self.systems.GetFocusedIndex()].Inc()
 				elif event.key == K_UP:                                      # Key UP
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec()
-				elif event.key == K_m:                                       # Shift + UP
+				elif event.key == K_PAGEUP:                                  # Shift + UP
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec(10)
-				elif event.key == K_p:                                       # Shift + DOWN
+				elif event.key == K_PAGEDOWN:                                # Shift + DOWN
 					self.game_pointers[self.systems.GetFocusedIndex()].Inc(10)
 				# Reset counters
 				if event.key != K_LSHIFT:
