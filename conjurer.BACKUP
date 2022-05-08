@@ -80,7 +80,8 @@ class Conjurer:
 
 	def __init__(self, options):
 		self.extPath = '/mnt/roms/'
-		self._exitTimer = 4
+		self._showPoweroff = 4
+		self._showExitProgram = 4
 		self.initDisplay()
 		self.font_regular = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', int(self.windowHeight / 26))
 		self.font_bold = pygame.font.Font('/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', int(self.windowHeight / 26))
@@ -165,11 +166,9 @@ class Conjurer:
 
 
 
-	def dialogBox(self, height, textList):
+	def dialogBox(self, width, height, textList):
 		""" Shows a dialogbox in center of screen """
 		# find top left corner of box
-		height += (20 * len(textList))
-		width = 1000
 		posX = int(self.center_x - (width / 2))
 		posY = int(self.center_y - (height / 2))
 		pygame.draw.rect(self.display, (255, 255, 255), (posX, posY, width, height))
@@ -189,12 +188,12 @@ class Conjurer:
 
 	def showDialog(self):
 		if self._showDialog == 1:
-			if self._exitTimer == 0:
-				self._exitTimer = 'Bye!'
+			if self._showExitProgram == 0:
+				self._showExitProgram = 'Bye!'
 				self._running = False
-			self.dialogBox(150, [	[10, 45, 'Please confirm program exit'],
-						[90, 30, 'Press Blue Button again to shutdown Arcade'],
-						[140, 40, str(self._exitTimer)]])
+			self.dialogBox(1000, 200, [	[10, 45, 'Please confirm program exit'],
+							[90, 30, 'Press Blue Button again to shutdown Arcade'],
+							[140, 40, str(self._showExitProgram)]])
 		elif self._showDialog == 2:
 			system = self.systems.GetCentral()
 			no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
@@ -202,17 +201,23 @@ class Conjurer:
 			if 'notes' in gameInfo:
 				notes = []
 				for nr, l in enumerate(gameInfo['notes'].split(',')):
-					notes.append([ 90 + (20 * nr), 20, l])
+					notes.append([ 90 + (12 + nr), 10, l])
 			else:
 				notes = [[90, 30, '<no notes found>']]
-			self.dialogBox(100, [	[10, 45, gameInfo['name']], *notes])
+
+
+#			sys.exit('killed for DEV' + str(gameInfo))
+
+
+
+			self.dialogBox(1000, 200, [	[10, 45, gameInfo['name']], *notes])
 		elif self._showDialog == 3:
-			if self._exitTimer == 0:
-				self._exitTimer = 'Bye!'
-			self.dialogBox(150, [	[10, 45, 'Please confirm system shutdown'],
-						[90, 30, 'Press Green Button again to shutdown Arcade'],
-						[140, 40, str(self._exitTimer)]])
-			if self._exitTimer == 'Bye!':
+			if self._showPoweroff == 0:
+				self._showPoweroff = 'Bye!'
+			self.dialogBox(1000, 200, [	[10, 45, 'Please confirm system shutdown'],
+							[90, 30, 'Press Green Button again to shutdown Arcade'],
+							[140, 40, str(self._showPoweroff)]])
+			if self._showPoweroff == 'Bye!':
 				pygame.display.update()
 				os.system('poweroff')
 
@@ -291,19 +296,20 @@ class Conjurer:
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec(10)
 				elif event.key == K_PAGEDOWN:                                # Shift + DOWN
 					self.game_pointers[self.systems.GetFocusedIndex()].Inc(10)
+
 				# check dialog keys
 				elif event.key == K_LSHIFT:                                  # Button 4 = Exit Conjurer
-					self._exitTimer -= 1
-					self._showDialog = 1 if self._exitTimer < 4 else 0
+					self._showExitProgram -= 1
+					self._showDialog = 1 if self._showExitProgram < 4 else 0
 				elif event.key == K_z:                                       # Button 5 = Show Notes for game, if any
-					self._exitTimer = 4
 					self._showDialog = 2 if self._showDialog != 2 else 0
 				elif event.key == K_x:                                       # Button 6 = Power off
-					self._exitTimer -= 1
-					self._showDialog = 3 if self._exitTimer < 4 else 0
+					self._showPoweroff -= 1
+					self._showDialog = 3 if self._showPoweroff < 4 else 0
 				# Reset counters
 				if event.key != K_LSHIFT and event.key != K_x and event.key != K_z:
-					self._exitTimer = 4
+					self._showExitProgram = 4
+					self._showPoweroff = 4
 					self._showDialog = 0
 
 

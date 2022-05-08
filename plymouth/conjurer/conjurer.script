@@ -1,45 +1,34 @@
-logo.image = Image("conjurer-logo.png");
 Window.SetBackgroundTopColor(0, 0, 0);
 Window.SetBackgroundBottomColor(0, 0, 0);
 
 if (Plymouth.GetMode () == "shutdown")
-{
-    logo.image = Image("conjurer-logo-bye.png");
-}
+  logo.image = Image("gfx/conjurer-logo-bye.png");
+else
+  logo.image = Image("gfx/conjurer-logo.png");
+
 
 logo.sprite = Sprite(logo.image);
 logo.sprite.SetX (Window.GetX() + Window.GetWidth()  / 2 - logo.image.GetWidth()  / 2);
 logo.sprite.SetY (Window.GetY() + Window.GetHeight() / 2 - logo.image.GetHeight() / 2);
 logo.sprite.SetOpacity (1);
 
+
 #----------------------------------------- Progress Bar --------------------------------
 
 if (Plymouth.GetMode () == "boot")
 {
-  progress_box.image = Image("progress_box.png");
-  progress_box.sprite = Sprite(progress_box.image);
+  for (i = 1; i < 21; i++)
+    pacman_image[i] = Image("gfx/progressBar" + i + ".png");		# create images
+  pacman_sprite = Sprite();
+  pacman.sprite.SetOpacity (1);
 
-  progress_box.x = Window.GetX() + Window.GetWidth() / 2 - progress_box.image.GetWidth() / 2;
-  #change here
-  progress_box.y = Window.GetY() + Window.GetHeight() * 0.65 - progress_box.image.GetHeight() / 2;
-  progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 0);
-
-  progress_bar.original_image = Image("progress_bar.png");
-  progress_bar.sprite = Sprite();
-
-  progress_bar.x = Window.GetX() + Window.GetWidth()  / 2 -        progress_bar.original_image.GetWidth() / 2;
-  #change here
-  progress_bar.y = Window.GetY() + Window.GetHeight() / 2 * 1.3                                                                                                                                                                                                 - progress_box.image.GetHeight() / 2 + (progress_box.image.GetHeight() - progress_bar.original_image.GetHeight()) / 2;
-  progress_bar.sprite.SetPosition(progress_bar.x, progress_bar.y, 1);
+  pacman_sprite.SetX(Window.GetWidth() / 2 - pacman_image[1].GetWidth() / 2);	# center
+  pacman_sprite.SetY(Window.GetHeight() - 50);					# above bottom
 
   fun progress_callback (duration, progress)
-    {
-      if (progress_bar.image.GetWidth () != Math.Int (progress_bar.original_image.GetWidth () * progress))
-        {
-          progress_bar.image = progress_bar.original_image.Scale(progress_bar.original_image.GetWidth(progress_bar.original_image) * progress * 2, progress_bar.original_image.GetHeight());
-          progress_bar.sprite.SetImage (progress_bar.image);
-        }
-    }
+  {
+    pacman_sprite.SetImage(pacman_image[Math.Int(progress * 21) + 1]);
+  }
 
   Plymouth.SetBootProgressFunction(progress_callback);
 }
