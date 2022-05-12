@@ -410,7 +410,7 @@
 				"rom/amiga/Superfrog (1993)(Team 17)(Disk 4 of 4)[cr CSL].adf"
 			],
 			"screenpath": "gfx/amiga/superfrog.png",
-			"notes": "   WORLD:                LEVEL 1:    LEVEL 2:    LEVEL 3:    LEVEL 4:,  ------                --------    --------    --------    --------, 1: Magic Woods        (none)      234644      447464      747822, 2: Spooky Castle      392822      446364      984448      477444, 3: Fun Park           343522      882311      992334      091332, 4: Ancient Level      467464      818234      182394      298383, 5: Ice World          452234      984841      383772      093152, 6: Space Level        387211      981122      017632      398112, 7: Project-F          837122                                    "
+			"notes": "WORLD:             LEVEL1      LEVEL2      LEVEL3      LEVEL4,---------------    ------      ------      ------      ------,Magic Woods        (none)      234644      447464      747822,Spooky Castle      392822      446364      984448      477444,Fun Park           343522      882311      992334      091332,Ancient Level      467464      818234      182394      298383,Ice World          452234      984841      383772      093152,Space Level        387211      981122      017632      398112,Project-F          837122                                    "
 		},
 		{
 			"name": "Sword of Sodan",
@@ -427,9 +427,10 @@
 		{
 			"name": "Turrican",
 			"players": "1",
-			"model": "cd32",
+			"model": "a500",
 			"roms": [
-				"rom/amiga/Turrican (1992)(Rainbow Arts).zip"
+				"rom/amiga/Turrican (1990)(Rainbow Arts)(Disk 1 of 2)[cr PNA][h ACU][t +4 PNA].adf",
+				"rom/amiga/Turrican (1990)(Rainbow Arts)(Disk 2 of 2)[cr PNA][h ACU][t +4 PNA].adf"
 			],
 			"screenpath": "gfx/amiga/turrican.png"
 		},
@@ -438,8 +439,8 @@
 			"players": "1",
 			"model": "a500",
 			"roms": [
-				"rom/amiga/Turrican II - The Final Fight (1991)(Rainbow Arts)(Disk 1 of 2)[m HD Divine][t +2 Divine][HD].adf",
-				"rom/amiga/Turrican II - The Final Fight (1991)(Rainbow Arts)(Disk 2 of 2)[m HD Divine][t +2 Divine][HD].adf"
+				"rom/amiga/Turrican II - The Final Fight (1991)(Rainbow Arts)(Disk 1 of 2)[cr Defjam][t +32 Subway].adf",
+				"rom/amiga/Turrican II - The Final Fight (1991)(Rainbow Arts)(Disk 2 of 2)[cr Defjam].adf"
 			],
 			"screenpath": "gfx/amiga/turrican2.png"
 		},
@@ -1063,7 +1064,8 @@
 			"roms": [
 				"rom/c64/azteca.t64"
 			],
-			"screenpath": "gfx/c64/aztec_challenge.png"
+			"screenpath": "gfx/c64/aztec_challenge.png",
+			"notes": "Has 5 levels...maybe? Whatever..."
 		},
 		{
 			"name": "Beamrider",
@@ -1232,7 +1234,9 @@
 			"roms": [
 				"rom/c64/gianasisters.t64"
 			],
-			"screenpath": "gfx/c64/giana.gif"
+			"screenpath": "gfx/c64/giana.gif",
+			"notes": "Press A+R+M+I+N on keyboard to skip level"
+
 		}
 	]
 }]

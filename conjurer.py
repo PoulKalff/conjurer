@@ -168,7 +168,7 @@ class Conjurer:
 	def dialogBox(self, height, textList):
 		""" Shows a dialogbox in center of screen """
 		# find top left corner of box
-		height += (20 * len(textList))
+#		height += (20 * len(textList))
 		width = 1000
 		posX = int(self.center_x - (width / 2))
 		posY = int(self.center_y - (height / 2))
@@ -199,13 +199,33 @@ class Conjurer:
 			system = self.systems.GetCentral()
 			no = self.game_pointers[self.systems.GetFocusedIndex()].Get()
 			gameInfo = self.gamelist[system][no]
+			data = []
+			xPos = 90
+			data.append([ xPos, 20, 'Players: ' + gameInfo['players'] + ' ' * 70])
+			rom1 = gameInfo['roms'][0].split('/')[2][:74]
+			if 'model' in gameInfo.keys():
+				xPos += 30
+				data.append([ xPos, 20, 'Amiga Model: ' + gameInfo['model'] + ' ' * (67 - len(gameInfo['model']))])
+			xPos += 30
+			data.append([ xPos, 20, 'Roms: ' + rom1 + ' ' * (74 - len(rom1))])
+			for romNr in range(2, len(gameInfo['roms']) + 1):
+				rom = gameInfo['roms'][romNr - 1].split('/')[2][:74]
+				xPos += 30
+				data.append([ xPos, 20, '      ' + rom + ' ' * (74 - len(rom))])
+			screen = gameInfo['screenpath'].split('/')[2][:74]
+			xPos += 30
+			data.append([ xPos, 20, 'Screenshot: ' + screen + ' ' * (68 -len(screen))])
 			if 'notes' in gameInfo:
-				notes = []
 				for nr, l in enumerate(gameInfo['notes'].split(',')):
-					notes.append([ 90 + (20 * nr), 20, l])
+					xPos += 30
+					line = 'Notes: ' + l if nr == 0 else '       ' + l
+					line = line + ' ' * (80 - len(line))
+					data.append([xPos, 20, line])
 			else:
-				notes = [[90, 30, '<no notes found>']]
-			self.dialogBox(100, [	[10, 45, gameInfo['name']], *notes])
+				xPos += 30
+				data.append([xPos, 20, 'Notes: -' + ' ' * 72])
+			xPos += 30
+			self.dialogBox(xPos, [	[10, 45, gameInfo['name']], *data])
 		elif self._showDialog == 3:
 			if self._exitTimer == 0:
 				self._exitTimer = 'Bye!'
