@@ -11,6 +11,26 @@
 			],
 			"screenpath": "gfx/amiga/alienbreedtowerassault.png"
 		},
+                {
+                        "name": "Shadow of the Beast",
+                        "players": "1",
+                        "model": "a500",
+                        "roms": [
+                               "rom/amiga/Shadow of the Beast (1989)(Psygnosis)(Disk 1 of 2)[cr Band][t +2 Band][a].adf",
+                               "rom/amiga/Shadow of the Beast (1989)(Psygnosis)(Disk 2 of 2)[cr Band][t +2 Band].adf"
+                        ],
+                        "screenpath": "gfx/amiga/shadow_of_the_beast.png"
+                },
+                {
+                        "name": "Shadow of the Beast II",
+                        "players": "1",
+                        "model": "a500",
+                        "roms": [
+                               "rom/amiga/Shadow of the Beast II (1990)(Psygnosis)(Disk 1 of 2)[cr Angels][a4].adf",
+                               "rom/amiga/Shadow of the Beast II (1990)(Psygnosis)(Disk 2 of 2)[cr Angels][a].adf"
+                        ],
+                        "screenpath": "gfx/amiga/Shadow_of_the_Beast_II.png"
+                },
 		{
 			"name": "Shadow of the Beast III",
 			"players": "1",
@@ -19,6 +39,26 @@
 				"rom/amiga/Shadow of the Beast III (1992)(Psygnosis)[m][ISO].zip"
 			],
 			"screenpath": "gfx/amiga/shadowofthebeast3.png"
+		},
+		{
+			"name": "Total Recall",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Total Recall (1990)(Ocean)(Disk 1 of 2)[cr Angels - Defjam][t +4 Supplex].adf",
+				"rom/amiga/Total Recall (1990)(Ocean)(Disk 2 of 2)[cr Angels - Defjam].adf"
+			],
+			"screenpath": "gfx/amiga/total_recall.png"
+		},
+		{
+			"name": "The Untouchables",
+			"players": "1",
+			"model": "a500",
+			"roms": [
+				"rom/amiga/Untouchables, The (1989)(Ocean)(Disk 1 of 2)[cr PNA][t +1 Pseudo-Ops].adf",
+				"rom/amiga/Untouchables, The (1989)(Ocean)(Disk 2 of 2)[cr PNA].adf"
+			],
+			"screenpath": "gfx/amiga/untouchables.png"
 		},
 		{
 			"name": "Rise of the Robots",
@@ -445,16 +485,6 @@
 			"screenpath": "gfx/amiga/turrican2.png"
 		},
 		{
-			"name": "Turrican III",
-			"players": "1",
-			"model": "a500",
-			"roms": [
-				"rom/amiga/Turrican 3 (1993)(Softgold)(DE)(en)(Disk 1 of 2)[cr Two Live Crew][t +11 Two Live Crew].adf",
-				"rom/amiga/Turrican 3 (1993)(Softgold)(DE)(en)(Disk 2 of 2)[cr Two Live Crew][t +11 Two Live Crew].adf"
-			],
-			"screenpath": "gfx/amiga/turrican3.png"
-		},
-		{
 			"name": "Wings of Fury",
 			"players": "1",
 			"model": "a500",
@@ -498,8 +528,8 @@
 			"model": "a500",
 			"roms": [
 				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 1 of 3)[cr CLS].adf",
-				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 1 of 3)[cr CLS].adf",
-				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 1 of 3)[cr CLS].adf"
+				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 2 of 3)[cr CLS].adf",
+				"rom/amiga/Disposable Hero (1993)(Gremlin)(Disk 3 of 3)[cr CLS].adf"
 			],
 			"screenpath": "gfx/amiga/disposablehero.png"
 		}
@@ -511,6 +541,15 @@
 				"rom/arcade/1942.zip"
 			],
 			"screenpath": "gfx/arcade/1942.png"
+		},
+		{
+			"name": "Golden Axe U",
+			"players": "1",
+			"roms": [
+				"rom/arcade/ga2u.zip"
+			],
+			"screenpath": "gfx/arcade/ga2u.jpg"
+
 		},
 		{
 			"name": "Contra",
@@ -1065,7 +1104,7 @@
 				"rom/c64/azteca.t64"
 			],
 			"screenpath": "gfx/c64/aztec_challenge.png",
-			"notes": "Has 5 levels...maybe? Whatever..."
+			"notes": "ALT + F10 to quicksave snapshot,ALT + F11 to quickload snapshot"
 		},
 		{
 			"name": "Beamrider",
@@ -1237,6 +1276,46 @@
 			"screenpath": "gfx/c64/giana.gif",
 			"notes": "Press A+R+M+I+N on keyboard to skip level"
 
+		},
+		{
+			"name": "Mission Elevator",
+			"players": "1",
+			"roms": [
+				"rom/c64/MISSIONE.T64"
+			],
+			"screenpath": "gfx/c64/Mission_Elevator.png"
+		},
+		{
+			"name": "Wizball",
+			"players": "1",
+			"roms": [
+				"rom/c64/WIZBALL.D64"
+			],
+			"screenpath": "gfx/c64/wizball.png"
+		},
+		{
+			"name": "Impossible Mission",
+			"players": "1",
+			"roms": [
+				"rom/c64/IMPMIS1.D64"
+			],
+			"screenpath": "gfx/c64/Impossible_Mission.png"
+		},
+		{
+			"name": "Platoon",
+			"players": "1",
+			"roms": [
+				"rom/c64/PLATOON0.D64"
+			],
+			"screenpath": "gfx/c64/Platoon.png"
+		},
+		{
+			"name": "License to Kill",
+			"players": "1",
+			"roms": [
+				"rom/c64/LICENSE.T64"
+			],
+			"screenpath": "gfx/c64/LicenceToKill.png"
 		}
 	]
 }]

@@ -16,6 +16,15 @@ from optparse import OptionParser
 pygame.init()
 pygame.mouse.set_visible(0)
 pygame.key.set_repeat(500, 100)
+
+
+
+sounds = {
+		1 : pygame.mixer.Sound('sfx/mixkit-interface-device-click-2577.wav'),
+		2 : pygame.mixer.Sound('sfx/mixkit-game-click-1114.wav'),
+		4 : pygame.mixer.Sound('sfx/mixkit-opening-software-interface-2578.wav'),
+		5 : pygame.mixer.Sound('sfx/mixkit-quest-game-interface-click-1139.wav')
+}
 systemExecs =	{
 			'Arcade':	['mame', '-inipath', '.'],
 			'C64'	:	['x64sc', '-config', 'vice.cfg', '-autostart'],
@@ -192,7 +201,7 @@ class Conjurer:
 			if self._exitTimer == 0:
 				self._exitTimer = 'Bye!'
 				self._running = False
-			self.dialogBox(150, [	[10, 45, 'Please confirm program exit'],
+			self.dialogBox(190, [	[10, 45, 'Please confirm program exit'],
 						[90, 30, 'Press Blue Button again to shutdown Arcade'],
 						[140, 40, str(self._exitTimer)]])
 		elif self._showDialog == 2:
@@ -229,7 +238,7 @@ class Conjurer:
 		elif self._showDialog == 3:
 			if self._exitTimer == 0:
 				self._exitTimer = 'Bye!'
-			self.dialogBox(150, [	[10, 45, 'Please confirm system shutdown'],
+			self.dialogBox(190, [	[10, 45, 'Please confirm system shutdown'],
 						[90, 30, 'Press Green Button again to shutdown Arcade'],
 						[140, 40, str(self._exitTimer)]])
 			if self._exitTimer == 'Bye!':
@@ -300,12 +309,20 @@ class Conjurer:
 				elif event.key == K_BACKSPACE:                               # Backspace = Change lock status
 					self._locked.flip()
 				elif event.key == K_RIGHT and not self._locked.Get():        # Key RIGHT
+					sounds[1].play()
+
 					self.systems.Next()
 				elif event.key == K_LEFT and not self._locked.Get():         # Key LEFY
+					sounds[1].play()
+
 					self.systems.Prev()
 				elif event.key == K_DOWN:                                    # Key DOWN
+					sounds[2].play()
+
 					self.game_pointers[self.systems.GetFocusedIndex()].Inc()
 				elif event.key == K_UP:                                      # Key UP
+					sounds[2].play()
+
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec()
 				elif event.key == K_PAGEUP:                                  # Shift + UP
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec(10)
