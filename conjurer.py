@@ -136,6 +136,20 @@ class Conjurer:
 			self.windowHeight = height
 
 
+	def goToLetter(self, letterCode):
+		_found = False
+		_names = [x['name'] for x in self.gamelist[self.systems.GetCentral()]]
+		while not _found:
+			_letter = chr(letterCode)
+			for _nr, _name in enumerate(_names):
+				if _name[0] == _letter.upper():
+					self.game_pointers[self.systems.GetFocusedIndex()].count = _nr
+					_found = True
+					break
+			letterCode += 1
+	# NB! : Add XYZ as searchable!
+
+
 
 	def stringBuilder(self, gameData):
 		"""Builds an array of strings to be passed for execution """
@@ -310,19 +324,15 @@ class Conjurer:
 					self._locked.flip()
 				elif event.key == K_RIGHT and not self._locked.Get():        # Key RIGHT
 					sounds[1].play()
-
 					self.systems.Next()
 				elif event.key == K_LEFT and not self._locked.Get():         # Key LEFY
 					sounds[1].play()
-
 					self.systems.Prev()
 				elif event.key == K_DOWN:                                    # Key DOWN
 					sounds[2].play()
-
 					self.game_pointers[self.systems.GetFocusedIndex()].Inc()
 				elif event.key == K_UP:                                      # Key UP
 					sounds[2].play()
-
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec()
 				elif event.key == K_PAGEUP:                                  # Shift + UP
 					self.game_pointers[self.systems.GetFocusedIndex()].Dec(10)
@@ -338,6 +348,9 @@ class Conjurer:
 				elif event.key == K_x:                                       # Button 6 = Power off
 					self._exitTimer -= 1
 					self._showDialog = 3 if self._exitTimer < 4 else 0
+				# move to letter in list
+				elif 96 < event.key < 120:
+					self.goToLetter(event.key)
 				# Reset counters
 				if event.key != K_LSHIFT and event.key != K_x and event.key != K_z:
 					self._exitTimer = 4
@@ -455,7 +468,7 @@ class StringIterator:
 # --- Main ----------------------------------------------------------------------
 
 
-version = 1.28		# ( removed self.doubled, replaced with scaling to screen size )
+version = 1.29		# ( goto letter via keypress )
 cmd_options = getCommandlineOptions()
 
 if cmd_options.testPaths:
@@ -472,7 +485,8 @@ print('\n  Application terminated...\n')
 
 
 
-
+# --- Todo ----------------------------------------------------------------------
+# - NB! : Add XYZ as searchable!
 
 
 
