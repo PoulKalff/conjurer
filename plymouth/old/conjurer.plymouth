@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=Conjurer
-Description=Conjurer Arcade Cabinet Theme, by PoulKalff
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/conjurer
-ScriptFile=/usr/share/plymouth/themes/conjurer/conjurer.script

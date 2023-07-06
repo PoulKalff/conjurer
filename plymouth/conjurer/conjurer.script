@@ -27,7 +27,7 @@ if (Plymouth.GetMode () == "boot")
 
   fun progress_callback (duration, progress)
   {
-    pacman_sprite.SetImage(pacman_image[Math.Int(progress * 21) + 2]);
+    pacman_sprite.SetImage(pacman_image[Math.Int(progress * 22) + 1]);
   }
 
   Plymouth.SetBootProgressFunction(progress_callback);
