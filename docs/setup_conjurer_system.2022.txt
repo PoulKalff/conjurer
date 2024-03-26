@@ -52,10 +52,11 @@ sudo init 6
 # --- Install emulators  --------------------------------------------------------
 sudo apt-get install mame fs-uae flex byacc bison dos2unix xa65 texinfo texlive libpng-dev
 <download newest VICE from : https://sourceforge.net/projects/vice-emu/>
-tar vice-3.6.1.tar.gz
-cd vice-3.6.1
+gunzip vice-3.8.tar.gz
+tar -xf vice-3.8.tar.gz
+cd vice-3.8
 ./autogen.sh
-./configure --enable-sdlui2 --with-sdlsound --prefix=/usr
+./configure --enable-sdl2ui --with-sdlsound --prefix=/usr
 make
 sudo make install
 sudo cp support/c64_files/* /usr/share/vice/
